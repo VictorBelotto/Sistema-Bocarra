@@ -1,0 +1,9 @@
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mainContainer select, input, button{
+  width: 350px;
+}
