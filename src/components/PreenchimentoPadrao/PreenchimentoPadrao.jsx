@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import styles from './PreenchimentoPadrao.module.css';
-import { ModelosLona } from '../../scripts/ModelosDaLona';
-import { materialOptions } from '../../scripts/MateriaisLona';
 import { orcamentoLona } from '../../scripts/orcamentoLona.class.js';
 import CardOrcamentoLona from '../CardOrcamentoLona/CardOrcamentoLona';
 import { OrcamentoContext } from '../../scripts/OrcamentoContext.jsx';
+import { DadosInseridosContext } from '../../scripts/DadosInseridosContext.jsx';
 import { calculoFechamento } from '../../scripts/CalculoFechamento.js';
 
+
+import SelectModeloLona from './components/SelectModeloLona/SelectModeloLona.jsx';
+import SelectMaterial from './components/SelectMaterial/SelectMaterial.jsx';
+
+
+
 const PreenchimentoPadrao = () => {
-  const [selectedMaterial, setSelectedMaterial] = useState('');
-  const [selectedModelo, setSelectedModelo] = useState({ value: '', label: '' });
+
   const [diasTrabalho, setDiasTrabalho] = useState('');
   const [metragem, setMetragem] = useState('');
   const [metragemFechamento, setMetragemFechamento] = useState('');
@@ -18,9 +22,9 @@ const PreenchimentoPadrao = () => {
   const [isAranhaChecked, setIsAranhaChecked] = useState(false);
 
   const orcamento = React.useContext(OrcamentoContext);
+  const inserirDados = React.useContext(DadosInseridosContext);
 
-  const handleModeloChange = (e) => setSelectedModelo({ value: e.target.value, label: e.target.options[e.target.selectedIndex].text });
-  const handleMaterialChange = (e) => setSelectedMaterial(e.target.value);
+ 
 
   const handleAddOrcamento = () => {
     const maoDeObra = 2727.27 * ModelosLona[selectedModelo.value]['multiplicador'];
@@ -32,31 +36,20 @@ const PreenchimentoPadrao = () => {
 
     const novoOrcamento = new orcamentoLona(selectedModelo.label, selectedMaterial, diasTrabalho, metragem, valor, valorFechamento, valorFechamentoAranha);
     orcamento.setOrcamentos([...orcamento.orcamentos, novoOrcamento]);
-    
+    inserirDados.adicionarDado('valorFechamentoAranha',valorFechamentoAranha )
+    inserirDados.adicionarDado('valorFechamento',valorFechamento )
+    inserirDados.adicionarDado('valor',valor )
   };
 
   return (
     <div className={styles.mainContainer}>
+      
       <h2>Orçamento Lona</h2>
-      <label htmlFor="modelo">Selecione o modelo da Lona: </label>
-      <select id="modelo" value={selectedModelo.value} onChange={handleModeloChange}>
-        <option value="">Selecione...</option>
-        {ModelosLona.selectModelos.map((modelo) => (
-          <option key={modelo.value} value={modelo.value}>
-            {modelo.label}
-          </option>
-        ))}
-      </select>
+      <SelectModeloLona/>
+      <SelectMaterial/>
+      
 
-      <label htmlFor="materials">Selecione um material: </label>
-      <select id="materials" value={selectedMaterial} onChange={handleMaterialChange}>
-        <option value="">Selecione...</option>
-        {materialOptions.map((material) => (
-          <option key={material.value} value={material.value}>
-            {material.label}
-          </option>
-        ))}
-      </select>
+    
 
       <div>
         <label htmlFor="diasTrabalho">Dias de trabalho</label>
@@ -107,6 +100,7 @@ const PreenchimentoPadrao = () => {
       )}
 
       <button onClick={handleAddOrcamento}>Adicionar Orçamento</button>
+      <button onClick={()=> console.log(inserirDados)}>ver</button>
 
       <div className={styles.orcamentosContainer}>
         {orcamento.orcamentos.map((orcamento, index) => (
