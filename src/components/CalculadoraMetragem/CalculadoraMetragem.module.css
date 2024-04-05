@@ -1,43 +1,51 @@
-.mainContainer {
+.calculadoraContainer {
   max-width: 600px;
-  margin: 24px 0px ;
+  margin: 0 0  auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+.calculadoraContainer h2 {
+  margin-bottom: 20px;
 }
 
-select,
-input {
+.calculadoraContainer label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.calculadoraContainer input {
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
+  border-radius: 5px;
   border: 1px solid #ccc;
-  border-radius: 3px;
-  box-sizing: border-box;
 }
 
-button {
+.calculadoraContainer button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 3px;
-  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-button:hover {
+.calculadoraContainer button:hover {
   background-color: #0056b3;
 }
 
-.orcamentosContainer{
-  margin-top: 48px;
+.calculadoraContainer div.resultados {
+  margin-top: 20px;
+}
+
+.calculadoraContainer p {
+  margin-bottom: 10px;
 }
 
 .checkBox{
@@ -47,7 +55,6 @@ button:hover {
 }
 
 .checkBox label{
-  width: auto;
   margin-right: 8px;
 }
 
