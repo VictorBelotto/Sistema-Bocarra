@@ -5,40 +5,42 @@ import CardOrcamentoLona from '../CardOrcamentoLona/CardOrcamentoLona';
 import { OrcamentoContext } from '../../scripts/OrcamentoContext.jsx';
 import { DadosInseridosContext } from '../../scripts/DadosInseridosContext.jsx';
 import { calculoFechamento } from '../../scripts/CalculoFechamento.js';
-
+import { ModelosLona } from '../../scripts/ModelosDaLona.js';
 
 import SelectModeloLona from './components/SelectModeloLona/SelectModeloLona.jsx';
 import SelectMaterial from './components/SelectMaterial/SelectMaterial.jsx';
-
+import InputDiasDeTrabalho from './components/InputDiasDeTrabalho/InputDiasDeTrabalho.jsx';
+import InputMetragemLona from './components/InputMetragemLona/InputMetragemLona.jsx';
+import CheckBoxFechamento from './components/CheckBoxFechamento/CheckBoxFechamento.jsx';
+import CheckBoxAranha from './components/CheckBoxAranha/CheckBoxAranha.jsx';
 
 
 const PreenchimentoPadrao = () => {
 
-  const [diasTrabalho, setDiasTrabalho] = useState('');
-  const [metragem, setMetragem] = useState('');
   const [metragemFechamento, setMetragemFechamento] = useState('');
   const [metragemFechamentoAranha, setMetragemFechamentoAranha] = useState('');
   const [isChecked, setIsChecked] = useState(false);
   const [isAranhaChecked, setIsAranhaChecked] = useState(false);
 
   const orcamento = React.useContext(OrcamentoContext);
-  const inserirDados = React.useContext(DadosInseridosContext);
-
+  const dados = React.useContext(DadosInseridosContext);
+  const dadosAtuais = dados.dadosInseridos;
  
 
   const handleAddOrcamento = () => {
-    const maoDeObra = 2727.27 * ModelosLona[selectedModelo.value]['multiplicador'];
-    const valorMaterial = ModelosLona[selectedModelo.value][selectedMaterial];
+    const maoDeObra = 2727.27 * ModelosLona[dadosAtuais.selectedModelo.value]['multiplicador'];
+    const valorMaterial = ModelosLona[dadosAtuais.selectedModelo.value][dadosAtuais.selectedMaterial];
 
-    const valor = ((diasTrabalho * maoDeObra) + (metragem * valorMaterial)).toFixed(2);
-    const valorFechamento = calculoFechamento(metragemFechamento, selectedMaterial, diasTrabalho)
-    const valorFechamentoAranha = calculoFechamento(metragemFechamentoAranha, selectedMaterial, diasTrabalho)
+    const valorDaLona = ((dadosAtuais.diasDeTrabalho * maoDeObra) + (dadosAtuais.metragemLona * valorMaterial)).toFixed(2);
 
-    const novoOrcamento = new orcamentoLona(selectedModelo.label, selectedMaterial, diasTrabalho, metragem, valor, valorFechamento, valorFechamentoAranha);
+    const valorFechamento = calculoFechamento(dadosAtuais.metragemFechamento, dadosAtuais.selectedMaterial, dadosAtuais.diasDeTrabalhoFechamento)
+
+    const valorFechamentoAranha = calculoFechamento(dadosAtuais.metragemFechamentoAranha, dadosAtuais.selectedMaterial, dadosAtuais.diasDeTrabalhoAranha)
+
+    const novoOrcamento = new orcamentoLona(dadosAtuais.selectedModelo.label, dadosAtuais.selectedMaterial, dadosAtuais.diasDeTrabalho, dadosAtuais.metragemLona, valorDaLona, valorFechamento,dadosAtuais.diasDeTrabalhoFechamento, valorFechamentoAranha, dadosAtuais.diasDeTrabalhoAranha);
+
     orcamento.setOrcamentos([...orcamento.orcamentos, novoOrcamento]);
-    inserirDados.adicionarDado('valorFechamentoAranha',valorFechamentoAranha )
-    inserirDados.adicionarDado('valorFechamento',valorFechamento )
-    inserirDados.adicionarDado('valor',valor )
+  
   };
 
   return (
@@ -47,60 +49,14 @@ const PreenchimentoPadrao = () => {
       <h2>Orçamento Lona</h2>
       <SelectModeloLona/>
       <SelectMaterial/>
-      
-
+      <InputDiasDeTrabalho/>
+      <InputMetragemLona/>
+      <CheckBoxFechamento/>
+      <CheckBoxAranha/>
     
 
-      <div>
-        <label htmlFor="diasTrabalho">Dias de trabalho</label>
-        <input type="number" id="diasTrabalho" value={diasTrabalho} onChange={(e) => setDiasTrabalho(e.target.value)} />
-      </div>
-
-      <div>
-        <label htmlFor="metragem">Metragem (m²) da lona</label>
-        <input type="number" id="metragem" value={metragem} onChange={(e) => setMetragem(e.target.value)} />
-      </div>
-
-      <div className={styles.checkBox}>
-        <label htmlFor="meuCheckbox">Adicionar Fechamento?</label>
-        <input
-          type="checkbox"
-          id="meuCheckbox"
-          name="meuCheckbox"
-          value="valorDoCheckbox"
-          defaultChecked={isChecked}
-          onClick={() => setIsChecked(!isChecked)}
-        />
-      </div>
-
-      {isChecked && (
-        <div>
-          <label htmlFor="metragemFechamento">Metragem (m²) do fechamento</label>
-          <input type="number" id="metragemFechamento" value={metragemFechamento} onChange={(e) => setMetragemFechamento(e.target.value)} />
-        </div>
-      )}
-
-      <div className={styles.checkBox}>
-        <label htmlFor="aranhaCheckbox">Adicionar Aranha?</label>
-        <input
-          type="checkbox"
-          id="aranhaCheckbox"
-          name="aranhaCheckbox"
-          value="valorDoAranhaCheckbox"
-          defaultChecked={isAranhaChecked}
-          onClick={() => setIsAranhaChecked(!isAranhaChecked)}
-        />
-      </div>
-
-      {isAranhaChecked && (
-        <div>
-          <label htmlFor="metragemAranha">Metragem (m²) da aranha</label>
-          <input type="number" id="metragemAranha" value={metragemFechamentoAranha} onChange={(e) => setMetragemFechamentoAranha(e.target.value)} />
-        </div>
-      )}
-
       <button onClick={handleAddOrcamento}>Adicionar Orçamento</button>
-      <button onClick={()=> console.log(inserirDados)}>ver</button>
+      <button onClick={()=> console.log(dados.dadosInseridos)}>ver</button>
 
       <div className={styles.orcamentosContainer}>
         {orcamento.orcamentos.map((orcamento, index) => (

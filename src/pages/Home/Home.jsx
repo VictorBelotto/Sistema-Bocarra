@@ -11,8 +11,10 @@ const Home = () => {
     <>
     <DadosInseridosStorage>
       <OrcamentoStorage>
-        <CalculadoraMetragem/>
-        <PreenchimentoPadrao/>
+        <div style={{display: 'flex', justifyContent: 'space-between'}} >
+          <CalculadoraMetragem/>
+          <PreenchimentoPadrao/>
+        </div>
       </OrcamentoStorage>
     </DadosInseridosStorage>
     </>
