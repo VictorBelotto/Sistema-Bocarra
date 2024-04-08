@@ -2,14 +2,14 @@ import React from 'react'
 import { DadosInseridosContext } from '../../../../scripts/DadosInseridosContext';
 
 const InputMetragemLona = () => {
-  const inserirDados = React.useContext(DadosInseridosContext)
+  const dadosInseridos = React.useContext(DadosInseridosContext)
   
-  const [metragemLona, setMetragemLona] = React.useState('');
+  const [metragemLona, setMetragemLona] = React.useState(dadosInseridos.dadosInseridos.metragemLona);
 
   const handleMetragemLonaChange = (e) =>{
     const metragemLonaAtual = e.target.value
     setMetragemLona(metragemLonaAtual)
-    inserirDados.adicionarDado('metragemLona', metragemLonaAtual)
+    dadosInseridos.adicionarDado('metragemLona', metragemLonaAtual)
   };
 
   return (

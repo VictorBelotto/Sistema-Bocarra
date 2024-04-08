@@ -1,0 +1,15 @@
+.checkBox{
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.checkBox label{
+  margin-right: 8px;
+}
+
+.checkBox input{
+  height: 20px;
+  width: 20px;
+  align-self: flex-start;
+}

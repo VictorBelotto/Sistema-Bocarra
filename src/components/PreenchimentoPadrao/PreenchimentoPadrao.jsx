@@ -16,12 +16,6 @@ import CheckBoxAranha from './components/CheckBoxAranha/CheckBoxAranha.jsx';
 
 
 const PreenchimentoPadrao = () => {
-
-  const [metragemFechamento, setMetragemFechamento] = useState('');
-  const [metragemFechamentoAranha, setMetragemFechamentoAranha] = useState('');
-  const [isChecked, setIsChecked] = useState(false);
-  const [isAranhaChecked, setIsAranhaChecked] = useState(false);
-
   const orcamento = React.useContext(OrcamentoContext);
   const dados = React.useContext(DadosInseridosContext);
   const dadosAtuais = dados.dadosInseridos;
@@ -53,7 +47,6 @@ const PreenchimentoPadrao = () => {
       <InputMetragemLona/>
       <CheckBoxFechamento/>
       <CheckBoxAranha/>
-    
 
       <button onClick={handleAddOrcamento}>Adicionar Orçamento</button>
       <button onClick={()=> console.log(dados.dadosInseridos)}>ver</button>
