@@ -8,6 +8,9 @@ const CheckBoxFechamento = () => {
   const [fechamentoIsChecked, setFechamentoIsChecked] = React.useState(false);
   const [diasDeTrabalhoFechamento, setDiasDeTrabalhoFechamento] = React.useState(dadosInseridos.dadosInseridos.diasDeTrabalhoFechamento)
   
+  React.useEffect(()=>{
+    setMetragemFechamento(dadosInseridos.dadosInseridos.metragemFechamento)
+  }, [dadosInseridos.dadosInseridos.metragemFechamento])
 
   const handleMetragemFechamentoChange = (e) =>{
     const metragemFechamentoAtual = e.target.value

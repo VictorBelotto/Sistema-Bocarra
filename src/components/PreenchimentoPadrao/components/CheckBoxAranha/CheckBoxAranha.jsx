@@ -3,20 +3,24 @@ import styles from './CheckBoxAranha.module.css'
 import { DadosInseridosContext } from '../../../../scripts/DadosInseridosContext';
 
 const CheckBoxAranha = () => {
-  const dadosInseridos = React.useContext(DadosInseridosContext)
-  const [metragemFechamentoAranha, setMetragemFechamentoAranha] = React.useState(dadosInseridos.dadosInseridos.metragemFechamentoAranha);
+  const {dadosInseridos, adicionarDado} = React.useContext(DadosInseridosContext)
+  const [metragemFechamentoAranha, setMetragemFechamentoAranha] = React.useState(dadosInseridos.metragemFechamentoAranha);
   const [fechamentoAranhaIsChecked, setFechamentoAranhaIsChecked] = React.useState(false);
-  const [diasDeTrabalhoAranha, setDiasDeTrabalhoAranha] = React.useState(dadosInseridos.dadosInseridos.diasDeTrabalhoAranha)
+  const [diasDeTrabalhoAranha, setDiasDeTrabalhoAranha] = React.useState(dadosInseridos.diasDeTrabalhoAranha)
+
+  React.useEffect(()=>{
+    setMetragemFechamentoAranha(dadosInseridos.metragemFechamentoAranha)
+  },[dadosInseridos.metragemFechamentoAranha])
 
   const handleMetragemFechamentoAranhaChange = (e) =>{
     const metragemFechamentoAtual = e.target.value
     setMetragemFechamentoAranha(metragemFechamentoAtual)
-    dadosInseridos.adicionarDado('metragemFechamentoAranha', metragemFechamentoAtual)
+    adicionarDado('metragemFechamentoAranha', metragemFechamentoAtual)
   };
   const handleDiasDeTrabalhoAranhaChange = (e) =>{
     const diasDeTrabalhoAtual = e.target.value
     setDiasDeTrabalhoAranha(diasDeTrabalhoAtual)
-    dadosInseridos.adicionarDado('diasDeTrabalhoAranha', diasDeTrabalhoAtual)
+  adicionarDado('diasDeTrabalhoAranha', diasDeTrabalhoAtual)
   };
 
   return (

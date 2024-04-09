@@ -9,18 +9,34 @@ import CheckBoxAranha from './components/CheckBoxAranha/CheckBoxAranha.jsx';
 import CheckBoxFechamento from './components/CheckBoxFechamento/CheckBoxFechamento.jsx';
 
 const CalculadoraMetragem = () => {
- 
-  const [resultadoMetragem, setResultadoMetragem] = useState('');
-  const [resultadoFechamento, setResultadoFechamento] = useState('');
-  const [resultadoAranha, setResultadoAranha] = useState('');
-
+  const {dadosInseridos, dadosMetragem, adicionarDado, checksDaMetragem} = React.useContext(DadosInseridosContext)
+  const [resultados, setResultados] = useState({});
   const [exibeResultado, setExibeResultado] = useState(false)
 
-  const dadosInseridos = React.useContext(DadosInseridosContext)
+  const adicionaResultado = (nome, valor) => {
+    setResultados(prevState => ({
+      ...prevState,
+      [nome] : valor
+    }))
+  }
 
   const calcular = () => {
    console.log(dadosInseridos)
+   const resultado = calcularMetragem(dadosMetragem.larguraDaLona, dadosMetragem.comprimentoDaLona, dadosMetragem.alturaFechamento, dadosMetragem.alturaAranha)
+
+   adicionaResultado('metragem', resultado['metragem'])
+   adicionaResultado('fechamento', resultado['fechamento'])
+   adicionaResultado('fechamentoDaAranha', resultado['fechamentoDaAranha'])
+    
+   setExibeResultado(true)
   };
+
+  const preencherOrcamento = () =>{
+    adicionarDado('metragemLona', resultados.metragem )
+    adicionarDado('metragemFechamentoAranha', resultados.fechamentoDaAranha)
+    adicionarDado('metragemFechamento', resultados.fechamento)
+    console.log(dadosMetragem.alturaAranha)
+  }
 
  
 
@@ -37,15 +53,24 @@ const CalculadoraMetragem = () => {
     {
       exibeResultado && (
         <div className={styles.resultados}>
-        <p>Metragem: {resultadoMetragem} m²</p>
-        <p>Fechamento: {resultadoFechamento} m²</p>
+        <p>Metragem: {resultados.metragem} m²</p>
+        
         {
-          isChecked && (
+          checksDaMetragem['fechamentoIsChecked'] &&(
+          <>
+            <p>Fechamento: {resultados.fechamento} m²</p></>
+          )
+        }
+        {
+          checksDaMetragem['aranhaIsChecked'] && (
             <>
-              <p>Aranha: {resultadoAranha} m²</p>
+              <p>Aranha: {resultados.fechamentoDaAranha} m²</p>
             </>
           )
         }
+
+        <button onClick={preencherOrcamento}>Preencher no Orçamento </button>
+
       </div>
       )
     }

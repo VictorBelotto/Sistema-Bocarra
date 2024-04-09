@@ -4,11 +4,12 @@ import { DadosInseridosContext } from '../../../../scripts/DadosInseridosContext
 
 const CheckBoxAranha = () => {
   const dadosInseridos = React.useContext(DadosInseridosContext)
-  const [AranhaisChecked, setAranhaIsChecked] = React.useState(false)
+  const [aranhaIsChecked, setAranhaIsChecked] = React.useState(false)
   const [alturaAranha, setAlturaAranha] = React.useState('')
 
   const handleCheckboxChange = () => {
-    setAranhaIsChecked(!AranhaisChecked);
+    setAranhaIsChecked(!aranhaIsChecked);
+    dadosInseridos.adicionarCheckMetragem('aranhaIsChecked', !aranhaIsChecked )
   };
 
   const handleAlturaAranhaChange = (e) => {
@@ -24,13 +25,13 @@ const CheckBoxAranha = () => {
         id="meuCheckbox" 
         name="meuCheckbox" 
         value="valorDoCheckbox"
-        defaultChecked ={AranhaisChecked}
+        defaultChecked ={aranhaIsChecked}
         onClick={handleCheckboxChange}
       />
      </div>
 
       {
-        AranhaisChecked && (
+        aranhaIsChecked && (
           <>
              <label htmlFor="aranha">Altura da Aranha :</label>
              <input type="number" id="aranha" value={alturaAranha} onChange={handleAlturaAranhaChange} />
