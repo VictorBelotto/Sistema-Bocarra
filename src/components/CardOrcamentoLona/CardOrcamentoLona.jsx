@@ -1,9 +1,12 @@
 import React from 'react';
-import styles from './CardOrcamentoLona.module.css'; // Importando o arquivo CSS de estilos
+import styles from './CardOrcamentoLona.module.css'; 
 import {OrcamentoContext} from '../../scripts/OrcamentoContext.jsx'
+import { DadosInseridosContext } from '../../scripts/DadosInseridosContext.jsx';
+
 
 const CardOrcamentoLona = ({ orcamento, index}) => {
   const { removerOrcamento } = React.useContext(OrcamentoContext);
+  const {checksDoOrcamento} = React.useContext(DadosInseridosContext);
 
   const valorFormatado = (valor) => {
     return valor.toLocaleString('pt-BR', {
@@ -23,10 +26,14 @@ const CardOrcamentoLona = ({ orcamento, index}) => {
       <p><strong>Dias de Trabalho:</strong> {orcamento.diasDeTrabalho} dias</p>
       <p><strong>Metragem:</strong> {orcamento.metragem} <strong>m²</strong></p>
       <p><strong>Valor:</strong> {valorFormatado(Number(orcamento.valor))}</p>
-      <p><strong>Valor do fechamento:</strong> {valorFormatado(Number(orcamento.fechamento))}</p>
-      <p><strong>Dias de Trabalho Fechamento:</strong> {orcamento.diasDeTrabalhoFechamento} dias</p>
-      <p><strong>Valor da Aranha:</strong> {valorFormatado(Number(orcamento.aranha))}</p>
-      <p><strong>Dias de Trabalho Aranha:</strong> {orcamento.diasDeTrabalhoAranha} dias</p>
+
+        <p><strong>Valor do fechamento:</strong> {valorFormatado(Number(orcamento.fechamento))}</p>
+        <p><strong>Dias de Trabalho Fechamento:</strong> {orcamento.diasDeTrabalhoFechamento} dias</p>
+        
+          <p><strong>Valor da Aranha:</strong> {valorFormatado(Number(orcamento.aranha))}</p>
+          <p><strong>Dias de Trabalho Aranha:</strong> {orcamento.diasDeTrabalhoAranha} dias</p>
+   
+
       <div>
        <button className={styles.btn_remover} onClick={handleClickRemover}>Remover</button>
       </div>

@@ -3,7 +3,7 @@ import styles from './CheckBoxFechamento.module.css'
 import { DadosInseridosContext } from '../../../../scripts/DadosInseridosContext';
 
 const CheckBoxFechamento = () => {
-  const {dadosInseridos, adicionarDado} = React.useContext(DadosInseridosContext)
+  const {dadosInseridos, adicionarDado, adicionarChecksDoOrcamento} = React.useContext(DadosInseridosContext)
   const [metragemFechamento, setMetragemFechamento] = React.useState(dadosInseridos.metragemFechamento);
   const [fechamentoIsChecked, setFechamentoIsChecked] = React.useState(false);
   const [diasDeTrabalhoFechamento, setDiasDeTrabalhoFechamento] = React.useState(dadosInseridos.diasDeTrabalhoFechamento)
@@ -24,6 +24,11 @@ const CheckBoxFechamento = () => {
     adicionarDado('diasDeTrabalhoFechamento', diasDeTrabalhoAtual)
   };
 
+  const handleCheckFechamentoChange = () =>{
+    setFechamentoIsChecked(!fechamentoIsChecked)
+    adicionarChecksDoOrcamento('fechamentoIsChecked', !fechamentoIsChecked)
+  }
+
   return (
     <>
       
@@ -35,7 +40,7 @@ const CheckBoxFechamento = () => {
           name="checkBoxFechamento"
           value="valorDoCheckbox"
           defaultChecked={fechamentoIsChecked}
-          onClick={() => setFechamentoIsChecked(!fechamentoIsChecked)}
+          onClick={handleCheckFechamentoChange}
         />
       </div>
 

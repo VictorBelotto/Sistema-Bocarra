@@ -3,7 +3,7 @@ import styles from './CheckBoxAranha.module.css'
 import { DadosInseridosContext } from '../../../../scripts/DadosInseridosContext';
 
 const CheckBoxAranha = () => {
-  const {dadosInseridos, adicionarDado} = React.useContext(DadosInseridosContext)
+  const {dadosInseridos, adicionarDado, adicionarChecksDoOrcamento} = React.useContext(DadosInseridosContext)
   const [metragemFechamentoAranha, setMetragemFechamentoAranha] = React.useState(dadosInseridos.metragemFechamentoAranha);
   const [fechamentoAranhaIsChecked, setFechamentoAranhaIsChecked] = React.useState(false);
   const [diasDeTrabalhoAranha, setDiasDeTrabalhoAranha] = React.useState(dadosInseridos.diasDeTrabalhoAranha)
@@ -23,6 +23,11 @@ const CheckBoxAranha = () => {
   adicionarDado('diasDeTrabalhoAranha', diasDeTrabalhoAtual)
   };
 
+  const handleCheckFechamentoAranhaChange = () =>{
+    setFechamentoAranhaIsChecked(!fechamentoAranhaIsChecked)
+    adicionarChecksDoOrcamento('fechamentoAranhaIsChecked', !fechamentoAranhaIsChecked)
+  }
+
   return (
     <>
       <div className={styles.checkBox}>
@@ -33,7 +38,7 @@ const CheckBoxAranha = () => {
           name="aranhaCheckbox"
           value="valorDoAranhaCheckbox"
           defaultChecked={fechamentoAranhaIsChecked}
-          onClick={() => setFechamentoAranhaIsChecked(!fechamentoAranhaIsChecked)}
+          onClick={handleCheckFechamentoAranhaChange}
         />
       </div>
 
