@@ -3,13 +3,13 @@ import { ModelosLona } from '../../../../scripts/ModelosDaLona';
 import { DadosInseridosContext } from '../../../../scripts/DadosInseridosContext';
 
 const SelectModeloLona = () => {
-  const inserirDados = React.useContext(DadosInseridosContext)
+  const {adicionarDado} = React.useContext(DadosInseridosContext)
   const [selectedModelo, setSelectedModelo] = React.useState({ value: '', label: '' });
 
   const handleModeloChange = (e) => {
     const modeloAtual = { value: e.target.value, label: e.target.options[e.target.selectedIndex].text}
     setSelectedModelo(modeloAtual);
-    inserirDados.adicionarDado('selectedModelo',modeloAtual)
+    adicionarDado('selectedModelo',modeloAtual)
 }
 
   return (

@@ -49,7 +49,6 @@ const PreenchimentoPadrao = () => {
       <CheckBoxAranha/>
 
       <button onClick={handleAddOrcamento}>Adicionar Orçamento</button>
-      <button onClick={()=> console.log(dados.dadosInseridos)}>ver</button>
 
       <div className={styles.orcamentosContainer}>
         {orcamento.orcamentos.map((orcamento, index) => (

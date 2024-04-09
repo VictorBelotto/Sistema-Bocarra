@@ -3,14 +3,14 @@ import { materialOptions } from '../../../../scripts/MateriaisLona';
 import { DadosInseridosContext } from '../../../../scripts/DadosInseridosContext';
 
 const SelectMaterial = () => {
-  const inserirDados = React.useContext(DadosInseridosContext)
+  const {adicionarDado} = React.useContext(DadosInseridosContext)
   
   const [selectedMaterial, setSelectedMaterial] = React.useState('');
 
   const handleMaterialChange = (e) =>{
     const materialAtual = e.target.value;
     setSelectedMaterial(materialAtual);
-    inserirDados.adicionarDado('selectedMaterial', materialAtual)
+    adicionarDado('selectedMaterial', materialAtual)
   } 
 
   return (

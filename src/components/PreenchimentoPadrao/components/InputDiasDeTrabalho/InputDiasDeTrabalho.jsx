@@ -2,13 +2,13 @@ import React from 'react'
 import { DadosInseridosContext } from '../../../../scripts/DadosInseridosContext';
 
 const SelectMaterial = () => {
-  const dadosInseridos = React.useContext(DadosInseridosContext)
+  const {dadosInseridos, adicionarDado} = React.useContext(DadosInseridosContext)
   
-  const [diasDeTrabalho, setDiasDeTrabalho] = React.useState(dadosInseridos.dadosInseridos.diasDeTrabalho);
+  const [diasDeTrabalho, setDiasDeTrabalho] = React.useState(dadosInseridos.diasDeTrabalho);
   const handleDiasDeTrabalhoChange = (e) =>{
     const diasDeTrabalhoAtual = e.target.value
     setDiasDeTrabalho(diasDeTrabalhoAtual)
-    dadosInseridos.adicionarDado('diasDeTrabalho', diasDeTrabalhoAtual)
+    adicionarDado('diasDeTrabalho', diasDeTrabalhoAtual)
   };
 
   return (
