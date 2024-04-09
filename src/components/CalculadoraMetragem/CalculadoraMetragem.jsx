@@ -19,12 +19,7 @@ const CalculadoraMetragem = () => {
   const dadosInseridos = React.useContext(DadosInseridosContext)
 
   const calcular = () => {
-    const resultado = calcularMetragem(largura, comprimento, altura, alturaAranha)
-
-    setResultadoMetragem(resultado[0].toFixed(0))
-    setResultadoFechamento(resultado[1].toFixed(0))
-    setResultadoAranha(resultado[2].toFixed(0));
-    setExibeResultado(true)
+   console.log(dadosInseridos)
   };
 
  
@@ -37,8 +32,6 @@ const CalculadoraMetragem = () => {
       <CheckBoxFechamento/>
       <CheckBoxAranha/>
       
-    
-
       <button onClick={calcular}>Calcular Metragem</button>
   
     {

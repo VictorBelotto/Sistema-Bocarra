@@ -13,7 +13,7 @@ export const DadosInseridosStorage = ({ children }) => {
   });
 
   const [dadosMetragem, setDadosMetragem] = React.useState({})
-  const adidionaMetragem = (nome, valor) =>{ 
+  const adicionarMetragem = (nome, valor) =>{ 
     setDadosMetragem(prevState => ({
       ...prevState, 
       [nome]:valor
@@ -28,7 +28,7 @@ export const DadosInseridosStorage = ({ children }) => {
   };
 
   return (
-    <DadosInseridosContext.Provider value={{ dadosInseridos, adicionarDado}}>
+    <DadosInseridosContext.Provider value={{ dadosInseridos, adicionarDado, dadosMetragem, adicionarMetragem}}>
       {children}
     </DadosInseridosContext.Provider>
   );

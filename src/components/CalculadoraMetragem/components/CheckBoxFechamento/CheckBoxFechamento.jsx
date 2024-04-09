@@ -4,12 +4,18 @@ import { DadosInseridosContext } from '../../../../scripts/DadosInseridosContext
 
 const CheckBoxFechamento = () => {
   const dadosInseridos = React.useContext(DadosInseridosContext)
-  const [isChecked, setIsChecked] = React.useState(false)
+  const [FechamentoisChecked, setFechamentoIsChecked] = React.useState(false)
   const [alturaFechamento, setAlturaFechamento] = React.useState('');
 
   const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
+    setFechamentoIsChecked(!FechamentoisChecked);
   };
+
+  const handleAlturaChange = (e) =>{
+    setAlturaFechamento(e.target.value)
+    dadosInseridos.adicionarMetragem('alturaFechamento', e.target.value)
+    
+  }
   return (
    <>
      <div className={styles.checkBox}>
@@ -19,16 +25,16 @@ const CheckBoxFechamento = () => {
         id="meuCheckbox" 
         name="meuCheckbox" 
         value="valorDoCheckbox"
-        defaultChecked ={isChecked}
+        defaultChecked ={FechamentoisChecked}
         onClick={handleCheckboxChange}
       />
      </div>
 
       {
-        isChecked && (
+        FechamentoisChecked && (
           <div>
-            <label htmlFor="altura">Altura do Fechamento da Lona (m²):</label>
-            <input type="number" id="altura" value={alturaFechamento} onChange={(e) => setAlturaFechamento(e.target.value)} />
+            <label htmlFor="altura">Altura do Fechamento da Lona:</label>
+            <input type="number" id="altura" value={alturaFechamento} onChange={handleAlturaChange} />
           </div>
         )
       }
