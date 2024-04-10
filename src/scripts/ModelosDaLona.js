@@ -1,6 +1,7 @@
 export class ModelosLona {
 
   static selectModelos = [
+    { value: 'marquise', label: 'Marquise'},
     { value: 'modelo_simples', label: 'Simples' },
     { value: 'modelo_cupula_redonda', label: 'Cúpula Redonda' },
     { value: 'modelo_tradicional', label: 'Tradicional' },
@@ -8,6 +9,16 @@ export class ModelosLona {
     { value: 'modelo_8_mastareus', label: '8 Mastareus' },
     { value: 'modelo_4_bicos', label: '4 Bicos' }
   ];
+
+  static marquise = {
+    "multiplicador": 1,
+    "3000": 98.01,
+    "S1000": 104.64,
+    "G760": 123.78,
+    "8000": 144.45,
+    "MP10722": 152.16,
+    "MP1400": 178.27
+  }
 
   static modelo_simples = {
     "multiplicador": 1,
