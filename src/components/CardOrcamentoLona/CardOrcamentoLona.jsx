@@ -5,7 +5,15 @@ import {OrcamentoContext} from '../../scripts/OrcamentoContext.jsx'
 
 const CardOrcamentoLona = ({ orcamento, index}) => {
   const { removerOrcamento } = React.useContext(OrcamentoContext);
+  const valorTotal = (
+    parseFloat(orcamento.valor) + 
+    (orcamento.possuiFechamento ? parseFloat(orcamento.valorFechamento) : 0) + 
+    (orcamento.possuiAranha ? parseFloat(orcamento.valorFechamentoAranha) : 0)
+).toFixed(2);
 
+
+  const valorDoImosto = parseFloat((valorTotal * 0.15)).toFixed(2)
+  const valorComImposto = (parseFloat(valorDoImosto) + parseFloat(valorTotal)).toFixed(2);
 
   const valorFormatado = (valor) => {
     return valor.toLocaleString('pt-BR', {
@@ -34,7 +42,7 @@ const CardOrcamentoLona = ({ orcamento, index}) => {
               <h3>Informações do Fechamento</h3>
               <p><strong>Medidas: </strong> {(orcamento.metragemFechamento / orcamento.alturaFechamento).toFixed(1)}m x {orcamento.alturaFechamento}m</p>
               <p><strong>Dias de Trabalho Fechamento:</strong> {orcamento.diasDeTrabalhoFechamento} dias</p>
-              <p><strong>Valor do fechamento:</strong> {valorFormatado(Number(orcamento.fechamento))}</p>
+              <p><strong>Valor do fechamento:</strong> {valorFormatado(Number(orcamento.valorFechamento))}</p>
               <span className={styles.divisao} ></span>
             </>
           )
@@ -46,10 +54,16 @@ const CardOrcamentoLona = ({ orcamento, index}) => {
               <h3>Informações da Aranha</h3>
               <p><strong>Medidas: </strong> {(orcamento.metragemFechamentoAranha / orcamento.alturaAranha).toFixed(1)}m x {orcamento.alturaAranha}m</p>
               <p><strong>Dias de Trabalho Aranha:</strong> {orcamento.diasDeTrabalhoAranha} dias</p>
-              <p><strong>Valor da Aranha:</strong> {valorFormatado(Number(orcamento.aranha))}</p>
+              <p><strong>Valor da Aranha:</strong> {valorFormatado(Number(orcamento.valorFechamentoAranha))}</p>
+              <span className={styles.divisao} ></span>
             </>
           )
          }
+
+       <p>Valor Total : {valorFormatado(Number(valorTotal))}</p> 
+       <p>Valor dos impostos : {valorFormatado(Number(valorDoImosto))}</p> 
+       <p>Valor Total com imposto: {valorFormatado(Number(valorComImposto))}</p> 
+       <span className={styles.divisao} ></span>
     
        <button className={styles.btn_remover} onClick={handleClickRemover}>Remover</button>
    

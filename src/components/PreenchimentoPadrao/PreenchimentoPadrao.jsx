@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './PreenchimentoPadrao.module.css';
-import { orcamentoLona } from '../../scripts/orcamentoLona.class.js';
 import { OrcamentoContext } from '../../scripts/OrcamentoContext.jsx';
 import { DadosInseridosContext } from '../../scripts/DadosInseridosContext.jsx';
 import { calculoFechamento } from '../../scripts/CalculoFechamento.js';
@@ -17,45 +16,40 @@ import CheckBoxAranha from './components/CheckBoxAranha/CheckBoxAranha.jsx';
 
 const PreenchimentoPadrao = () => {
   const orcamento = React.useContext(OrcamentoContext);
-  const dados = React.useContext(DadosInseridosContext);
-  const {checksDoOrcamento, dadosMetragem} = React.useContext(DadosInseridosContext);
-  const dadosAtuais = dados.dadosInseridos;
+  const {checksDoOrcamento, dadosMetragem, dadosInseridos} = React.useContext(DadosInseridosContext);
  
 
   const handleAddOrcamento = () => {
-    const maoDeObra = 2727.27 * ModelosLona[dadosAtuais.selectedModelo.value]['multiplicador'];
-    const valorMaterial = ModelosLona[dadosAtuais.selectedModelo.value][dadosAtuais.selectedMaterial];
-    const possuiFechamento = checksDoOrcamento.fechamentoIsChecked
-    const possuiAranha = checksDoOrcamento.fechamentoAranhaIsChecked
-    const valorDaLona = ((dadosAtuais.diasDeTrabalho * maoDeObra) + (dadosAtuais.metragemLona * valorMaterial)).toFixed(2);
+    const maoDeObra = 2727.27 * ModelosLona[dadosInseridos.selectedModelo.value]['multiplicador'];
+    const valorMaterial = ModelosLona[dadosInseridos.selectedModelo.value][dadosInseridos.selectedMaterial];
+    const valorDaLona = ((dadosInseridos.diasDeTrabalho * maoDeObra) + (dadosInseridos.metragemLona * valorMaterial)).toFixed(2);
 
-    const valorFechamento = calculoFechamento(dadosAtuais.metragemFechamento, dadosAtuais.selectedMaterial, dadosAtuais.diasDeTrabalhoFechamento)
+    const valorFechamento = calculoFechamento(dadosInseridos.metragemFechamento, dadosInseridos.selectedMaterial, dadosInseridos.diasDeTrabalhoFechamento)
 
-    const valorFechamentoAranha = calculoFechamento(dadosAtuais.metragemFechamentoAranha, dadosAtuais.selectedMaterial, dadosAtuais.diasDeTrabalhoAranha)
+    const valorFechamentoAranha = calculoFechamento(dadosInseridos.metragemFechamentoAranha, dadosInseridos.selectedMaterial, dadosInseridos.diasDeTrabalhoAranha)
 
-    const novoOrcamento = new orcamentoLona(
-      dadosAtuais.selectedModelo.label, 
-      dadosAtuais.selectedMaterial, 
-      dadosAtuais.diasDeTrabalho, 
-      dadosAtuais.metragemLona, 
-      valorDaLona,possuiFechamento, 
-      valorFechamento,
-      dadosAtuais.diasDeTrabalhoFechamento,
-      possuiAranha, 
-      valorFechamentoAranha, 
-      dadosAtuais.diasDeTrabalhoAranha,
-      dadosMetragem.larguraDaLona,
-      dadosMetragem.comprimentoDaLona,
-      dadosMetragem.alturaFechamento,
-      dadosAtuais.metragemFechamento,
-      dadosMetragem.alturaAranha,
-      dadosAtuais.metragemFechamentoAranha
-    )
+    const novoOrcamento = {
+      modelo: dadosInseridos.selectedModelo.label,
+      material: dadosInseridos.selectedMaterial,
+      diasDeTrabalho: dadosInseridos.diasDeTrabalho,
+      metragem: dadosInseridos.metragemLona,
+      valor: valorDaLona,
+      possuiFechamento: checksDoOrcamento.fechamentoIsChecked,
+      valorFechamento: valorFechamento,
+      possuiAranha: checksDoOrcamento.fechamentoAranhaIsChecked, 
+      valorFechamentoAranha: valorFechamentoAranha,
+      larguraDaLona: dadosMetragem.larguraDaLona,
+      comprimentoDaLona: dadosMetragem.comprimentoDaLona,
+      alturaFechamento: dadosMetragem.alturaFechamento,
+      metragemFechamento: dadosInseridos.metragemFechamento,
+      alturaAranha: dadosMetragem.alturaAranha,
+      metragemFechamentoAranha: dadosInseridos.metragemFechamentoAranha
+    };
 
 
     orcamento.setOrcamentos([...orcamento.orcamentos, novoOrcamento]);
-    console.log(orcamento.orcamentos)
   };
+
 
   return (
     <div className={styles.mainContainer}>
@@ -69,7 +63,7 @@ const PreenchimentoPadrao = () => {
       <InputMetragemLona/>
       <InputDiasDeTrabalho/>
       </div>
-      
+
       <CheckBoxFechamento/>
       <CheckBoxAranha/>
 
