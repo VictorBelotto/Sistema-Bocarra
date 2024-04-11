@@ -3,6 +3,10 @@
   align-items: center;
   margin-bottom: 8px;
 }
+.metragemEDiasDeTrabalho{
+  display: flex;
+  justify-content: space-between;
+}
 
 .checkBox label{
   width: auto;

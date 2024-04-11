@@ -43,12 +43,15 @@ const CheckBoxAranha = () => {
       </div>
 
       {fechamentoAranhaIsChecked && (
-        <div>
-          <label htmlFor="metragemAranha">Metragem (m²) da aranha</label>
-          <input type="number" id="metragemAranha" value={metragemFechamentoAranha} onChange={handleMetragemFechamentoAranhaChange} />
-
-          <label htmlFor="diasDeTrabalhoAranha">Dias de trabalho da aranha</label>
-          <input type="number" id="diasDeTrabalhoAranha" value={diasDeTrabalhoAranha} onChange={handleDiasDeTrabalhoAranhaChange} />
+        <div className={styles.metragemEDiasDeTrabalho} >
+          <div>
+            <label htmlFor="metragemAranha">Metragem (m²):</label>
+            <input type="number" id="metragemAranha" value={metragemFechamentoAranha} onChange={handleMetragemFechamentoAranhaChange} />
+          </div>
+          <div>
+            <label htmlFor="diasDeTrabalhoAranha">Dias de trabalho:</label>
+            <input type="number" id="diasDeTrabalhoAranha" value={diasDeTrabalhoAranha} onChange={handleDiasDeTrabalhoAranhaChange} />
+          </div>
         </div>
       )}
     </>

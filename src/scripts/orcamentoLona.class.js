@@ -8,8 +8,15 @@ export class orcamentoLona {
   fechamento
   possuiAranha
   aranha
+  larguraDaLona
+  comprimentoDaLona
+  alturaFechamento
+  metragemFechamento
+  alturaAranha
+  metragemFechamentoAranha
+  
 
-  constructor(modelo, material, diasDeTrabalho, metragem, valor, possuiFechamento, fechamento, diasDeTrabalhoFechamento,possuiAranha, aranha, diasDeTrabalhoAranha){
+  constructor(modelo, material, diasDeTrabalho, metragem, valor, possuiFechamento, fechamento, diasDeTrabalhoFechamento,possuiAranha, aranha, diasDeTrabalhoAranha, larguraDaLona, comprimentoDaLona,alturaFechamento,metragemFechamento, alturaAranha, metragemFechamentoAranha){
     this.modelo = modelo
     this.material = material
     this.diasDeTrabalho = diasDeTrabalho
@@ -21,5 +28,11 @@ export class orcamentoLona {
     this.possuiAranha  = possuiAranha
     this.aranha = aranha 
     this.diasDeTrabalhoAranha = diasDeTrabalhoAranha
+    this.larguraDaLona = larguraDaLona
+    this.comprimentoDaLona = comprimentoDaLona
+    this.alturaFechamento = alturaFechamento
+    this.metragemFechamento = metragemFechamento
+    this.alturaAranha = alturaAranha
+    this.metragemFechamentoAranha = metragemFechamentoAranha
   }
 }

@@ -27,6 +27,7 @@ const CalculadoraMetragem = () => {
    adicionaResultado('metragem', resultado['metragem'])
    adicionaResultado('fechamento', resultado['fechamento'])
    adicionaResultado('fechamentoDaAranha', resultado['fechamentoDaAranha'])
+   adicionaResultado('perimetro', resultado['perimetro'])
     
    setExibeResultado(true)
   };
@@ -43,8 +44,11 @@ const CalculadoraMetragem = () => {
   return (
     <div className={styles.calculadoraContainer}>
       <h2>Calculadora de Metragem</h2>
-      <InputLargura/>
-      <InputComprimento/>
+      <div className={styles.comprimentoXLarguraContainer} >
+        <InputLargura/>
+        <InputComprimento/>
+      </div>
+     
       <CheckBoxFechamento/>
       <CheckBoxAranha/>
       
@@ -53,18 +57,18 @@ const CalculadoraMetragem = () => {
     {
       exibeResultado && (
         <div className={styles.resultados}>
-        <p>Metragem: {resultados.metragem} m²</p>
-        
+        <p>Metragem Lona (m²): {resultados.metragem} m²</p>
+        <p>Perimetro: {resultados.perimetro} m</p>
         {
           checksDaMetragem['fechamentoIsChecked'] &&(
           <>
-            <p>Fechamento: {resultados.fechamento} m²</p></>
+            <p>Fechamento (m²): {resultados.fechamento} m²</p></>
           )
         }
         {
           checksDaMetragem['aranhaIsChecked'] && (
             <>
-              <p>Aranha: {resultados.fechamentoDaAranha} m²</p>
+              <p>Aranha (m²): {resultados.fechamentoDaAranha} m²</p>
             </>
           )
         }

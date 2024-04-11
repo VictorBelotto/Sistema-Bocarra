@@ -7,6 +7,14 @@
   background-color: #f9f9f9;
 }
 
+.modeloXMaterial{
+  display: flex;
+  gap: 32px;
+}
+.metragemXDiasDeTrabalho{
+  display: flex;
+  justify-content: space-between;
+}
 label {
   display: block;
   margin-bottom: 5px;

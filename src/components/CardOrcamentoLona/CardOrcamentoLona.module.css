@@ -1,12 +1,15 @@
 .cardContainer {
-  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  width: 300px;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Box shadow */
 }
 
 .btn_remover {
-  
   background-color: #ff0000;
   color: #fff;
   border: none;
@@ -14,9 +17,15 @@
   padding: 5px 0px;
   cursor: pointer;
   width: 250px;
+  align-self: center;
 }
 
 .btn_remover:hover{
   background-color: #dc2222;
 }
 
+.divisao{
+  height: 3px;
+  width: 75%;
+  background-color: #dc2222;
+}

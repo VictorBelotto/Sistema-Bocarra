@@ -7,6 +7,11 @@
   background-color: #f9f9f9;
 }
 
+.comprimentoXLarguraContainer{
+  display: flex;
+  gap: 16px;
+}
+
 .calculadoraContainer h2 {
   margin-bottom: 20px;
 }

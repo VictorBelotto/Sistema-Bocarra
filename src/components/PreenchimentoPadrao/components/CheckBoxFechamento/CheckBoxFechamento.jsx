@@ -45,14 +45,16 @@ const CheckBoxFechamento = () => {
       </div>
 
       {fechamentoIsChecked && (
+        <div className={styles.metragemEDiasDeTrabalho} >
+          <div>
+            <label htmlFor="metragemFechamento">Metragem (m²):</label>
+            <input type="number" id="metragemFechamento" value={metragemFechamento} onChange={handleMetragemFechamentoChange} />
+          </div>
+
         <div>
-          <label htmlFor="metragemFechamento">Metragem (m²) do fechamento</label>
-          <input type="number" id="metragemFechamento" value={metragemFechamento} onChange={handleMetragemFechamentoChange} />
-
-          <label htmlFor="diasDeTrabalhoFechamento">Dias de trabalho do fechamento</label>
+          <label htmlFor="diasDeTrabalhoFechamento">Dias de trabalho:</label>
           <input type="number" id="diasDeTrabalhoFechamento" value={diasDeTrabalhoFechamento} onChange={handleDiasDeTrabalhoFechamentoChange} />
-
-
+        </div>
         </div>
       )}
     </>
