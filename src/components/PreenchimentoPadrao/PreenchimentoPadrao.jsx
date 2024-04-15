@@ -8,11 +8,10 @@ import { ModelosLona } from '../../scripts/ModelosDaLona.js';
 
 import SelectModeloLona from './components/SelectModeloLona/SelectModeloLona.jsx';
 import SelectMaterial from './components/SelectMaterial/SelectMaterial.jsx';
-import InputDiasDeTrabalho from './components/InputDiasDeTrabalho/InputDiasDeTrabalho.jsx';
-import InputMetragemLona from './components/InputMetragemLona/InputMetragemLona.jsx';
-import CheckBoxFechamento from './components/CheckBoxFechamento/CheckBoxFechamento.jsx';
+import InputDiasDeTrabalho from '../InputDiasDeTrabalho/InputDiasDeTrabalho.jsx';
+import InputMetragemQuadrada from '../InputMetragemQuadrada/InputMetragemQuadrada.jsx';
 import CheckBoxAranha from './components/CheckBoxAranha/CheckBoxAranha.jsx';
-
+import CheckBoxFechamento from './components/CheckBoxFechamento/CheckBoxFechamento.jsx';
 
 const PreenchimentoPadrao = () => {
   const orcamento = React.useContext(OrcamentoContext);
@@ -22,17 +21,17 @@ const PreenchimentoPadrao = () => {
   const handleAddOrcamento = () => {
     const maoDeObra = 2727.27 * ModelosLona[dadosInseridos.selectedModelo.value]['multiplicador'];
     const valorMaterial = ModelosLona[dadosInseridos.selectedModelo.value][dadosInseridos.selectedMaterial];
-    const valorDaLona = ((dadosInseridos.diasDeTrabalho * maoDeObra) + (dadosInseridos.metragemLona * valorMaterial)).toFixed(2);
+    const valorDaLona = ((dadosInseridos.diasDeTrabalho.lona * maoDeObra) + (dadosInseridos.metragemQuadrada.lona * valorMaterial)).toFixed(2);
 
-    const valorFechamento = calculoFechamento(dadosInseridos.metragemFechamento, dadosInseridos.selectedMaterial, dadosInseridos.diasDeTrabalhoFechamento)
+    const valorFechamento = calculoFechamento(dadosInseridos.metragemQuadrada.fechamento, dadosInseridos.selectedMaterial, dadosInseridos.diasDeTrabalho.fechamento)
 
-    const valorFechamentoAranha = calculoFechamento(dadosInseridos.metragemFechamentoAranha, dadosInseridos.selectedMaterial, dadosInseridos.diasDeTrabalhoAranha)
+    const valorFechamentoAranha = calculoFechamento(dadosInseridos.metragemQuadrada.aranha, dadosInseridos.selectedMaterial, dadosInseridos.diasDeTrabalho.aranha)
 
     const novoOrcamento = {
       modelo: dadosInseridos.selectedModelo.label,
       material: dadosInseridos.selectedMaterial,
       diasDeTrabalho: dadosInseridos.diasDeTrabalho,
-      metragem: dadosInseridos.metragemLona,
+      metragemQuadrada: dadosInseridos.metragemQuadrada,
       valor: valorDaLona,
       possuiFechamento: checksDoOrcamento.fechamentoIsChecked,
       valorFechamento: valorFechamento,
@@ -41,15 +40,13 @@ const PreenchimentoPadrao = () => {
       larguraDaLona: dadosMetragem.larguraDaLona,
       comprimentoDaLona: dadosMetragem.comprimentoDaLona,
       alturaFechamento: dadosMetragem.alturaFechamento,
-      metragemFechamento: dadosInseridos.metragemFechamento,
       alturaAranha: dadosMetragem.alturaAranha,
-      metragemFechamentoAranha: dadosInseridos.metragemFechamentoAranha
     };
-
+    
+    console.log(novoOrcamento)
 
     orcamento.setOrcamentos([...orcamento.orcamentos, novoOrcamento]);
   };
-
 
   return (
     <div className={styles.mainContainer}>
@@ -58,16 +55,23 @@ const PreenchimentoPadrao = () => {
       <div className={styles.modeloXMaterial} >
         <SelectModeloLona/>
         <SelectMaterial/>
+       
       </div>
-      <div className={styles.metragemXDiasDeTrabalho} >
-      <InputMetragemLona/>
-      <InputDiasDeTrabalho/>
+      <div className={styles.metragemLona} >
+        <InputMetragemQuadrada id={'lona'} />
+        <InputDiasDeTrabalho id={'lona'} />
       </div>
-
-      <CheckBoxFechamento/>
-      <CheckBoxAranha/>
+      <div>
+        <CheckBoxAranha/>
+      </div>
+      <div>
+        <CheckBoxFechamento/>
+      </div>
+    
 
       <button onClick={handleAddOrcamento}>Adicionar Orçamento</button>
+
+   
     </div>
   );
 };

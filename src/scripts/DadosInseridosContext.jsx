@@ -2,14 +2,22 @@ import React from "react";
 
 export const DadosInseridosContext = React.createContext();
 
+const diasDeTrabalho = {
+  lona: 25,
+  fechamento: 3,
+  aranha: 1,
+}
+
+const metragemQuadrada = {
+  lona: 0,
+  fechamento: 0,
+  aranha: 0,
+}
+
 export const DadosInseridosStorage = ({ children }) => {
   const [dadosInseridos, setDadosInseridos] = React.useState({
-    diasDeTrabalhoAranha: 1,
-    diasDeTrabalhoFechamento: 3,
-    diasDeTrabalho: 25,
-    metragemFechamentoAranha: 0,
-    metragemFechamento: 0,
-    metragemLona: 0
+    diasDeTrabalho: diasDeTrabalho,
+    metragemQuadrada: metragemQuadrada,
   });
 
   const adicionarDado = (nome, valor) =>{

@@ -9,12 +9,12 @@ const SelectModeloLona = () => {
   const handleModeloChange = (e) => {
     const modeloAtual = { value: e.target.value, label: e.target.options[e.target.selectedIndex].text}
     setSelectedModelo(modeloAtual);
-    adicionarDado('selectedModelo',modeloAtual)
+    adicionarDado('selectedModelo', modeloAtual)
 }
 
   return (
     <div>
-      <label htmlFor="modelo">Selecione o modelo da Lona: </label>
+      <label htmlFor="modelo">Selecione o modelo: </label>
       <select id="modelo" value={selectedModelo.value} onChange={handleModeloChange}>
         <option value="">Selecione...</option>
         {ModelosLona.selectModelos.map((modelo) => (

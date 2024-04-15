@@ -4,6 +4,7 @@ import Home from './pages/Home/Home'
 import PaginaBase from './pages/PaginaBase'
 import CalculadoraEstruturas from './components/CalculadoraEstruturas/CalculadoraEstruturas'
 import Testes from './pages/Testes/Testes'
+import Impressao from './pages/Impressao/Impressao'
 
 const AppRoutes = () => {
   return (
@@ -13,7 +14,8 @@ const AppRoutes = () => {
         <Route index element={<Home/>} />
         <Route path='/CalculadoraEstruturas' element={<CalculadoraEstruturas/>} />
         <Route path='/Testes' element={<Testes/>} />
-        
+        <Route path='/Impressao' element={<Impressao/>} />
+      
       </Route>
     </Routes>
   </BrowserRouter>

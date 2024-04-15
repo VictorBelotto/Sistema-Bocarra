@@ -1,28 +1,13 @@
 import React from 'react'
 import styles from './CheckBoxAranha.module.css'
 import { DadosInseridosContext } from '../../../../scripts/DadosInseridosContext';
+import InputMetragemQuadrada from '../../../InputMetragemQuadrada/InputMetragemQuadrada';
+import InputDiasDeTrabalho from '../../../InputDiasDeTrabalho/InputDiasDeTrabalho';
 
 const CheckBoxAranha = () => {
-  const {dadosInseridos, adicionarDado, adicionarChecksDoOrcamento} = React.useContext(DadosInseridosContext)
-  const [metragemFechamentoAranha, setMetragemFechamentoAranha] = React.useState(dadosInseridos.metragemFechamentoAranha);
+  const {dadosInseridos, adicionarChecksDoOrcamento} = React.useContext(DadosInseridosContext)
   const [fechamentoAranhaIsChecked, setFechamentoAranhaIsChecked] = React.useState(false);
-  const [diasDeTrabalhoAranha, setDiasDeTrabalhoAranha] = React.useState(dadosInseridos.diasDeTrabalhoAranha)
-
-  React.useEffect(()=>{
-    setMetragemFechamentoAranha(dadosInseridos.metragemFechamentoAranha)
-  },[dadosInseridos.metragemFechamentoAranha])
-
-  const handleMetragemFechamentoAranhaChange = (e) =>{
-    const metragemFechamentoAtual = e.target.value
-    setMetragemFechamentoAranha(metragemFechamentoAtual)
-    adicionarDado('metragemFechamentoAranha', metragemFechamentoAtual)
-  };
-  const handleDiasDeTrabalhoAranhaChange = (e) =>{
-    const diasDeTrabalhoAtual = e.target.value
-    setDiasDeTrabalhoAranha(diasDeTrabalhoAtual)
-  adicionarDado('diasDeTrabalhoAranha', diasDeTrabalhoAtual)
-  };
-
+ 
   const handleCheckFechamentoAranhaChange = () =>{
     setFechamentoAranhaIsChecked(!fechamentoAranhaIsChecked)
     adicionarChecksDoOrcamento('fechamentoAranhaIsChecked', !fechamentoAranhaIsChecked)
@@ -44,14 +29,8 @@ const CheckBoxAranha = () => {
 
       {fechamentoAranhaIsChecked && (
         <div className={styles.metragemEDiasDeTrabalho} >
-          <div>
-            <label htmlFor="metragemAranha">Metragem (m²):</label>
-            <input type="number" id="metragemAranha" value={metragemFechamentoAranha} onChange={handleMetragemFechamentoAranhaChange} />
-          </div>
-          <div>
-            <label htmlFor="diasDeTrabalhoAranha">Dias de trabalho:</label>
-            <input type="number" id="diasDeTrabalhoAranha" value={diasDeTrabalhoAranha} onChange={handleDiasDeTrabalhoAranhaChange} />
-          </div>
+          <InputMetragemQuadrada id={'aranha'}/>
+          <InputDiasDeTrabalho id={'aranha'}/>
         </div>
       )}
     </>

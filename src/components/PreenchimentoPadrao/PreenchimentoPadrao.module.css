@@ -1,5 +1,5 @@
 .mainContainer {
-  max-width: 600px;
+  max-width: 450px;
   margin: 0px 0px ;
   padding: 20px;
   border: 1px solid #ccc;
@@ -9,11 +9,16 @@
 
 .modeloXMaterial{
   display: flex;
-  gap: 32px;
+  gap: 48px;
 }
-.metragemXDiasDeTrabalho{
+
+.modeloXMaterial select{
+  width: 180px;
+}
+
+.metragemLona{
   display: flex;
-  justify-content: space-between;
+  gap: 48px;
 }
 label {
   display: block;

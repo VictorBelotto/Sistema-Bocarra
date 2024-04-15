@@ -33,11 +33,14 @@ const CalculadoraMetragem = () => {
   };
 
   const preencherOrcamento = () =>{
-    adicionarDado('metragemLona', resultados.metragem )
-    adicionarDado('metragemFechamentoAranha', resultados.fechamentoDaAranha)
-    adicionarDado('metragemFechamento', resultados.fechamento)
-    console.log(dadosMetragem.alturaAranha)
-  }
+    adicionarDado('metragemQuadrada', {
+      ...dadosInseridos.metragemQuadrada,
+      lona: resultados.metragem,
+      fechamento: resultados.fechamento,
+      aranha: resultados.fechamentoDaAranha
+    });
+    
+}
 
  
 
