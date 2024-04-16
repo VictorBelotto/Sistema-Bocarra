@@ -12,7 +12,7 @@ const Header = () => {
         <div><img src="src\assets\images\L1Preto.svg" alt="" /></div>
         <div>
          <p>{dates.orderNumber}</p>
-         <p>{dates.data}</p>
+         <p>Data: {dates.data}</p>
         </div>
       </div>
       <div className={styles.containerDetalhe}> 

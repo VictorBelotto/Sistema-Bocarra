@@ -40,7 +40,7 @@ const Tabela = () => {
         ))}
       </tbody>
       <tbody>
-      <td rowSpan="11" className={styles.celulaVertical}>Estrutura Metálica</td>
+      <td rowSpan="11" className={`${styles.celulaVertical} ${styles.celulaVerticalEstrutura}`}>Estrutura Metálica</td>
 
         {dados.map((item, index) => (
           <tr key={index} style={{ backgroundColor: index % 2 === 0 ? '#d9d9d9' : '#f2f2f2' }}>

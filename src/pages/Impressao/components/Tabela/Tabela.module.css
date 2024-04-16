@@ -7,13 +7,14 @@ thead{
 }
 th{
   color: #fff;
-  padding: 6px 4px;
-  font-weight: 700;
+  padding: 4px 2px;
+  font-weight: 600;
+  font-size: 12px;
 }
 td{
   height: fit-content;
-  font-size: 16px;
-  padding: 4px 0px;
+  font-size: 12px;
+  padding: 2px 0px;
 }
 
 th {
@@ -46,14 +47,15 @@ tbody tr:nth-child(even) {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   text-align: center;
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 12px;
 }
-.celulaVerticalnth-of-type(2) {
-  background-color: #f2f2f2;
+.celulaVerticalEstrutura {
+  background-color: #506786;
+  
 }
+
 .quantidade{
   text-align: center;
-
 }
 

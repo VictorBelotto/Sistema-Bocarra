@@ -15,7 +15,7 @@
 }
 
 .container p{
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 800;
   text-align: end;
 }
@@ -27,12 +27,12 @@
 
 .containerDetalhe span{
   width: 85%;
-  height: 40px;
+  height: 25px;
   background-color: #d03438;
 }
 
 .containerDetalhe p{
-  font-size: 44px;
+  font-size: 32px;
   font-weight: 900;
   padding: 0px 32px;
 }

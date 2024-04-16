@@ -21,7 +21,7 @@ const Infos = () => {
 
     <div className={styles.descricao} >
       <p>Descrição:</p>
-      <textarea name="descricao" id="descricao" cols="50" rows="7" ></textarea>
+      <textarea name="descricao" id="descricao" cols="50" rows="4" ></textarea>
     </div>
 
 
