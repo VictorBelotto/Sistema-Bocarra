@@ -1,0 +1,23 @@
+.mainContainer{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.containerCliente p{
+  font-size: 18px;
+  font-weight: 600;
+}
+.containerCliente span{
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.descricao p{
+  font-size: 18px;
+  font-weight: 600;
+}
+.descricao textarea{
+  resize: none;
+  border-radius: 3px;
+  border-color: rgb(216, 216, 216);
+}

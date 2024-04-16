@@ -10,7 +10,7 @@ const getOrderNumber = () => {
   const orderNumber = `#${year}${month}${day}${hours}${minutes}`;
   const data = `${day}/${month}/${year}`
 
-  return orderNumber;
+  return {orderNumber: orderNumber, data: data};
 };
 
 export default getOrderNumber;

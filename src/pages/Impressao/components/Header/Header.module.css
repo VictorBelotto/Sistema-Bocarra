@@ -1,3 +1,42 @@
-.container{
+.mainContainer{
   display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container img{
+  width: 300px;
+}
+
+.container p{
+  font-size: 18px;
+  font-weight: 800;
+  text-align: end;
+}
+
+.containerDetalhe{
+  display: flex;
+  align-items: center;
+}
+
+.containerDetalhe span{
+  width: 85%;
+  height: 40px;
+  background-color: #d03438;
+}
+
+.containerDetalhe p{
+  font-size: 44px;
+  font-weight: 900;
+  padding: 0px 32px;
+}
+
+.containerDetalhe span:last-of-type{
+  width: 15%;
 }
