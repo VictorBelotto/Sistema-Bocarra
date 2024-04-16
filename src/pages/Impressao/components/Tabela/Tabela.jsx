@@ -40,7 +40,19 @@ const Tabela = () => {
         ))}
       </tbody>
       <tbody>
-      <td  rowSpan="11" className={styles.celulaVertical}>Lona</td>
+      <td rowSpan="11" className={styles.celulaVertical}>Estrutura Metálica</td>
+
+        {dados.map((item, index) => (
+          <tr key={index} style={{ backgroundColor: index % 2 === 0 ? '#d9d9d9' : '#f2f2f2' }}>
+            <td className={styles.quantidade}>{item.quantidade}</td>
+            <td className={styles.descricao} >{item.descricao}</td>
+            <td className={styles.precoUnitario} >{item.precoUnitario}</td>
+            <td className={styles.total} >{item.total}</td>
+          </tr>
+        ))}
+      </tbody>
+      <tbody>
+      <td  rowSpan="11" className={styles.celulaVertical}>Acessórios</td>
         {dados.map((item, index) => (
           <tr key={index} style={{ backgroundColor: index % 2 === 0 ? '#d9d9d9' : '#f2f2f2' }}>
             <td className={styles.quantidade}>{item.quantidade}</td>

@@ -49,6 +49,9 @@ tbody tr:nth-child(even) {
   font-weight: 700;
   font-size: 18px;
 }
+.celulaVerticalnth-of-type(2) {
+  background-color: #f2f2f2;
+}
 .quantidade{
   text-align: center;
 
