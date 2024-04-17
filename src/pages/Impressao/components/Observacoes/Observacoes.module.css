@@ -1,0 +1,22 @@
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContainer h3{
+  font-size: 12px;
+  font-weight: 600;
+  margin: 6px 0px;
+}
+
+.mainContainer p{
+  font-size: 12px;
+  margin: 2px 0px;
+}
+
+.detalhe{
+  height: 1px;
+  width: 100%;
+  background-color: black;
+
+}

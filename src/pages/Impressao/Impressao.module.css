@@ -2,10 +2,13 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  height: 1123px;
 }
 
 .container{
   display: flex;
   flex-direction: column;
-  width: 1000px;
+  width: 800px;
+  height: 1123px;
+  margin: 8px 16px;
 }

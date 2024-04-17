@@ -17,7 +17,7 @@ const Header = () => {
       </div>
       <div className={styles.containerDetalhe}> 
         <span></span>
-        <p>orçamento</p>
+        <h2>orçamento</h2>
         <span></span>
       </div>
     </div>

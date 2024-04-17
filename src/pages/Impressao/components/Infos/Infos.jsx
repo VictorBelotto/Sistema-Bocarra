@@ -11,9 +11,11 @@ const Infos = () => {
       </div>
       <div>
         <p>CPF/CNPJ:</p>
+        <p>CPF/CNPJ:</p>
         <span></span>
       </div>
       <div>
+        <p>Endereço:</p>
         <p>Endereço:</p>
         <span></span>
       </div>
@@ -21,7 +23,7 @@ const Infos = () => {
 
     <div className={styles.descricao} >
       <p>Descrição:</p>
-      <textarea name="descricao" id="descricao" cols="50" rows="4" ></textarea>
+      <textarea name="descricao" id="descricao" cols="50" rows="3" ></textarea>
     </div>
 
 
