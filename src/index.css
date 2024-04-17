@@ -14,17 +14,3 @@ body {
   background-color: #ffffff;
 }
 
-h3{
-  font-size: 9px !important;
-  margin: 8px 0px;
-  font-weight: bold !important;
-}
-
-p{
-  font-size: 10px !important;
-  margin: 3px 0px !important; 
-}
-
-td,th{
-  font-size: 10px !important;
-}

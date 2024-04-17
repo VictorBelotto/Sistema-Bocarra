@@ -11,11 +11,9 @@ const Infos = () => {
       </div>
       <div>
         <p>CPF/CNPJ:</p>
-        <p>CPF/CNPJ:</p>
         <span></span>
       </div>
       <div>
-        <p>Endereço:</p>
         <p>Endereço:</p>
         <span></span>
       </div>

@@ -18,13 +18,15 @@
 }
 
 .containerValores h3{
-  font-size: 14px;
+  font-size: 10px ;
+  margin: 3px 0px ; 
   font-weight: 600;
-  margin: 6px 0px;
+ 
 }
 
 .containerValores p{
-  font-size: 12px;
+  font-size: 10px ;
+  margin: 3px 0px ; 
 }
 
 .containerTotal{
@@ -35,14 +37,16 @@
 }
 
 .containerTotal h3{
-  font-size: 16px;
+  font-size: 10px ;
+  margin: 3px 0px ; 
   font-weight: 600;
   color: #fff;
   padding-left: 8px;
 }
 
 .containerTotal p{
-  font-size: 12px;
+  font-size: 10px ;
+  margin: 3px 0px ; 
   color: #fff;
 }
 
@@ -52,11 +56,13 @@
 }
 .containerPrazo h3{
   text-align: end;
-  font-size: 14px;
+  font-size: 10px ;
+  margin: 3px 0px ; 
   font-weight: 600;
-  margin: 6px 0px;
+ 
 }
 .containerPrazo p{
   text-align: end;
-  font-size: 12px;
+  font-size: 10px ;
+  margin: 3px 0px ; 
 }
