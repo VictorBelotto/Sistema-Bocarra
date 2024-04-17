@@ -1,0 +1,36 @@
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContainer h3{
+  text-align: center;
+  font-size: 12px !important;
+}
+
+.mainContainer p{
+  font-size: 12px !important;
+  margin: 10px 0px !important ;
+}
+
+.lista {
+ 
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lista li{
+  font-size: 12px;
+}
+
+
+.detalhe{
+  width: 100%;
+  height: 1.5px;
+  background-color: black;
+}
+
+.garantiasContainer{
+  width: 300px;
+}

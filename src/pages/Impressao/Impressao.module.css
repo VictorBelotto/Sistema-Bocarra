@@ -2,7 +2,6 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  height: 1123px;
 }
 
 .container{
@@ -11,4 +10,17 @@
   width: 800px;
   height: 1123px;
   margin: 8px 16px;
+}
+
+.pageInfoMainContainer{
+  display: flex;
+  width: 100%;
+  justify-content: center; 
+}
+.pageInfoContainer{
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin: 8px 16px;
+  margin-bottom: 32px;
 }
