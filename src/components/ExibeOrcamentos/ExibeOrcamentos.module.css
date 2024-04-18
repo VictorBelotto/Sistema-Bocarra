@@ -2,4 +2,6 @@
   display: flex;
   gap: 32px;
   flex-wrap: wrap;
+  padding:16px ;
+  background-color: rgb(234, 234, 234);
 }

@@ -44,15 +44,16 @@ const PreenchimentoPadrao = () => {
       alturaAranha: dadosMetragem.alturaAranha,
     };
 
-    console.log(novoOrcamento)
+    
 
     orcamento.setOrcamentos([...orcamento.orcamentos, novoOrcamento]);
+    console.log(orcamento)
     showPopup('Orçamento adicionado a lista', 'blue');
   };
 
   return (
     <div className={styles.mainContainer}>
-      <ExibePopUp /> {/* Renderiza o componente ExibePopUp */}
+      <ExibePopUp /> 
       <h2>Orçamento Lona</h2>
       <div className={styles.modeloXMaterial} >
         <SelectModeloLona />

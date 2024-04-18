@@ -9,6 +9,8 @@ import Footer from './components/Footer/Footer';
 import PageIInfoGeral from './components/PageIInfoGeral/PageIInfoGeral';
 import {OrcamentoStorage} from '../../scripts/OrcamentoContext'
 import { DadosInseridosStorage } from '../../scripts/DadosInseridosContext';
+import BotaoPaginas from '../../components/BotaoPaginas/BotaoPaginas'
+import DadosFormatados from './components/DadosFormatados/DadosFormatados';
 
 const Impressao = () => {
   const printContainer = useRef(null);
@@ -23,6 +25,7 @@ const Impressao = () => {
 
     <DadosInseridosStorage>
       <OrcamentoStorage>
+        <DadosFormatados/>
         <div style={{display: 'flex', flexDirection: 'column', justifyContent:'center'}} >
           <div className={styles.mainContainer}>
             <div className={styles.container}>
@@ -43,8 +46,9 @@ const Impressao = () => {
             </div>
           
           </div>
-          <div  style={{alignSelf:'center'}} ref={printContainer}>
-          <button button onClick={handlePrint}>Imprimir</button>
+          <div  style={{alignSelf:'center', display:'flex', gap:'8px'}} ref={printContainer}>
+          <button  onClick={handlePrint}>Imprimir</button>
+          <BotaoPaginas refPg={'/'} label={'Pagina inicial'}/>
           </div > 
         </div>
       </OrcamentoStorage>

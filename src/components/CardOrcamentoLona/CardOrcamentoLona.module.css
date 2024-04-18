@@ -1,12 +1,14 @@
 .cardContainer {
   background-color: #f8f8f8;
   width: 320px;
+  height: fit-content;
   border-radius: 5px;
   padding: 8px 16px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Box shadow */
+  cursor: pointer;
 }
 .btn{
   border: none;
