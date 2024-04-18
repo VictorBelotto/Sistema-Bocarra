@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './CardOrcamentoLona.module.css'; 
 import {OrcamentoContext} from '../../scripts/OrcamentoContext.jsx'
-
+import { usePopup } from '../../context/PopupContext.jsx';
 
 const CardOrcamentoLona = ({ orcamento, index}) => {
   const { removerOrcamento } = React.useContext(OrcamentoContext);
+  const {showPopup} = usePopup();
   const valorTotal = (
     parseFloat(orcamento.valor) + 
     (orcamento.possuiFechamento ? parseFloat(orcamento.valorFechamento) : 0) + 
@@ -24,11 +25,17 @@ const CardOrcamentoLona = ({ orcamento, index}) => {
 
   const handleClickRemover = () =>{
     removerOrcamento(index)
+    showPopup('Orçamento removido da lista', 'red')
   }
+
 
   return (
     <div className={styles.cardContainer}>
+       <div style={{display:'flex', justifyContent: 'space-between'}} >
        <h3>Informações da Lona</h3>
+       <button className={`${styles.btn} ${styles.btn_remover}`} onClick={handleClickRemover}>X</button>
+     </div>
+      
       <p><strong>Modelo:</strong> {orcamento.modelo}</p>
       <p><strong>Medidas:</strong> {orcamento.larguraDaLona}m x {orcamento.comprimentoDaLona}m </p>
       <p><strong>Material:</strong> {orcamento.material}</p>
@@ -67,7 +74,7 @@ const CardOrcamentoLona = ({ orcamento, index}) => {
        <p>Valor Total com imposto: {valorFormatado(Number(valorComImposto))}</p> 
        <span className={styles.divisao} ></span>
     
-       <button className={styles.btn_remover} onClick={handleClickRemover}>Remover</button>
+    
    
     </div>
   );

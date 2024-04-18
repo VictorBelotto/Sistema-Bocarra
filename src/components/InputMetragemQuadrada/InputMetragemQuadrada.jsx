@@ -17,7 +17,7 @@ const InputMetragemQuadrada = ({ id }) => {
 
   return (
     <div>
-      <label htmlFor="metragemQuadrada">MetragemQuadrada (m²):</label>
+      <label htmlFor="metragemQuadrada">Metragem (m²):</label>
       <input type="number" id="metragemQuadrada" value={metragemQuadrada} onChange={handleMetragemQuadradaChange} />
     </div>
   );

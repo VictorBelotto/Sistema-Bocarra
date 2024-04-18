@@ -6,7 +6,7 @@
 
 .metragemEDiasDeTrabalho{
   display: flex;
-  gap: 48px;
+  gap: 16px;
 }
 
 .checkBox label{

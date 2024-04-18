@@ -55,7 +55,9 @@ const CalculadoraMetragem = () => {
       <CheckBoxFechamento/>
       <CheckBoxAranha/>
       
-      <button onClick={calcular}>Calcular Metragem</button>
+      <div style={{display:'flex', width:'100%', justifyContent:'center'}} >
+        <button onClick={calcular}>Calcular Metragem</button>
+      </div>
   
     {
       exibeResultado && (
@@ -76,8 +78,10 @@ const CalculadoraMetragem = () => {
           )
         }
 
-        <button onClick={preencherOrcamento}>Preencher no Orçamento </button>
-
+        
+        <div style={{display:'flex', width:'100%', justifyContent:'center'}} >
+          <button onClick={preencherOrcamento}>Preencher no Orçamento </button>
+        </div>
       </div>
       )
     }

@@ -7,28 +7,26 @@
   background-color: #f9f9f9;
 }
 
-.modeloXMaterial{
+.modeloXMaterial, .metragemLona{
   display: flex;
-  gap: 48px;
+  gap: 16px;
 }
 
-.modeloXMaterial select{
-  width: 180px;
+.mainContainer h2{
+  font-size: 18px;
 }
 
-.metragemLona{
-  display: flex;
-  gap: 48px;
-}
-label {
+
+.mainContainer label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  font-size: 14px;
 }
 
 select,
 input {
-  width: 100%;
+  width: 160px;
   padding: 8px;
   margin-bottom: 10px;
   border: 1px solid #ccc;

@@ -1,5 +1,5 @@
 .calculadoraContainer {
-  max-width: 600px;
+  max-width: 300px;
   margin: 0 0  auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -14,6 +14,7 @@
 
 .calculadoraContainer h2 {
   margin-bottom: 20px;
+  font-size: 18px;
 }
 
 .calculadoraContainer label {
@@ -23,7 +24,8 @@
 
 .calculadoraContainer input {
   width: 100%;
-  padding: 8px;
+  padding: 6px;
+  font-size: 14px;
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -31,14 +33,14 @@
 
 .calculadoraContainer button {
   display: block;
-  width: 100%;
-  padding: 10px;
+  padding: 8px 16px;
   margin-top: 10px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  justify-self: center;
 }
 
 .calculadoraContainer button:hover {
@@ -50,9 +52,13 @@
 }
 
 .calculadoraContainer p {
+  font-size: 14px;
   margin-bottom: 10px;
 }
-
+.calculadoraContainer label{
+  font-size: 14px;
+  font-weight: bold;
+}
 .checkBox{
   display: flex;
   align-items: center;

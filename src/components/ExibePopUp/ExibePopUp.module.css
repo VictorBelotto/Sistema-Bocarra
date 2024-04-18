@@ -1,0 +1,6 @@
+.mensagemContainer{
+  position: fixed;
+  bottom: 80px;
+  left: 8px;
+  padding: 8px 16px;
+}
