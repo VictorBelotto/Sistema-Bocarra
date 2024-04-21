@@ -7,8 +7,12 @@ import CalculadoraMetragem from '../../components/CalculadoraMetragem/Calculador
 import ExibeOrcamentos from '../../components/ExibeOrcamentos/ExibeOrcamentos';
 import BotaoPaginas from '../../components/BotaoPaginas/BotaoPaginas';
 import { PopupProvider } from '../../context/PopupContext';
+import CalculadoraEstruturas from '../../components/CalculadoraEstruturas/CalculadoraEstruturas';
 const Home = () => {
-  
+  const containerCalculoLona = React.useRef(null);
+  React.useEffect(()=>{
+    containerCalculoLona.current.style.display = 'none'
+  },[])
 
   return (
     <>
@@ -20,8 +24,16 @@ const Home = () => {
                 <BotaoPaginas refPg={'impressao'} label={'Planilha Orçamento'}/>
               </div> 
               <div className={styles.container} >
-                <CalculadoraMetragem/>
-                <PreenchimentoPadrao/>
+                <button>ola</button>
+                <div ref={containerCalculoLona} >
+                  <CalculadoraMetragem/>
+                  <PreenchimentoPadrao/>
+                </div>
+                <div>
+                  <CalculadoraEstruturas/>
+                </div>
+               
+                
               </div>
               <div>
                 <ExibeOrcamentos/>

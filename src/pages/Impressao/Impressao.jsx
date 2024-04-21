@@ -14,7 +14,6 @@ import DadosFormatados from './components/DadosFormatados/DadosFormatados';
 
 const Impressao = () => {
   const printContainer = useRef(null);
-
   const handlePrint = () => {
     printContainer.current.style.display = 'none';
     window.print();
@@ -46,9 +45,11 @@ const Impressao = () => {
             </div>
           
           </div>
-          <div  style={{alignSelf:'center', display:'flex', gap:'8px'}} ref={printContainer}>
-          <button  onClick={handlePrint}>Imprimir</button>
-          <BotaoPaginas refPg={'/'} label={'Pagina inicial'}/>
+          <div  style={{justifyContent:'center', display:'flex', width:'100%', margin:'16px 0px 32px 0px'}} ref={printContainer}>
+            <div style={{justifyContent:'center', display:'flex', gap:'16px',}} >
+              <button className={styles.btnImprimir} onClick={handlePrint}>Imprimir</button>
+              <BotaoPaginas refPg={'/'} label={'Pagina inicial'}/>
+            </div>
           </div > 
         </div>
       </OrcamentoStorage>

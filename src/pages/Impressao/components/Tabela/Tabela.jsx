@@ -6,8 +6,8 @@ const Tabela = () => {
   const rows = 10
   const dados = [
     { quantidade: 1, descricao: 'Lona tensionada cupula trad 24 x 30', precoUnitario: 10, total: 20 },
-   
 
+   
 
   ];
 
