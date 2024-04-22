@@ -10,8 +10,9 @@ import CheckBoxFechamento from './components/CheckBoxFechamento/CheckBoxFechamen
 
 const CalculadoraMetragem = () => {
   const {dadosInseridos, dadosMetragem, adicionarDado, checksDaMetragem} = React.useContext(DadosInseridosContext)
-  const [resultados, setResultados] = useState({});
-  const [exibeResultado, setExibeResultado] = useState(false)
+  const [resultados, setResultados] = React.useState({});
+  const [exibeResultado, setExibeResultado] = React.useState(false)
+  const [marquiseIsChecked, setMarquiseIsChecked] = React.useState(false)
 
   const adicionaResultado = (nome, valor) => {
     setResultados(prevState => ({
@@ -20,9 +21,14 @@ const CalculadoraMetragem = () => {
     }))
   }
 
+  const handleCheckMarquiseChange = () =>{
+    setMarquiseIsChecked(!marquiseIsChecked)
+    console.log('mudou')
+  }
+
   const calcular = () => {
    console.log(dadosInseridos)
-   const resultado = calcularMetragem(dadosMetragem.larguraDaLona, dadosMetragem.comprimentoDaLona, dadosMetragem.alturaFechamento, dadosMetragem.alturaAranha)
+   const resultado = calcularMetragem(dadosMetragem, marquiseIsChecked )
 
    adicionaResultado('metragem', resultado['metragem'])
    adicionaResultado('fechamento', resultado['fechamento'])
@@ -47,9 +53,20 @@ const CalculadoraMetragem = () => {
   return (
     <div className={styles.calculadoraContainer}>
       <h2>Calculadora de Metragem</h2>
-      <div className={styles.comprimentoXLarguraContainer} >
+      <div className={styles.checkBox}>
+        <label htmlFor="marquiseCheckBox">Marquise Tradicional?</label>
+        <input 
+          type="checkbox" 
+          id="marquiseCheckBox" 
+          value={marquiseIsChecked}
+          onClick={handleCheckMarquiseChange}
+        />
+      </div>
+    
+      <div className={styles.comprimentoXLarguraContainer}>
         <InputLargura/>
         <InputComprimento/>
+
       </div>
      
       <CheckBoxFechamento/>
@@ -78,7 +95,6 @@ const CalculadoraMetragem = () => {
           )
         }
 
-        
         <div style={{display:'flex', width:'100%', justifyContent:'center'}} >
           <button onClick={preencherOrcamento}>Preencher no Orçamento </button>
         </div>

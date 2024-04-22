@@ -20,13 +20,11 @@ const CheckBoxFechamento = () => {
   return (
    <>
      <div className={styles.checkBox}>
-      <label htmlFor="meuCheckbox">Adicionar Fechamento?</label>
+      <label htmlFor="checkBoxFechamento">Adicionar Fechamento?</label>
       <input 
         type="checkbox" 
-        id="meuCheckbox" 
-        name="meuCheckbox" 
-        value="valorDoCheckbox"
-        defaultChecked ={fechamentoIsChecked}
+        id="checkBoxFechamento" 
+        value={fechamentoIsChecked}
         onClick={handleCheckboxChange}
       />
      </div>

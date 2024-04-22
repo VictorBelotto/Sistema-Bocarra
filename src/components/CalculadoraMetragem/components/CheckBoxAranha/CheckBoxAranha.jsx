@@ -19,13 +19,11 @@ const CheckBoxAranha = () => {
   return (
    <>
      <div className={styles.checkBox}>
-      <label htmlFor="meuCheckbox">Adicionar Aranha?</label>
+      <label htmlFor="checkBoxAranha">Adicionar Aranha?</label>
       <input 
         type="checkbox" 
-        id="meuCheckbox" 
-        name="meuCheckbox" 
-        value="valorDoCheckbox"
-        defaultChecked ={aranhaIsChecked}
+        id="checkBoxAranha" 
+        value={aranhaIsChecked}
         onClick={handleCheckboxChange}
       />
      </div>
