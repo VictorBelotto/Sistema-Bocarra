@@ -5,9 +5,10 @@ import { OrcamentoStorage } from '../../scripts/OrcamentoContext';
 import { DadosInseridosStorage } from '../../scripts/DadosInseridosContext';
 import CalculadoraMetragem from '../../components/CalculadoraMetragem/CalculadoraMetragem';
 import ExibeOrcamentos from '../../components/ExibeOrcamentos/ExibeOrcamentos';
-import BotaoPaginas from '../../components/BotaoPaginas/BotaoPaginas';
+import BotaoPaginas from '../../components/BotaoPaginas.jsx';
 import { PopupProvider } from '../../context/PopupContext';
 import CalculadoraEstruturas from '../../components/CalculadoraEstruturas/CalculadoraEstruturas';
+
 
 const Home = () => {
   const [lonaView, setLonaView] = React.useState(true);

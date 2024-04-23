@@ -8,7 +8,7 @@ const ExibeOrcamentos = () => {
   return (
     <div className={styles.containerCards} >
     {orcamentos.map((orcamento, index) => (
-      <CardOrcamentoLona key={index} orcamento={orcamento} index={index} />
+      <CardOrcamentoLona key={index} orcamento={orcamento} index={index}/>
     ))}
   </div>
   )

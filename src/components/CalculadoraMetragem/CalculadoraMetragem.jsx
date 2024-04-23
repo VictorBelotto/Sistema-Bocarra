@@ -27,7 +27,6 @@ const CalculadoraMetragem = () => {
   }
 
   const calcular = () => {
-   console.log(dadosInseridos)
    const resultado = calcularMetragem(dadosMetragem, marquiseIsChecked )
 
    adicionaResultado('metragem', resultado['metragem'])

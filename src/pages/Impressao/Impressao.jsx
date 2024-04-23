@@ -9,7 +9,7 @@ import Footer from './components/Footer/Footer';
 import PageIInfoGeral from './components/PageIInfoGeral/PageIInfoGeral';
 import {OrcamentoStorage} from '../../scripts/OrcamentoContext'
 import { DadosInseridosStorage } from '../../scripts/DadosInseridosContext';
-import BotaoPaginas from '../../components/BotaoPaginas/BotaoPaginas'
+import BotaoPaginas from '../../components/BotaoPaginas.jsx'
 import DadosFormatados from './components/DadosFormatados/DadosFormatados';
 
 const Impressao = () => {

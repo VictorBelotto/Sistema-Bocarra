@@ -7,7 +7,7 @@ const CardOrcamentoLona = ({ orcamento, index}) => {
   const { removerOrcamento } = React.useContext(OrcamentoContext);
   const {showPopup} = usePopup();
   const [infoCompleta, setInfoCompleta] = React.useState(false)
-  const minhaDivRef = React.useRef(null);
+
   const handleClick = () => {
     setInfoCompleta(!infoCompleta)
   };
@@ -36,7 +36,7 @@ const CardOrcamentoLona = ({ orcamento, index}) => {
 
 
   return (
-    <div ref={minhaDivRef} onClick={handleClick} className={styles.cardContainer}>
+    <div onClick={handleClick} className={styles.cardContainer}>
        <div style={{display:'flex', justifyContent: 'space-between'}} >
        <h3>Informações da Lona</h3>
        <button className={`${styles.btn} ${styles.btn_remover}`} onClick={handleClickRemover}>X</button>
