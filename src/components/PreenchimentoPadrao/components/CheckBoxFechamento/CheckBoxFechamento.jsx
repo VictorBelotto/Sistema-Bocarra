@@ -5,7 +5,7 @@ import InputMetragemQuadrada from '../../../InputMetragemQuadrada/InputMetragemQ
 import InputDiasDeTrabalho from '../../../InputDiasDeTrabalho/InputDiasDeTrabalho';
 
 const CheckBoxFechamento = () => {
-  const {dadosInseridos, adicionarChecksDoOrcamento} = React.useContext(DadosInseridosContext)
+  const {adicionarChecksDoOrcamento} = React.useContext(DadosInseridosContext)
     const [fechamentoIsChecked, setFechamentoIsChecked] = React.useState(false);
 
 
@@ -19,11 +19,10 @@ const CheckBoxFechamento = () => {
     <>
       
       <div className={styles.checkBox}>
-        <label htmlFor="checkBoxFechamento">Adicionar Fechamento?</label>
+        <label htmlFor="checkBoxFechamentoOrcamento">Adicionar Fechamento?</label>
         <input
           type="checkbox"
-          id="checkBoxFechamento"
-          name="checkBoxFechamento"
+          id="checkBoxFechamentoOrcamento"
           value="valorDoCheckbox"
           defaultChecked={fechamentoIsChecked}
           onClick={handleCheckFechamentoChange}

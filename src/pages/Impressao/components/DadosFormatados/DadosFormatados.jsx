@@ -7,7 +7,9 @@ const DadosFormatados = () => {
   const {dadosInseridos} = React.useContext(DadosInseridosContext)
  
   return (
-    <div></div>
+    <div>
+      
+    </div>
   )
 }
 

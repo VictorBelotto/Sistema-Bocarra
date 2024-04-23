@@ -5,8 +5,7 @@ import { DadosInseridosContext } from '../../scripts/DadosInseridosContext.jsx';
 
 import InputLargura from './components/InputLargura/InputLargura.jsx';
 import InputComprimento from './components/InputComprimento/InputComprimento.jsx';
-import CheckBoxAranha from './components/CheckBoxAranha/CheckBoxAranha.jsx';
-import CheckBoxFechamento from './components/CheckBoxFechamento/CheckBoxFechamento.jsx';
+import CheckBoxMetragens from './components/CheckBoxMetragens.jsx';
 
 const CalculadoraMetragem = () => {
   const {dadosInseridos, dadosMetragem, adicionarDado, checksDaMetragem} = React.useContext(DadosInseridosContext)
@@ -67,9 +66,16 @@ const CalculadoraMetragem = () => {
         <InputComprimento/>
 
       </div>
-     
-      <CheckBoxFechamento/>
-      <CheckBoxAranha/>
+      <CheckBoxMetragens
+        id={'fechamento'}
+        labelCheck={'Adicionar Fechamento?'}
+        labelInput={'Altura do Fechamento da Lona:'}
+      />
+      <CheckBoxMetragens
+        id={'aranha'}
+        labelCheck={'Adicionar Aranha?'}
+        labelInput={'Altura do Fechamento da Aranha:'}
+      />
       
       <div style={{display:'flex', width:'100%', justifyContent:'center'}} >
         <button onClick={calcular}>Calcular Metragem</button>

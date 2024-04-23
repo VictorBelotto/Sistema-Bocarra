@@ -17,19 +17,7 @@
   font-size: 18px;
 }
 
-.calculadoraContainer label {
-  display: block;
-  margin-bottom: 5px;
-}
 
-.calculadoraContainer input {
-  width: 100%;
-  padding: 6px;
-  font-size: 14px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
 
 .calculadoraContainer button {
   display: block;
