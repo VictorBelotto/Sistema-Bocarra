@@ -51,6 +51,7 @@ const CardOrcamentoLona = ({ orcamento, index}) => {
        <p><strong>Metragem:</strong> {orcamento.metragemQuadrada.lona} <strong>m²</strong></p>
        <p><strong>Dias de Trabalho:</strong> {orcamento.diasDeTrabalho.lona} dias</p>
        <p><strong>Valor:</strong> {valorFormatado(Number(orcamento.valor))}</p>
+       <p><strong>Mão de Obra:</strong> {valorFormatado(Number(orcamento.maoDeObra))}</p>
        <span className={styles.divisao} ></span>
          {
            orcamento.possuiFechamento && (
