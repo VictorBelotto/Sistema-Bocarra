@@ -50,6 +50,7 @@ const PreenchimentoPadrao = () => {
     console.log(orcamento)
     showPopup('Orçamento adicionado a lista', 'blue');
   };
+  
   return (
     <div className={styles.mainContainer}>
       <ExibePopUp /> 
