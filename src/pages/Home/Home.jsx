@@ -1,11 +1,10 @@
 import React, { useRef } from 'react';
-import styles from './Home.module.css';
 import PreenchimentoPadrao from '../../components/PreenchimentoPadrao/PreenchimentoPadrao';
 import { OrcamentoStorage } from '../../scripts/OrcamentoContext';
 import { DadosInseridosStorage } from '../../scripts/DadosInseridosContext';
 import CalculadoraMetragem from '../../components/CalculadoraMetragem/CalculadoraMetragem';
 import ExibeOrcamentos from '../../components/ExibeOrcamentos/ExibeOrcamentos';
-import BotaoPaginas from '../../components/BotaoPaginas.jsx';
+import BotaoPaginas from '../../components/Botoes/BotaoPaginas.jsx';
 import { PopupProvider } from '../../context/PopupContext';
 import CalculadoraEstruturas from '../../components/CalculadoraEstruturas/CalculadoraEstruturas';
 
@@ -34,35 +33,35 @@ const Home = () => {
     <PopupProvider>
       <DadosInseridosStorage>
         <OrcamentoStorage>
-          <div className={styles.mainContainer}>
+          <div className='fontRoboto flex flex-col justify-center items-center'>
             <div style={{margin: '8px 0px 32px 0px '}}>
               <BotaoPaginas refPg={'impressao'} label={'Planilha Orçamento'} />
             </div>
 
-            <div className={styles.containerBtnCalculadora}>
+            <div className='flex w-2/4 mb-8'>
               <button onClick={handleLonaView} ref={lonaButtonRef}>Calculadora de Lonas</button>
               <button onClick={handleEstruturaView} ref={estruturaButtonRef}>Calculadora de Estruturas</button>
             </div>
 
-            <div className={styles.containerCalculadoras}>
+            <div className='flex flex-col gap-8 rounded-lg mb-8  w-4/5'>
               {lonaView && (
-                <div className={styles.containerCalculo}>
+                <div className='flex container justify-center gap-12'>
                   <CalculadoraMetragem />
                   <PreenchimentoPadrao />
                 </div>
               )}
               {estruturaView && (
-                <div className={styles.containerCalculo}>
+                <div className='flex container justify-center gap-12'>
                   <CalculadoraEstruturas />
                 </div>
               )}
             </div>
 
-            <div className={styles.containerOrcamentos}>
+            <div className='flex w-4/5 bg-card-escuro rounded-lg shadow-card'>
               <ExibeOrcamentos />
             </div>
 
-            <div className={styles.containerPreencher}>
+            <div className='m-8'>
               <button>Preencher na Planilha</button>
             </div>
           </div>

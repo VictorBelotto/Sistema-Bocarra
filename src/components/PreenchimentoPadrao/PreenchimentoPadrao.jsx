@@ -10,9 +10,9 @@ import SelectModeloLona from './components/SelectModeloLona/SelectModeloLona.jsx
 import SelectMaterial from './components/SelectMaterial/SelectMaterial.jsx';
 import InputDiasDeTrabalho from '../InputDiasDeTrabalho/InputDiasDeTrabalho.jsx';
 import InputMetragemQuadrada from '../InputMetragemQuadrada/InputMetragemQuadrada.jsx';
-import CheckBoxAranha from './components/CheckBoxAranha/CheckBoxAranha.jsx';
-import CheckBoxFechamento from './components/CheckBoxFechamento/CheckBoxFechamento.jsx';
 import { calculaValorDaLona } from '../../scripts/CalculaValorDaLona.js';
+import CheckBoxFechamentos from './components/CheckBoxFechamentos.jsx';
+import BotaoPadrao from '../Botoes/BotaoPadrao.jsx'
 
 const PreenchimentoPadrao = () => {
   const orcamento = React.useContext(OrcamentoContext);
@@ -33,7 +33,7 @@ const PreenchimentoPadrao = () => {
       valor: valoresDaLona.valorDaLona,
       possuiFechamento: checksDoOrcamento.fechamentoIsChecked,
       valorFechamento: valorFechamento,
-      possuiAranha: checksDoOrcamento.fechamentoAranhaIsChecked,
+      possuiAranha: checksDoOrcamento.aranhaIsChecked,
       valorFechamentoAranha: valorFechamentoAranha,
       larguraDaLona: dadosMetragem.larguraDaLona,
       comprimentoDaLona: dadosMetragem.comprimentoDaLona,
@@ -47,25 +47,36 @@ const PreenchimentoPadrao = () => {
   };
   
   return (
-    <div className={styles.mainContainer}>
+    <div className='flex flex-col w-96 m-0 py-4 px-6 rounded-lg bg-card-claro shadow-card bg-opacity-95'>
       <ExibePopUp /> 
-      <h2>Orçamento Lona</h2>
-      <div className={styles.modeloXMaterial} >
-        <SelectModeloLona />
+      <h1 className='ti-1 text-white mb-3'>Orçamento Lona</h1>
+      <div className='flex justify-between mb-3' >
+        <SelectModeloLona/>
         <SelectMaterial />
       </div>
-      <div className={styles.metragemLona} >
+      <div className='flex justify-between mb-3' >
         <InputMetragemQuadrada id={'lona'} />
         <InputDiasDeTrabalho id={'lona'} />
       </div>
-      <div>
-        <CheckBoxFechamento />
+     
+      <div className='mb-3' >
+        <CheckBoxFechamentos
+          label={'Adicionar Fechamento?'}
+          id={'fechamento'}
+        />
       </div>
-      <div>
-        <CheckBoxAranha />
+      <div className='mb-3' >
+        <CheckBoxFechamentos
+          label={'Adicionar Aranha?'}
+          id={'aranha'}
+        />
       </div>
-      <div style={{ display: 'flex', width: '100%', justifyContent: 'center', marginTop: '16px' }} >
-        <button onClick={handleAddOrcamento}>Adicionar Orçamento</button>
+      <div className='flex container justify-center mt-2'>
+        <BotaoPadrao
+          variant={'roxo'}
+          label={'Adicionar Orçamento'}
+          onClick={handleAddOrcamento}
+        />
       </div>
     </div>
   );

@@ -16,9 +16,15 @@ const InputMetragemQuadrada = ({ id }) => {
   };
 
   return (
-    <div>
-      <label htmlFor="metragemQuadrada">Metragem (m²):</label>
-      <input type="number" id="metragemQuadrada" value={metragemQuadrada} onChange={handleMetragemQuadradaChange} />
+    <div className='flex flex-col w-40 gap-2'>
+      <label className='container text-white' htmlFor="metragemQuadrada">Metragem (m²):</label>
+      <input 
+        className='container bg-card-contraste text-white border-none'
+        type="number" 
+        id="metragemQuadrada" 
+        value={metragemQuadrada} 
+        onChange={handleMetragemQuadradaChange} 
+      />
     </div>
   );
 };

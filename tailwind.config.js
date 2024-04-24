@@ -15,7 +15,22 @@ export default {
         },
         branco:{
           contraste:'#f8f8f8'
+        },
+        card:{
+          escuro:'#100f1e',
+          claro:'#0c0c1b',
+          contraste:'#1c1d1f'
+        },
+        text:{
+          contraste:'#7c7a91'
+        },
+        fundo:{
+          roxo:'#6a66ff',
+          roxoH:'#5451cc',
+          verde:'#79efbd',
+          verdeH:'#5fbc94',
         }
+      
       },
 
       boxShadow:{

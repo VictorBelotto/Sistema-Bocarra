@@ -12,9 +12,15 @@ const InputDiasDeTrabalho = ({ id }) => {
   };
 
   return (
-    <div>
-      <label htmlFor="diasDeTrabalho">Dias de trabalho:</label>
-      <input type="number" id="diasDeTrabalho" value={diasDeTrabalho} onChange={handleDiasDeTrabalhoChange} />
+    <div className='flex flex-col w-40 gap-2'>
+      <label className='text-white container' htmlFor="diasDeTrabalho">Dias de trabalho:</label>
+      <input 
+        className='bg-card-contraste text-white border-none container'
+        type="number" 
+        id="diasDeTrabalho" 
+        value={diasDeTrabalho} 
+        onChange={handleDiasDeTrabalhoChange} 
+      />
     </div>
   );
 };

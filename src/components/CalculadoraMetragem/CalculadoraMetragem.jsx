@@ -3,7 +3,7 @@ import { calcularMetragem } from '../../scripts/CalculoMetragem.class';
 import { DadosInseridosContext } from '../../scripts/DadosInseridosContext.jsx';
 
 import CheckBoxMetragens from './components/CheckBoxMetragens.jsx';
-import BotaoPadrao from '../BotaoPadrao.jsx';
+import BotaoPadrao from '../Botoes/BotaoPadrao.jsx';
 import InputMetragem from './components/InputMetragem.jsx';
 
 const CalculadoraMetragem = () => {
@@ -47,7 +47,7 @@ const CalculadoraMetragem = () => {
 
   return (
     <div className='w-80 m-0 p-4 rounded-lg bg-branco-contraste shadow-card'>
-      <h2 className='mb-3'>Calculadora de Metragem</h2>
+      <h1 className='ti-1 mb-3'>Calculadora de Metragem</h1>
 
       <div className='flex items-center mb-3'>
         <label htmlFor="marquiseCheckBox" className='mr-2'>
@@ -93,7 +93,7 @@ const CalculadoraMetragem = () => {
     {
       exibeResultado && (
         <div className='flex flex-col gap-2 mt-5'>
-        <h2>Resultado:</h2> 
+        <h2 className='ti-2'>Resultado:</h2> 
         <p>Metragem Lona (m²): {resultados.metragem} m²</p>
         <p>Perimetro: {resultados.perimetro} m</p>
         {

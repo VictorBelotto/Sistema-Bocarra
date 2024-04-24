@@ -13,9 +13,14 @@ const SelectModeloLona = () => {
 }
 
   return (
-    <div>
-      <label htmlFor="modelo">Selecione o modelo: </label>
-      <select id="modelo" value={selectedModelo.value} onChange={handleModeloChange}>
+    <div className='flex flex-col w-40 gap-2'>
+      <label className='text-white' htmlFor="modelo">Selecione o modelo: </label>
+      <select 
+          className='bg-card-contraste m-0 text-white border-none'
+          id="modelo" 
+          value={selectedModelo.value} 
+          onChange={handleModeloChange}
+        >
         <option value="">Selecione...</option>
         {ModelosLona.selectModelos.map((modelo) => (
           <option key={modelo.value} value={modelo.value}>

@@ -9,7 +9,7 @@ import Footer from './components/Footer/Footer';
 import PageIInfoGeral from './components/PageIInfoGeral/PageIInfoGeral';
 import {OrcamentoStorage} from '../../scripts/OrcamentoContext'
 import { DadosInseridosStorage } from '../../scripts/DadosInseridosContext';
-import BotaoPaginas from '../../components/BotaoPaginas.jsx'
+import BotaoPaginas from '../../components/Botoes/BotaoPaginas.jsx'
 import DadosFormatados from './components/DadosFormatados/DadosFormatados';
 
 const Impressao = () => {
@@ -25,7 +25,7 @@ const Impressao = () => {
     <DadosInseridosStorage>
       <OrcamentoStorage>
         <DadosFormatados/>
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent:'center'}} >
+        <div  className='fontGothic flex flex-col justify-center '>
           <div className={styles.mainContainer}>
             <div className={styles.container}>
               <Header />
