@@ -1,5 +1,6 @@
 import React from 'react'
 import { DadosInseridosContext } from '../../../scripts/DadosInseridosContext.jsx';
+import InputsCheckBox from '../../InputsCheckBox/InputsCheckBox.jsx';
 const CheckBoxMetragens = ({labelCheck, labelInput, id}) => {
   const dadosInseridos = React.useContext(DadosInseridosContext)
   const [fechamentoIsChecked, setFechamentoIsChecked] = React.useState(false)
@@ -17,21 +18,21 @@ const CheckBoxMetragens = ({labelCheck, labelInput, id}) => {
   return (
    <div key={id}>
      <div className='flex items-center mb-4'>
-        <label className='pr-2' htmlFor={id}>{labelCheck}</label>
-        <input 
-        className='w-5 h-5 self-start mb-0' 
-          type="checkbox" 
-          id={id} 
-          value={fechamentoIsChecked}
-          onClick={handleCheckboxChange}
-        />
+
+    <InputsCheckBox
+      label={labelCheck}
+      id={id}
+      onClick={handleCheckboxChange}
+      value={fechamentoIsChecked}
+    />
      </div>
 
       {
         fechamentoIsChecked && (
           <div>
-            <label htmlFor={id}>{labelInput}</label>
+            <label className='container text-white' htmlFor={id}>{labelInput}</label>
             <input 
+            className='w-36 bg-card-contraste text-white border-none'
               type="number" 
               id={id}
               value={alturaFechamento} 

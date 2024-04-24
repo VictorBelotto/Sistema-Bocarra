@@ -10,10 +10,10 @@ const InputMetragem = ({label, id}) => {
     adicionarMetragem(`${id}DaLona`, e.target.value)
   }
   return (
-    <div key={id} className='flex container gap flex-col '>
-      <label htmlFor={id} >{label}:</label>
+    <div key={id} className='flex flex-col w-36 gap-2'>
+      <label className='container text-white' htmlFor={id} >{label}:</label>
       <input 
-        className='w-28'
+        className='container text-white bg-card-contraste border-none'
         type="number" 
         id={id} 
         value={metragem} 

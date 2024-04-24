@@ -5,6 +5,7 @@ import { DadosInseridosContext } from '../../scripts/DadosInseridosContext.jsx';
 import CheckBoxMetragens from './components/CheckBoxMetragens.jsx';
 import BotaoPadrao from '../Botoes/BotaoPadrao.jsx';
 import InputMetragem from './components/InputMetragem.jsx';
+import InputsCheckBox from '../InputsCheckBox/InputsCheckBox.jsx';
 
 const CalculadoraMetragem = () => {
   const {dadosInseridos, dadosMetragem, adicionarDado, checksDaMetragem} = React.useContext(DadosInseridosContext)
@@ -46,23 +47,17 @@ const CalculadoraMetragem = () => {
 }
 
   return (
-    <div className='w-80 m-0 p-4 rounded-lg bg-branco-contraste shadow-card'>
-      <h1 className='ti-1 mb-3'>Calculadora de Metragem</h1>
+    <div className='flex flex-col w-96 m-0 py-4 px-6 rounded-lg bg-card-claro shadow-card bg-opacity-95'>
+      <h1 className='ti-1 mb-3 text-white'>Calculadora de Metragem</h1>
 
-      <div className='flex items-center mb-3'>
-        <label htmlFor="marquiseCheckBox" className='mr-2'>
-          Marquise Tradicional?
-        </label>
-        <input 
-          className='w-5 h-5 m-0' 
-          type="checkbox" 
-          id="marquiseCheckBox" 
-          value={marquiseIsChecked}
-          onClick={handleCheckMarquiseChange}
-        />
-      </div>
+      <InputsCheckBox
+        label={'Marquise Tradicional?'}
+        id={'marquise'}
+        onClick={handleCheckMarquiseChange}
+        value={marquiseIsChecked}
+      />
     
-      <div className='flex mb-3'>
+      <div className='flex justify-between mb-3'>
         <InputMetragem
           id={'largura'}
           label={'Largura'}
@@ -86,6 +81,7 @@ const CalculadoraMetragem = () => {
       <div className='flex container justify-center'>
         <BotaoPadrao
             onClick={calcular}
+            variant={'roxo'}
             label={'Calcular Metragem'}
           />
       </div>
