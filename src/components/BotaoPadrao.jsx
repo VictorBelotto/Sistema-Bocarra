@@ -1,9 +1,12 @@
 import React from 'react'
 
-const BotaoPadrao = ({label}) => {
+const BotaoPadrao = ({label, onClick}) => {
   return (
     <>
-      <button className='' >
+      <button 
+       className='bg-slate-900'
+        onClick={onClick}
+      >
         {label}
       </button>
     </>

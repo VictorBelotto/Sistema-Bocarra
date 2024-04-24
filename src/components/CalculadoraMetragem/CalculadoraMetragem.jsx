@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import styles from './CalculadoraMetragem.module.css'; 
 import { calcularMetragem } from '../../scripts/CalculoMetragem.class';
 import { DadosInseridosContext } from '../../scripts/DadosInseridosContext.jsx';
 
-import InputLargura from './components/InputLargura/InputLargura.jsx';
-import InputComprimento from './components/InputComprimento/InputComprimento.jsx';
 import CheckBoxMetragens from './components/CheckBoxMetragens.jsx';
+import BotaoPadrao from '../BotaoPadrao.jsx';
+import InputMetragem from './components/InputMetragem.jsx';
 
 const CalculadoraMetragem = () => {
   const {dadosInseridos, dadosMetragem, adicionarDado, checksDaMetragem} = React.useContext(DadosInseridosContext)
@@ -46,14 +45,16 @@ const CalculadoraMetragem = () => {
     
 }
 
- 
-
   return (
-    <div className={styles.calculadoraContainer}>
-      <h2>Calculadora de Metragem</h2>
-      <div className={styles.checkBox}>
-        <label htmlFor="marquiseCheckBox">Marquise Tradicional?</label>
+    <div className='w-80 m-0 p-4 rounded-lg bg-branco-contraste shadow-card'>
+      <h2 className='mb-3'>Calculadora de Metragem</h2>
+
+      <div className='flex items-center mb-3'>
+        <label htmlFor="marquiseCheckBox" className='mr-2'>
+          Marquise Tradicional?
+        </label>
         <input 
+          className='w-5 h-5 m-0' 
           type="checkbox" 
           id="marquiseCheckBox" 
           value={marquiseIsChecked}
@@ -61,10 +62,15 @@ const CalculadoraMetragem = () => {
         />
       </div>
     
-      <div className={styles.comprimentoXLarguraContainer}>
-        <InputLargura/>
-        <InputComprimento/>
-
+      <div className='flex mb-3'>
+        <InputMetragem
+          id={'largura'}
+          label={'Largura'}
+        />
+        <InputMetragem
+          id={'comprimento'}
+          label={'Comprimento'}
+        />
       </div>
       <CheckBoxMetragens
         id={'fechamento'}
@@ -77,13 +83,17 @@ const CalculadoraMetragem = () => {
         labelInput={'Altura do Fechamento da Aranha:'}
       />
       
-      <div style={{display:'flex', width:'100%', justifyContent:'center'}} >
-        <button onClick={calcular}>Calcular Metragem</button>
+      <div className='flex container justify-center'>
+        <BotaoPadrao
+            onClick={calcular}
+            label={'Calcular Metragem'}
+          />
       </div>
   
     {
       exibeResultado && (
-        <div className={styles.resultados}>
+        <div className='flex flex-col gap-2 mt-5'>
+        <h2>Resultado:</h2> 
         <p>Metragem Lona (m²): {resultados.metragem} m²</p>
         <p>Perimetro: {resultados.perimetro} m</p>
         {
@@ -100,8 +110,11 @@ const CalculadoraMetragem = () => {
           )
         }
 
-        <div style={{display:'flex', width:'100%', justifyContent:'center'}} >
-          <button onClick={preencherOrcamento}>Preencher no Orçamento </button>
+        <div className='flex container justify-center'>
+          <BotaoPadrao
+            label={'Preencher no Orçamento'}
+            onClick={preencherOrcamento}
+          />
         </div>
       </div>
       )

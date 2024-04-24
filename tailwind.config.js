@@ -12,6 +12,9 @@ export default {
         redBocarra: {
           d:'#d03438',
           h:'#9d272a'
+        },
+        branco:{
+          contraste:'#f8f8f8'
         }
       },
 
