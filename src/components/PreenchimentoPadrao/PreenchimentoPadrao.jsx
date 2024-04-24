@@ -23,7 +23,7 @@ const PreenchimentoPadrao = () => {
   const handleAddOrcamento = () => {
     const valoresDaLona = calculaValorDaLona(dadosInseridos)
     const valorFechamento = calculoFechamento(metragemQuadrada.fechamento, selectedMaterial, diasDeTrabalho.fechamento);
-    const valorFechamentoAranha = calculoFechamento(metragemQuadrada.aranha, selectedMaterial, diasDeTrabalho.aranha);
+    const valorFechamentoAranha = calculoFechamento(metragemQuadrada.aranha, selectedMaterial, diasDeTrabalho.aranha) 
 
     const novoOrcamento = {
       modelo: selectedModelo.label,
