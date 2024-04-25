@@ -22,7 +22,7 @@ export default {
           contraste:'#1c1d1f'
         },
         text:{
-          contraste:'#7c7a91'
+          contraste:'#9f9eae'
         },
         fundo:{
           roxo:'#6a66ff',

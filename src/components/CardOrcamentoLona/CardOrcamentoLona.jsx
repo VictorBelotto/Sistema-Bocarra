@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './CardOrcamentoLona.module.css'; 
 import {OrcamentoContext} from '../../scripts/OrcamentoContext.jsx'
 import { usePopup } from '../../context/PopupContext.jsx';
+import { X } from 'lucide-react';
 
 const CardOrcamentoLona = ({ orcamento, index}) => {
   const { removerOrcamento } = React.useContext(OrcamentoContext);
@@ -36,59 +36,67 @@ const CardOrcamentoLona = ({ orcamento, index}) => {
 
 
   return (
-    <div onClick={handleClick} className={styles.cardContainer}>
-       <div style={{display:'flex', justifyContent: 'space-between'}} >
-       <h3>Informações da Lona</h3>
-       <button className={`${styles.btn} ${styles.btn_remover}`} onClick={handleClickRemover}>X</button>
-     </div>
-      
-      <p><strong>Modelo:</strong> {orcamento.modelo}</p>
-      <p><strong>Medidas:</strong> {orcamento.larguraDaLona}m x {orcamento.comprimentoDaLona}m </p>
-      <p><strong>Material:</strong> {orcamento.material}</p>
-      {!infoCompleta &&(<p style={{fontSize:'16px'}} >Clique para mais Informações...</p>)}
+    <main 
+      onClick={handleClick} 
+      className='flex p-3 flex-col gap-4 w-80 h-fit bg-card-contraste  text-slate-100 rounded-2xl cursor-pointer shadow-card'
+
+    >
+    <div className='flex justify-between' >
+      <h2 className='text-xl text-slate-300  font-semibold mt-1 ' >Informações da Lona</h2>
+      <button className='rounded-full flex justify-center items-center w-10 h-10  p-0 bg-fundo-verde hover:bg-fundo-verdeH'
+        onClick={handleClickRemover}
+      >
+        <X color="black"/>
+      </button>
+    </div>
+    <span className='w-3/4 pt-0.5 bg-slate-600 '></span>
+      <p><strong className='text-text-contraste' >Modelo :</strong> {orcamento.modelo}</p>
+      <p><strong className='text-text-contraste' >Medidas :</strong> {orcamento.larguraDaLona}m x {orcamento.comprimentoDaLona}m </p>
+      <p><strong className='text-text-contraste' >Material :</strong> {orcamento.material}</p>
+      {!infoCompleta &&(<p className='text-base' >Clique para mais Informações...</p>)}
      {infoCompleta && (
        <>
-       <p><strong>Metragem:</strong> {orcamento.metragemQuadrada.lona} <strong>m²</strong></p>
-       <p><strong>Dias de Trabalho:</strong> {orcamento.diasDeTrabalho.lona} dias</p>
-       <p><strong>Valor:</strong> {valorFormatado(Number(orcamento.valor))}</p>
-       <p><strong>Mão de Obra:</strong> {valorFormatado(Number(orcamento.maoDeObra))}</p>
-       <span className={styles.divisao} ></span>
-         {
-           orcamento.possuiFechamento && (
-             <>
-               <h3>Informações do Fechamento</h3>
-               <p><strong>Medidas: </strong> {(orcamento.metragemQuadrada.fechamento / orcamento.alturaFechamento).toFixed(1)}m x {orcamento.alturaFechamento}m</p>
-               <p><strong>Metragem:</strong> {orcamento.metragemQuadrada.fechamento} <strong>m²</strong></p>
-               <p><strong>Dias de Trabalho Fechamento:</strong> {orcamento.diasDeTrabalho.fechamento} dias</p>
-               <p><strong>Valor do fechamento:</strong> {valorFormatado(Number(orcamento.valorFechamento))}</p>
-               <span className={styles.divisao} ></span>
-             </>
-           )
-         }
-         
-         {
-           orcamento.possuiAranha && (
-             <>
-               <h3>Informações da Aranha</h3>
-               <p><strong>Medidas: </strong> {(orcamento.metragemQuadrada.aranha / orcamento.alturaAranha).toFixed(1)}m x {orcamento.alturaAranha}m</p>
-               <p><strong>Metragem:</strong> {orcamento.metragemQuadrada.aranha} <strong>m²</strong></p>
-               <p><strong>Dias de Trabalho Aranha:</strong> {orcamento.diasDeTrabalho.aranha} dias</p>
-               <p><strong>Valor da Aranha:</strong> {valorFormatado(Number(orcamento.valorFechamentoAranha))}</p>
-               <span className={styles.divisao} ></span>
-             </>
-           )
-         }
-
-       <p>Valor Total : {valorFormatado(Number(valorTotal))}</p> 
-       <p>Valor dos impostos : {valorFormatado(Number(valorDoImosto))}</p> 
-       <p>Valor Total com imposto: {valorFormatado(Number(valorComImposto))}</p> 
-       <span className={styles.divisao} ></span>
+        <p><strong className='text-text-contraste' >Metragem :</strong> {orcamento.metragemQuadrada.lona} <strong>m²</strong></p>
+        <p><strong className='text-text-contraste' >Dias de Trabalho :</strong> {orcamento.diasDeTrabalho.lona} dias</p>
+        <p><strong className='text-text-contraste' >Valor :</strong> {valorFormatado(Number(orcamento.valor))}</p>
+        <p><strong className='text-text-contraste' >Mão de Obra :</strong> {valorFormatado(Number(orcamento.maoDeObra))}</p>
+        <span className='w-3/4 pt-0.5 bg-slate-600 '></span>
+        
+          {
+            orcamento.possuiFechamento && (
+              <>
+                <h2 className='text-xl text-slate-300  font-semibold mt-1 '>Informações do Fechamento</h2>
+                <p><strong className='text-text-contraste' >Medidas : </strong> {(orcamento.metragemQuadrada.fechamento / orcamento.alturaFechamento).toFixed(1)}m x {orcamento.alturaFechamento}m</p>
+                <p><strong className='text-text-contraste' >Metragem :</strong> {orcamento.metragemQuadrada.fechamento} <strong>m²</strong></p>
+                <p><strong className='text-text-contraste' >Dias de Trabalho Fechamento :</strong> {orcamento.diasDeTrabalho.fechamento} dias</p>
+                <p><strong className='text-text-contraste' >Valor do fechamento :</strong> {valorFormatado(Number(orcamento.valorFechamento))}</p>
+              </>
+            )
+          }
+          <span className='w-3/4 pt-0.5 bg-slate-600 '></span>          
+          {
+            orcamento.possuiAranha && (
+              <>
+                <h2 className='text-xl text-slate-300  font-semibold mt-1 '>Informações da Aranha</h2>
+                <p><strong className='text-text-contraste' >Medidas : </strong> {(orcamento.metragemQuadrada.aranha / orcamento.alturaAranha).toFixed(1)}m x {orcamento.alturaAranha}m</p>
+                <p><strong className='text-text-contraste' >Metragem :</strong> {orcamento.metragemQuadrada.aranha} <strong>m²</strong></p>
+                <p><strong className='text-text-contraste' >Dias de Trabalho Aranha :</strong> {orcamento.diasDeTrabalho.aranha} dias</p>
+                <p><strong className='text-text-contraste' >Valor da Aranha :</strong> {valorFormatado(Number(orcamento.valorFechamentoAranha))}</p>
+                <span className='w-3/4 pt-0.5 bg-slate-600 '></span>
+              </>
+            )
+          }
+       
+        <p><strong className='text-text-contraste'>Valor Total :</strong>  {valorFormatado(Number(valorTotal))}</p> 
+        <p><strong className='text-text-contraste'>Valor dos impostos : </strong>{valorFormatado(Number(valorDoImosto))}</p> 
+        <p><strong className='text-text-contraste'>Valor Total com imposto : </strong>{valorFormatado(Number(valorComImposto))}</p> 
+        <span ></span>
      </>
      )}
     
     
    
-    </div>
+    </main>
   );
 };
 

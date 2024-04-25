@@ -25,7 +25,7 @@ const Impressao = () => {
     <DadosInseridosStorage>
       <OrcamentoStorage>
         <DadosFormatados/>
-        <div  className='fontGothic flex flex-col justify-center '>
+        <div  className='fontGothic flex flex-col justify-center bg-white '>
           <div className={styles.mainContainer}>
             <div className={styles.container}>
               <Header />
