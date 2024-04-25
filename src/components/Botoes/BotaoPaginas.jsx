@@ -2,9 +2,9 @@ import React from 'react'
 
 const BotaoPaginas = ({refPg, label}) => {
   return (
-    <div className='flex p-2'>
-      <a className='text-lg text-white font-semibold bg-purple-700 px-6 hover:bg-purple-800 py-2 rounded-lg shadow-button' href={refPg}>{label}</a>
-    </div>
+    <>
+      <a className='w-4/5 mt-2 text-left text-white py-2 px-4 bg-purple-700 bg-opacity-0 hover:bg-purple-800 rounded-2xl' href={refPg}>{label}</a>
+    </>
   )
 }
 

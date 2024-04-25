@@ -29,6 +29,8 @@ export default {
           roxoH:'#5451cc',
           verde:'#79efbd',
           verdeH:'#5fbc94',
+          bg:'#413a8e'
+          
         }
       
       },

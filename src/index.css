@@ -8,7 +8,7 @@
   src: url('./assets/fonts/gothic.woff');
 }
 body {
-  background: linear-gradient(360deg, rgba(65, 58, 141, 0.95), rgba(55, 49, 124, 0.95), rgba(60, 53, 142, 0.95), rgba(38, 32, 85, 0.95));
+  background: linear-gradient(-90deg, rgba(65, 58, 141, 0.95), rgba(55, 49, 124, 0.95), rgba(60, 53, 142, 0.95), rgba(38, 32, 85, 0.95));
   backdrop-filter: blur(16px);
   margin: 0;
 }
