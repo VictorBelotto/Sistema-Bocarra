@@ -1,6 +1,7 @@
 import React from 'react'
 import { DadosInseridosContext } from '../../../scripts/DadosInseridosContext.jsx';
 import InputsCheckBox from '../../InputsCheckBox/InputsCheckBox.jsx';
+import { checkbox } from '@material-tailwind/react';
 const CheckBoxMetragens = ({labelCheck, labelInput, id}) => {
   const dadosInseridos = React.useContext(DadosInseridosContext)
   const [fechamentoIsChecked, setFechamentoIsChecked] = React.useState(false)
@@ -29,7 +30,7 @@ const CheckBoxMetragens = ({labelCheck, labelInput, id}) => {
 
       {
         fechamentoIsChecked && (
-          <div>
+          <div className='flex flex-col gap-2' >
             <label className='container text-white' htmlFor={id}>{labelInput}</label>
             <input 
             className='w-36 bg-card-contraste text-white border-none'

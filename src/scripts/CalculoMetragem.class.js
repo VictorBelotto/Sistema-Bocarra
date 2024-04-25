@@ -1,6 +1,5 @@
-export const calcularMetragem = ({larguraDaLona, comprimentoDaLona, alturaFechamento, alturaAranha}, marquiseIsChecked) => {
+export const calcularMetragem = ({larguraDaLona, comprimentoDaLona, alturaFechamentoMetragem, alturaAranhaMetragem}, marquiseIsChecked) => {
   const metragem = parseFloat(larguraDaLona) * parseFloat(comprimentoDaLona);
-
   let perimetro
   if(marquiseIsChecked){
      perimetro = (parseFloat(larguraDaLona) * 2) + (parseFloat(comprimentoDaLona)* 2)
@@ -11,9 +10,9 @@ export const calcularMetragem = ({larguraDaLona, comprimentoDaLona, alturaFecham
 
 
 
-  const fechamento = perimetro * parseFloat(alturaFechamento)
+  const fechamento = perimetro * parseFloat(alturaFechamentoMetragem)
 
-  const fechamentoDaAranha = perimetro * parseFloat(alturaAranha)
+  const fechamentoDaAranha = perimetro * parseFloat(alturaAranhaMetragem)
 
     
 
