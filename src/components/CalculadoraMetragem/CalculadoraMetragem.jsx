@@ -47,12 +47,12 @@ const CalculadoraMetragem = () => {
 }
 
   return (
-   <div className='flex flex-col  w-fit py-4 px-6 rounded-lg bg-card-claro shadow-card bg-opacity-90'>
+   <div className='flex flex-col w-fit h-fit py-4 px-6 rounded-lg bg-card-claro shadow-card bg-opacity-90'>
     
      <h1 className='ti-1 mb-3 text-fundo-verdeH'>Metragem da Lona</h1>
 
-      <main className='flex m-0 gap-8'>
-        <div className='flex flex-col gap-3'>
+      <main className='flex w-fit h-fit m-0 gap-8'>
+        <div className='flex w-fit flex-col gap-3'>
           <InputsCheckBox
               label={'Marquise Tradicional?'}
               id={'marquise'}
@@ -69,7 +69,7 @@ const CalculadoraMetragem = () => {
               label={'Comprimento'}
             />
           </div>
-          <div className='flex flex-col gap-3'>
+          <div className='flex flex-col gap-4'>
             <CheckBoxMetragens
               labelCheck={'Adicionar Fechamento?'}
               id={'fechamentoMetragem'}
@@ -92,25 +92,25 @@ const CalculadoraMetragem = () => {
   
       {
         exibeResultado && (
-          <div className='flex h-full gap-6'>
+          <div className='flex gap-6'>
             <span className='h-full w-0.5 bg-slate-400'></span>
 
             <div className='flex h-full flex-col justify-between'>
-              <div className='flex flex-col gap-2'>
+              <div className='flex flex-col gap-3'>
                   <h2 className='ti-2 text-purple-400'>Resultado:</h2> 
-                  <p className=' text-white'>Metragem Lona (m²): {resultados.metragem} m²</p>
-                  <p className=' text-white'>Perimetro: {resultados.perimetro} m</p>
+                  <p className=' text-slate-100'><strong className='text-text-contraste' >Metragem Lona (m²):</strong> {resultados.metragem} m²</p>
+                  <p className=' text-slate-100'><strong className='text-text-contraste' >Perimetro:</strong> {resultados.perimetro} m</p>
                   {
                     checksDaMetragem['fechamentoMetragemIsChecked'] &&(
                     <>
-                      <p className=' text-white'>Fechamento (m²): {resultados.fechamento} m²</p>
+                      <p className=' text-slate-100'><strong className='text-text-contraste' >Fechamento (m²):</strong> {resultados.fechamento} m²</p>
                     </>
                     )
                   }
                   {
                     checksDaMetragem['aranhaMetragemIsChecked'] && (
                       <>
-                        <p className=' text-white'>Aranha (m²): {resultados.fechamentoDaAranha} m²</p>
+                        <p className=' text-slate-100'><strong className='text-text-contraste' >Aranha (m²): </strong>{resultados.fechamentoDaAranha} m²</p>
                       </>
                     )
                   }

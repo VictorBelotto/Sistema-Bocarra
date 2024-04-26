@@ -12,10 +12,10 @@ const InputDiasDeTrabalho = ({ id }) => {
   };
 
   return (
-    <div className='flex flex-col w-40 gap-2'>
-      <label className='text-white container' htmlFor="diasDeTrabalho">Dias de trabalho:</label>
+    <div className='flex flex-col w-36 gap-2'>
+      <label className='text-slate-300 container' htmlFor="diasDeTrabalho">Dias de trabalho:</label>
       <input 
-        className='bg-card-contraste text-white border-none container'
+        className='focus:outline-purple-700 text-center outline-none bg-card-contraste text-slate-100 border-none rounded-md w-20 py-1 px-2'
         type="number" 
         id="diasDeTrabalho" 
         value={diasDeTrabalho} 

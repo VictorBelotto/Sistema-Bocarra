@@ -46,37 +46,38 @@ const PreenchimentoPadrao = () => {
   };
   
   return (
-    <div className='flex flex-col w-96 m-0 py-4 px-6 rounded-lg bg-card-claro shadow-card bg-opacity-90'>
+    <div className='flex flex-col m-0 h-fit py-4 px-6 rounded-lg bg-card-claro shadow-card bg-opacity-90'>
       <ExibePopUp /> 
       <h1 className='ti-1 text-fundo-verdeH mb-3'>Orçamento Lona</h1>
-      <div className='flex justify-between mb-3 mt-1' >
+      <div className='flex gap-6 mb-3 mt-1' >
         <SelectModeloLona/>
-        <SelectMaterial />
-      </div>
-      <div className='flex justify-between mb-3' >
         <InputMetragemQuadrada id={'lona'} />
+        
+      </div>
+      <div className='flex gap-6 mb-3' >
+        <SelectMaterial />
         <InputDiasDeTrabalho id={'lona'} />
       </div>
      
-      <div className='mb-3' >
+      <div className='flex flex-col gap-4' >
         <CheckBoxFechamentos
           label={'Adicionar Fechamento?'}
           id={'fechamento'}
         />
-      </div>
-      <div className='mb-3' >
         <CheckBoxFechamentos
           label={'Adicionar Aranha?'}
           id={'aranha'}
         />
+
+        <div className='flex container justify-center mt-2'>
+          <BotaoPadrao
+            variant={'roxo'}
+            label={'Adicionar Orçamento'}
+            onClick={handleAddOrcamento}
+          />
+        </div>
       </div>
-      <div className='flex container justify-center mt-2'>
-        <BotaoPadrao
-          variant={'roxo'}
-          label={'Adicionar Orçamento'}
-          onClick={handleAddOrcamento}
-        />
-      </div>
+  
     </div>
   );
 };

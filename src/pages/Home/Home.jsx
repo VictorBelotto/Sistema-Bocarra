@@ -57,8 +57,10 @@ const Home = () => {
               </nav>
             </aside>
 
-            <div className="flex flex-col w-full h-screen overflow-y-auto items-center">
-              <div className="flex flex-col gap-8 rounded-lg mb-8 w-4/5 mt-2">
+            {/* Conteudo main */}
+
+            <main className="flex flex-col w-full px-8 py-4 h-screen overflow-y-auto items-center">
+              <div className="flex flex-col gap-8 rounded-lg mb-8  mt-2">
                 {lonaView && (
                   <div className="flex justify-center gap-12">
                     <CalculadoraMetragem />
@@ -72,14 +74,14 @@ const Home = () => {
                 )}
               </div>
 
-              <div className="flex w-4/5 rounded-lg bg-card-escuro shadow-card ">
+              <div className="flex rounded-lg bg-card-escuro shadow-card ">
                 <ExibeOrcamentos />
               </div>
 
               <div className="m-8">
                 <button>Preencher na Planilha</button>
               </div>
-            </div>
+            </main>
           </div>
         </OrcamentoStorage>
       </DadosInseridosStorage>

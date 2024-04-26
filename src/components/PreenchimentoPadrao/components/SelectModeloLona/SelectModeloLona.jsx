@@ -13,10 +13,10 @@ const SelectModeloLona = () => {
 }
 
   return (
-    <div className='flex flex-col w-40 gap-2'>
-      <label className='text-white' htmlFor="modelo">Selecione o modelo: </label>
+    <div className='flex flex-col w-36 gap-2'>
+      <label className='text-slate-300 ' htmlFor="modelo">Modelo: </label>
       <select 
-          className='bg-card-contraste m-0 text-white border-none'
+          className='bg-card-contraste m-0 text-slate-100 border-none rounded-md py-1 px-2'
           id="modelo" 
           value={selectedModelo.value} 
           onChange={handleModeloChange}

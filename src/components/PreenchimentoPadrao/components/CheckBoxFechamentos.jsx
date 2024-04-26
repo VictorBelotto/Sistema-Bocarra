@@ -14,8 +14,8 @@ const CheckBoxFechamentos = ({id, label}) => {
   }
 
   return (
-    <div key={id} className='flex flex-col container'>
-      <div className='flex items-center mb-3'>
+    <div key={id} className='flex flex-col gap-2 container'>
+      <div className='flex items-center'>
         <InputsCheckBox
           label={label}
           id={id}

@@ -38,11 +38,11 @@ const CardOrcamentoLona = ({ orcamento, index}) => {
   return (
     <main 
       onClick={handleClick} 
-      className='flex p-3 flex-col gap-4 w-80 h-fit bg-card-contraste  text-slate-100 rounded-2xl cursor-pointer shadow-card'
-
+      className='flex p-3 flex-col gap-4 w-80 h-fit bg-card-contraste  text-slate-100 rounded-2xl cursor-pointer 
+      shadow-card hover:border hover:border-spacing-5 hover:border-indigo-600 '
     >
-    <div className='flex justify-between' >
-      <h2 className='text-xl text-slate-300  font-semibold mt-1 ' >Informações da Lona</h2>
+    <div className='flex justify-between items-center' >
+      <h2 className='text-xl text-purple-400 font-semibold' >Informações da Lona</h2>
       <button className='rounded-full flex justify-center items-center w-10 h-10  p-0 bg-fundo-verde hover:bg-fundo-verdeH'
         onClick={handleClickRemover}
       >
@@ -50,52 +50,48 @@ const CardOrcamentoLona = ({ orcamento, index}) => {
       </button>
     </div>
     <span className='w-3/4 pt-0.5 bg-slate-600 '></span>
-      <p><strong className='text-text-contraste' >Modelo :</strong> {orcamento.modelo}</p>
-      <p><strong className='text-text-contraste' >Medidas :</strong> {orcamento.larguraDaLona}m x {orcamento.comprimentoDaLona}m </p>
-      <p><strong className='text-text-contraste' >Material :</strong> {orcamento.material}</p>
+      <p><strong className='text-fundo-verdeH' >Modelo :</strong> {orcamento.modelo}</p>
+      <p><strong className='text-fundo-verdeH' >Medidas :</strong> {orcamento.larguraDaLona}m x {orcamento.comprimentoDaLona}m </p>
+      <p><strong className='text-fundo-verdeH' >Material :</strong> {orcamento.material}</p>
       {!infoCompleta &&(<p className='text-base' >Clique para mais Informações...</p>)}
      {infoCompleta && (
        <>
-        <p><strong className='text-text-contraste' >Metragem :</strong> {orcamento.metragemQuadrada.lona} <strong>m²</strong></p>
-        <p><strong className='text-text-contraste' >Dias de Trabalho :</strong> {orcamento.diasDeTrabalho.lona} dias</p>
-        <p><strong className='text-text-contraste' >Valor :</strong> {valorFormatado(Number(orcamento.valor))}</p>
-        <p><strong className='text-text-contraste' >Mão de Obra :</strong> {valorFormatado(Number(orcamento.maoDeObra))}</p>
-        <span className='w-3/4 pt-0.5 bg-slate-600 '></span>
-        
+        <p><strong className='text-fundo-verdeH' >Metragem :</strong> {orcamento.metragemQuadrada.lona} <strong>m²</strong></p>
+        <p><strong className='text-fundo-verdeH' >Dias de Trabalho :</strong> {orcamento.diasDeTrabalho.lona} dias</p>
+        <p><strong className='text-fundo-verdeH' >Valor :</strong> {valorFormatado(Number(orcamento.valor))}</p>
+        <p><strong className='text-fundo-verdeH' >Mão de Obra :</strong> {valorFormatado(Number(orcamento.maoDeObra))}</p>
           {
             orcamento.possuiFechamento && (
               <>
-                <h2 className='text-xl text-slate-300  font-semibold mt-1 '>Informações do Fechamento</h2>
-                <p><strong className='text-text-contraste' >Medidas : </strong> {(orcamento.metragemQuadrada.fechamento / orcamento.alturaFechamento).toFixed(1)}m x {orcamento.alturaFechamento}m</p>
-                <p><strong className='text-text-contraste' >Metragem :</strong> {orcamento.metragemQuadrada.fechamento} <strong>m²</strong></p>
-                <p><strong className='text-text-contraste' >Dias de Trabalho Fechamento :</strong> {orcamento.diasDeTrabalho.fechamento} dias</p>
-                <p><strong className='text-text-contraste' >Valor do fechamento :</strong> {valorFormatado(Number(orcamento.valorFechamento))}</p>
+                <span className='w-3/4 pt-0.5 bg-slate-600 '></span>
+                <h2 className='text-xl text-purple-400  font-semibold mt-1 '>Informações do Fechamento</h2>
+                <p><strong className='text-fundo-verdeH' >Medidas : </strong> {(orcamento.metragemQuadrada.fechamento / orcamento.alturaFechamento).toFixed(1)}m x {orcamento.alturaFechamento}m</p>
+                <p><strong className='text-fundo-verdeH' >Metragem :</strong> {orcamento.metragemQuadrada.fechamento} <strong>m²</strong></p>
+                <p><strong className='text-fundo-verdeH' >Dias de Trabalho Fechamento :</strong> {orcamento.diasDeTrabalho.fechamento} dias</p>
+                <p><strong className='text-fundo-verdeH' >Valor do fechamento :</strong> {valorFormatado(Number(orcamento.valorFechamento))}</p>
               </>
             )
           }
-          <span className='w-3/4 pt-0.5 bg-slate-600 '></span>          
+            
           {
             orcamento.possuiAranha && (
               <>
-                <h2 className='text-xl text-slate-300  font-semibold mt-1 '>Informações da Aranha</h2>
-                <p><strong className='text-text-contraste' >Medidas : </strong> {(orcamento.metragemQuadrada.aranha / orcamento.alturaAranha).toFixed(1)}m x {orcamento.alturaAranha}m</p>
-                <p><strong className='text-text-contraste' >Metragem :</strong> {orcamento.metragemQuadrada.aranha} <strong>m²</strong></p>
-                <p><strong className='text-text-contraste' >Dias de Trabalho Aranha :</strong> {orcamento.diasDeTrabalho.aranha} dias</p>
-                <p><strong className='text-text-contraste' >Valor da Aranha :</strong> {valorFormatado(Number(orcamento.valorFechamentoAranha))}</p>
-                <span className='w-3/4 pt-0.5 bg-slate-600 '></span>
+                 <span className='w-3/4 pt-0.5 bg-slate-600 '></span>       
+                <h2 className='text-xl text-purple-400  font-semibold mt-1 '>Informações da Aranha</h2>
+                <p><strong className='text-fundo-verdeH' >Medidas : </strong> {(orcamento.metragemQuadrada.aranha / orcamento.alturaAranha).toFixed(1)}m x {orcamento.alturaAranha}m</p>
+                <p><strong className='text-fundo-verdeH' >Metragem :</strong> {orcamento.metragemQuadrada.aranha} <strong>m²</strong></p>
+                <p><strong className='text-fundo-verdeH' >Dias de Trabalho Aranha :</strong> {orcamento.diasDeTrabalho.aranha} dias</p>
+                <p><strong className='text-fundo-verdeH' >Valor da Aranha :</strong> {valorFormatado(Number(orcamento.valorFechamentoAranha))}</p>
               </>
             )
           }
-       
-        <p><strong className='text-text-contraste'>Valor Total :</strong>  {valorFormatado(Number(valorTotal))}</p> 
-        <p><strong className='text-text-contraste'>Valor dos impostos : </strong>{valorFormatado(Number(valorDoImosto))}</p> 
-        <p><strong className='text-text-contraste'>Valor Total com imposto : </strong>{valorFormatado(Number(valorComImposto))}</p> 
-        <span ></span>
+         <span className='w-3/4 pt-0.5 bg-slate-600 '></span>       
+        <h2 className='text-xl text-purple-400  font-semibold mt-1 '>Valores</h2>
+        <p><strong className='text-fundo-verdeH'>Total :</strong>  {valorFormatado(Number(valorTotal))}</p> 
+        <p><strong className='text-red-500'>Impostos : </strong>{valorFormatado(Number(valorDoImosto))}</p> 
+        <p><strong className='text-fundo-verdeH'>Total com <span className='text-red-500'>impostos</span> : </strong>{valorFormatado(Number(valorComImposto))}</p> 
      </>
      )}
-    
-    
-   
     </main>
   );
 };
