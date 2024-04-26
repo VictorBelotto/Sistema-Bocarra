@@ -49,7 +49,7 @@ const CalculadoraMetragem = () => {
   return (
    <div className='flex flex-col  w-fit py-4 px-6 rounded-lg bg-card-claro shadow-card bg-opacity-90'>
     
-     <h1 className='ti-1 mb-3 text-slate-300'>Metragem da Lona</h1>
+     <h1 className='ti-1 mb-3 text-fundo-verdeH'>Metragem da Lona</h1>
 
       <main className='flex m-0 gap-8'>
         <div className='flex flex-col gap-3'>

@@ -60,7 +60,7 @@ const Home = () => {
             <div className="flex flex-col w-full h-screen overflow-y-auto items-center">
               <div className="flex flex-col gap-8 rounded-lg mb-8 w-4/5 mt-2">
                 {lonaView && (
-                  <div className="flex flex-col justify-center gap-12">
+                  <div className="flex justify-center gap-12">
                     <CalculadoraMetragem />
                     <PreenchimentoPadrao />
                   </div>

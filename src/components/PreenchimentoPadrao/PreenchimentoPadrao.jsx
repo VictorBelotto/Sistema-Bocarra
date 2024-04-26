@@ -48,7 +48,7 @@ const PreenchimentoPadrao = () => {
   return (
     <div className='flex flex-col w-96 m-0 py-4 px-6 rounded-lg bg-card-claro shadow-card bg-opacity-90'>
       <ExibePopUp /> 
-      <h1 className='ti-1 text-slate-300 mb-3'>Orçamento Lona</h1>
+      <h1 className='ti-1 text-fundo-verdeH mb-3'>Orçamento Lona</h1>
       <div className='flex justify-between mb-3 mt-1' >
         <SelectModeloLona/>
         <SelectMaterial />

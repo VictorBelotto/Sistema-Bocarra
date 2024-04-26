@@ -16,7 +16,7 @@ const InputsCheckBox = ({id, value, onClick, label}) => {
         onClick={onClick}
       />
       <CircleCheckBig
-        className={!value? 'bg-card-contraste rounded-full text-card-contraste' : 'bg-card-contraste  rounded-full text-fundo-roxo'}
+        className={!value? 'bg-card-contraste rounded-full text-card-contraste' : 'bg-card-contraste  rounded-full text-purple-400'}
       />
     </label>
   )
