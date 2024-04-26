@@ -47,84 +47,84 @@ const CalculadoraMetragem = () => {
 }
 
   return (
-   <div className='flex flex-col  w-full py-4 px-6 rounded-lg bg-card-claro shadow-card bg-opacity-90'>
+   <div className='flex flex-col  w-fit py-4 px-6 rounded-lg bg-card-claro shadow-card bg-opacity-90'>
+    
      <h1 className='ti-1 mb-3 text-slate-300'>Metragem da Lona</h1>
-      <main className='flex m-0 justify-between'>
-        <div className='flex flex-col w-72 items-center'>
+
+      <main className='flex m-0 gap-8'>
+        <div className='flex flex-col gap-3'>
           <InputsCheckBox
               label={'Marquise Tradicional?'}
               id={'marquise'}
               onClick={handleCheckMarquiseChange}
               value={marquiseIsChecked}
             />
-          <div className='flex w-72 gap-8 mb-3 mt-3'>
+          <div className='flex justify-between'>
             <InputMetragem
               id={'largura'}
               label={'Largura'}
             />
-            <div className='flex items-center'>
-              <X color='white'/>
-            </div>
             <InputMetragem
               id={'comprimento'}
               label={'Comprimento'}
             />
           </div>
-        </div>
-
-       
-       <div className='flex flex-col w-72 items-center'>
-        <CheckBoxMetragens
-            id={'fechamentoMetragem'}
-            labelCheck={'Adicionar Fechamento?'}
-            labelInput={'Altura do Fechamento da Lona:'}
-          />
-          <div className='flex container justify-center mt-2'>
-              <BotaoPadrao
-                  onClick={calcular}
-                  variant={'verde'}
-                  label={'Calcular Metragem'}
-                />
-          </div>
-       </div>
-
-       <div className='flex flex-col w-72 items-center'>
-        <CheckBoxMetragens
-              id={'aranhaMetragem'}
-              labelCheck={'Adicionar Aranha?'}
-              labelInput={'Altura do Fechamento da Aranha:'}
+          <div className='flex flex-col gap-3'>
+            <CheckBoxMetragens
+              labelCheck={'Adicionar Fechamento?'}
+              id={'fechamentoMetragem'}
+              labelInput={'Altura da Lona:'}
             />
-       </div>
-
-    
+            <CheckBoxMetragens
+              labelCheck={'Adicionar Aranha?'}
+              id={'aranhaMetragem'}
+              labelInput={'Altura da Aranha:'}
+            />
+            <BotaoPadrao
+                onClick={calcular}
+                variant={'verde'}
+                label={'Calcular Metragem'}
+            />
+          </div>
+        </div>
+        
+   
+  
       {
         exibeResultado && (
-          <div className='flex flex-col gap-2 mt-5'>
-          <h2 className='ti-2 text-white'>Resultado:</h2> 
-          <p className=' text-white'>Metragem Lona (m²): {resultados.metragem} m²</p>
-          <p className=' text-white'>Perimetro: {resultados.perimetro} m</p>
-          {
-            checksDaMetragem['fechamentoMetragemIsChecked'] &&(
-            <>
-              <p className=' text-white'>Fechamento (m²): {resultados.fechamento} m²</p></>
-            )
-          }
-          {
-            checksDaMetragem['aranhaMetragemIsChecked'] && (
-              <>
-                <p className=' text-white'>Aranha (m²): {resultados.fechamentoDaAranha} m²</p>
-              </>
-            )
-          }
+          <div className='flex h-full gap-6'>
+            <span className='h-full w-0.5 bg-slate-400'></span>
 
-          <div className='flex container justify-center mt-4'>
-            <BotaoPadrao
-              label={'Preencher no Orçamento'}
-              onClick={preencherOrcamento}
-              variant={'verde'}
-            />
+            <div className='flex h-full flex-col justify-between'>
+              <div className='flex flex-col gap-2'>
+                  <h2 className='ti-2 text-purple-400'>Resultado:</h2> 
+                  <p className=' text-white'>Metragem Lona (m²): {resultados.metragem} m²</p>
+                  <p className=' text-white'>Perimetro: {resultados.perimetro} m</p>
+                  {
+                    checksDaMetragem['fechamentoMetragemIsChecked'] &&(
+                    <>
+                      <p className=' text-white'>Fechamento (m²): {resultados.fechamento} m²</p>
+                    </>
+                    )
+                  }
+                  {
+                    checksDaMetragem['aranhaMetragemIsChecked'] && (
+                      <>
+                        <p className=' text-white'>Aranha (m²): {resultados.fechamentoDaAranha} m²</p>
+                      </>
+                    )
+                  }
+              </div>
+
+              <BotaoPadrao
+                className='justify-self-end'
+                  label={'Preencher no Orçamento'}
+                  onClick={preencherOrcamento}
+                  variant={'roxo'}
+                />
+            </div>
+
           </div>
-        </div>
         )
       }
 

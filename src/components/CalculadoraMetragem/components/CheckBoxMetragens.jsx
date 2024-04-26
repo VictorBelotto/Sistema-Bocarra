@@ -17,8 +17,8 @@ const CheckBoxMetragens = ({labelCheck, labelInput, id}) => {
     dadosInseridos.adicionarMetragem(`altura${id.charAt(0).toUpperCase() + id.slice(1)}`, e.target.value)
   }
   return (
-   <div key={id}>
-     <div className='flex items-center mb-4'>
+   <div key={id} className='flex flex-col gap-2'> 
+     <div>
 
     <InputsCheckBox
       label={labelCheck}
@@ -31,9 +31,9 @@ const CheckBoxMetragens = ({labelCheck, labelInput, id}) => {
       {
         fechamentoIsChecked && (
           <div className='flex flex-col gap-2' >
-            <label className='container text-white' htmlFor={id}>{labelInput}</label>
+            <label className='container text-slate-200' htmlFor={id}>{labelInput}</label>
             <input 
-            className='w-36 bg-card-contraste text-white border-none'
+            className='container py-1 w-20  text-white text-center  bg-card-contraste border-none rounded-md'
               type="number" 
               id={id}
               value={alturaFechamento} 
