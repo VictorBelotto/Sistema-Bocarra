@@ -73,14 +73,10 @@ const Home = () => {
                   </div>
                 )}
               </div>
-
               <div className="flex rounded-lg bg-card-escuro shadow-card ">
                 <ExibeOrcamentos />
               </div>
 
-              <div className="m-8">
-                <button>Preencher na Planilha</button>
-              </div>
             </main>
           </div>
         </OrcamentoStorage>

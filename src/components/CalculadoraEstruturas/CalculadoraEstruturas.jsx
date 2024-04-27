@@ -4,7 +4,6 @@ import PreenchimentoTabela from './componets/PreenchimentoTabela/PreenchimentoTa
 const CalculadoraEstruturas = () => {
   return (
     <div>
-      <h1>Calculadora de Estruturas</h1>
       <PreenchimentoTabela/>
     </div>
 
