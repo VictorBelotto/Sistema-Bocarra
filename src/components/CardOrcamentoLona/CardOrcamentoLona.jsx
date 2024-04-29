@@ -34,12 +34,11 @@ const CardOrcamentoLona = ({ orcamento, index}) => {
     showPopup('Orçamento removido da lista', 'red')
   }
 
-
   return (
     <main 
       onClick={handleClick} 
       className='flex p-3 flex-col gap-4 w-80 h-fit bg-card-contraste  text-slate-100 rounded-2xl cursor-pointer 
-      shadow-card hover:border hover:border-spacing-5 hover:border-indigo-600 '
+      shadow-card outline-none hover:outline-indigo-600'
     >
     <div className='flex justify-between items-center' >
       <h2 className='text-xl text-purple-400 font-semibold' >Informações da Lona</h2>
