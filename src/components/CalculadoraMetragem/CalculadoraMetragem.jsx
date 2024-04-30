@@ -6,7 +6,6 @@ import CheckBoxMetragens from './components/CheckBoxMetragens.jsx';
 import BotaoPadrao from '../Botoes/BotaoPadrao.jsx';
 import InputMetragem from './components/InputMetragem.jsx';
 import InputsCheckBox from '../InputsCheckBox/InputsCheckBox.jsx';
-import { X } from 'lucide-react';
 
 const CalculadoraMetragem = () => {
   const {dadosInseridos, dadosMetragem, adicionarDado, checksDaMetragem} = React.useContext(DadosInseridosContext)
@@ -27,7 +26,6 @@ const CalculadoraMetragem = () => {
 
   const calcular = () => {
    const resultado = calcularMetragem(dadosMetragem, marquiseIsChecked )
-    console.log(dadosMetragem)
    adicionaResultado('metragem', resultado['metragem'])
    adicionaResultado('fechamento', resultado['fechamento'])
    adicionaResultado('fechamentoDaAranha', resultado['fechamentoDaAranha'])
@@ -41,9 +39,11 @@ const CalculadoraMetragem = () => {
       ...dadosInseridos.metragemQuadrada,
       lona: resultados.metragem,
       fechamento: resultados.fechamento,
-      aranha: resultados.fechamentoDaAranha
+      aranha: resultados.fechamentoDaAranha,
     });
-    
+
+    adicionarDado('perimetroLona', resultados.perimetro)
+   
 }
 
   return (

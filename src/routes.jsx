@@ -9,16 +9,15 @@ import Impressao from './pages/Impressao/Impressao'
 const AppRoutes = () => {
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<PaginaBase/>}>
-        <Route index element={<Home/>} />
-        <Route path='/CalculadoraEstruturas' element={<CalculadoraEstruturas/>} />
-        <Route path='/Testes' element={<Testes/>} />
-        <Route path='/Impressao' element={<Impressao/>} />
-      
-      </Route>
-    </Routes>
-  </BrowserRouter>
+      <Routes>
+        <Route path='/' element={<PaginaBase/>}>
+          <Route index element={<Home/>} />
+          <Route path='/Testes' element={<Testes/>} />
+          <Route path='/Impressao' element={<Impressao/>} />
+        
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

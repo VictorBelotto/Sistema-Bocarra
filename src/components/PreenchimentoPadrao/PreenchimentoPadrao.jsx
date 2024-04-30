@@ -14,7 +14,7 @@ import CheckBoxFechamentos from './components/CheckBoxFechamentos.jsx';
 import BotaoPadrao from '../Botoes/BotaoPadrao.jsx'
 
 const PreenchimentoPadrao = () => {
-  const orcamento = React.useContext(OrcamentoContext);
+  const {orcamentos, setOrcamentos} = React.useContext(OrcamentoContext);
   const { checksDoOrcamento, dadosMetragem, dadosInseridos } = React.useContext(DadosInseridosContext);
   const {metragemQuadrada, selectedMaterial, diasDeTrabalho, selectedModelo} = dadosInseridos
   const { showPopup } = usePopup();
@@ -25,7 +25,7 @@ const PreenchimentoPadrao = () => {
     const valorFechamentoAranha = calculoFechamento(metragemQuadrada.aranha, selectedMaterial, diasDeTrabalho.aranha) 
 
     const novoOrcamento = {
-      modelo: selectedModelo.label,
+      modelo: selectedModelo,
       material: selectedMaterial,
       diasDeTrabalho: diasDeTrabalho,
       metragemQuadrada: metragemQuadrada,
@@ -36,12 +36,13 @@ const PreenchimentoPadrao = () => {
       valorFechamentoAranha: valorFechamentoAranha,
       larguraDaLona: dadosMetragem.larguraDaLona,
       comprimentoDaLona: dadosMetragem.comprimentoDaLona,
-      alturaFechamento: dadosMetragem.alturaFechamento,
-      alturaAranha: dadosMetragem.alturaAranha,
-      maoDeObra: valoresDaLona.valorDaMaoDeObra
+      alturaFechamento: dadosMetragem.alturaFechamentoMetragem,
+      alturaAranha: dadosMetragem.alturaAranhaMetragem,
+      maoDeObra: valoresDaLona.valorDaMaoDeObra,
+      perimetroLona: dadosInseridos.perimetroLona,
     };
 
-    orcamento.setOrcamentos([...orcamento.orcamentos, novoOrcamento]);
+    setOrcamentos([...orcamentos, novoOrcamento]);
     showPopup('Orçamento adicionado a lista', 'blue');
   };
   

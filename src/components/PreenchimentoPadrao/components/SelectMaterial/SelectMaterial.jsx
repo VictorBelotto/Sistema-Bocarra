@@ -17,7 +17,7 @@ const SelectMaterial = () => {
     <div className='flex w-36 flex-col gap-2 '>
       <label className='text-slate-300' htmlFor="materials">Material: </label>
       <select  
-        className='bg-card-contraste text-slate-100 border-none  rounded-md py-1 px-2'
+        className='bg-card-contraste text-slate-100 border-none  rounded-md py-1.5 px-2'
         id="materials" 
         value={selectedMaterial} 
         onChange={handleMaterialChange}

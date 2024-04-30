@@ -10,20 +10,16 @@ import {Cone ,PanelsTopLeft, Landmark} from 'lucide-react';
 
 import BotaoMenu from '../../components/Botoes/BotaoMenu.jsx';
 import BotaoPaginas from '../../components/Botoes/BotaoPaginas.jsx';
+import ExportarParaPlanilha from '../../components/ExportarParaPlanilha/ExportarParaPlanilha.jsx';
+import Impressao from '../Impressao/Impressao.jsx';
 
 const Home = () => {
-  const [lonaView, setLonaView] = useState(true);
-  const [estruturaView, setEstruturaView] = useState(false);
+  const [lonaView, setLonaView] = React.useState(true);
+  const [estruturaView, setEstruturaView] = React.useState(false);
+  const [impressaoView, setImpressaoView] = React.useState(false)
+  const [viewsAtivas, setViewsAtivas] = React.useState('calculadoraLona')
 
-  const handleLonaView = () => {
-    setLonaView(true);
-    setEstruturaView(false);
-  };
 
-  const handleEstruturaView = () => {
-    setEstruturaView(true);
-    setLonaView(false);
-  };
 
   return (
     <PopupProvider>
@@ -38,19 +34,19 @@ const Home = () => {
                 <h2 className='text-base font-semibold text-slate-500 w-4/5 flex gap-2'>Calculadoras</h2>
                   <BotaoMenu 
                     label={'Lonas'} 
-                    onClick={handleLonaView} 
+                    onClick={()=> setEstruturaView('calculadoraLona')} 
                     icon={<Cone/>}
                   />
                   <BotaoMenu 
                     label={'Estruturas'} 
-                    onClick={handleEstruturaView}
+                    onClick={()=> setEstruturaView('calculadoraEstrutura')}
                     icon={<Landmark/>}
                   />
 
                 <span className="w-4/5 h-0.5 bg-gray-500 bg-opacity-80"></span>
                 <h2 className='text-base font-semibold text-slate-500 w-4/5 flex gap-2'>Dashboards</h2>
                 <BotaoPaginas 
-                  refPg={'impressao'} 
+                  to={'/impressao'} 
                   label={'Orçamento'} 
                   icon={<PanelsTopLeft/>}
                 />
@@ -61,22 +57,28 @@ const Home = () => {
 
             <main className="flex flex-col w-full px-4 py-4 h-screen overflow-y-auto items-center">
               <div className="flex flex-col gap-8 rounded-lg mb-8  mt-2">
-                {lonaView && (
+                {viewsAtivas === 'calculadoraLona' && (
                   <div className="flex justify-center gap-12">
                     <CalculadoraMetragem />
                     <PreenchimentoPadrao />
                   </div>
                 )}
-                {estruturaView && (
+                {viewsAtivas === 'calculadoraEstrutura' && (
                   <div className="flex justify-center gap-12">
                     <CalculadoraEstruturas />
                   </div>
                 )}
+                {viewsAtivas === 'impressao' && (
+                  <Impressao/>
+                )}
               </div>
-          
-                <ExibeOrcamentos />
+              <div className='flex flex-col  p-6 max-w-[1040px] rounded-lg bg-card-escuro shadow-card'>
+                <ExibeOrcamentos/>
+                <div className='mt-4 self-end' >
+                  <ExportarParaPlanilha/>
+                </div>
+              </div>
              
-
             </main>
           </div>
         </OrcamentoStorage>

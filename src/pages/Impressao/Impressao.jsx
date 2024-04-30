@@ -48,7 +48,10 @@ const Impressao = () => {
           <div  style={{justifyContent:'center', display:'flex', width:'100%', margin:'16px 0px 32px 0px'}} ref={printContainer}>
             <div style={{justifyContent:'center', display:'flex', gap:'16px',}} >
               <button className={styles.btnImprimir} onClick={handlePrint}>Imprimir</button>
-              <BotaoPaginas refPg={'/'} label={'Pagina inicial'}/>
+              <BotaoPaginas 
+                  to={'/'} 
+                  label={'Pagina inicial'} 
+                />
             </div>
           </div > 
         </div>
