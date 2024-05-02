@@ -7,24 +7,27 @@ import Impressao from './pages/Impressao/Impressao'
 import { PopupProvider } from './context/PopupContext'
 import { OrcamentoStorage } from './scripts/OrcamentoContext'
 import { DadosInseridosStorage } from './scripts/DadosInseridosContext'
+import { DadosMetragemProvider } from './context/DadosMetragemContext'
 
 const AppRoutes = () => {
   return (
-    <PopupProvider>
-      <DadosInseridosStorage>
-        <OrcamentoStorage>
-          <BrowserRouter>
-            <Routes>
-              <Route path='/' element={<PaginaBase/>}>
-              <Route index element={<Home/>} />
-              <Route path='/Testes' element={<Testes/>} />
-              <Route path='/Impressao' element={<Impressao/>} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </OrcamentoStorage>
-      </DadosInseridosStorage>
-    </PopupProvider>
+    <DadosMetragemProvider>
+      <PopupProvider>
+        <DadosInseridosStorage>
+          <OrcamentoStorage>
+            <BrowserRouter>
+              <Routes>
+                <Route path='/' element={<PaginaBase/>}>
+                <Route index element={<Home/>} />
+                <Route path='/Testes' element={<Testes/>} />
+                <Route path='/Impressao' element={<Impressao/>} />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </OrcamentoStorage>
+        </DadosInseridosStorage>
+      </PopupProvider>
+    </DadosMetragemProvider>
   )
 }
 

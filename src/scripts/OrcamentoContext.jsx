@@ -10,10 +10,11 @@ export const OrcamentoStorage = ({ children }) => {
       setOrcamentos(novosOrcamentos);
     };
 
+    const [orcamentoExportado, setOrcamentoExportado] = React.useState([])
     
 
   return (
-    <OrcamentoContext.Provider value={{ orcamentos, setOrcamentos, removerOrcamento }}>
+    <OrcamentoContext.Provider value={{ orcamentos, setOrcamentos, removerOrcamento, orcamentoExportado, setOrcamentoExportado }}>
       {children}
     </OrcamentoContext.Provider>
   );

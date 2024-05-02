@@ -12,7 +12,6 @@ import {Cone ,PanelsTopLeft, Landmark} from 'lucide-react';
 const Home = () => {
   const [lonaView, setLonaView] = React.useState(true);
   const [estruturaView, setEstruturaView] = React.useState(false);
-  const [impressaoView, setImpressaoView] = React.useState(false)
   const [viewsAtivas, setViewsAtivas] = React.useState('calculadoraLona')
 
 

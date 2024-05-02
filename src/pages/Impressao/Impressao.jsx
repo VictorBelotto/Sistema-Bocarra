@@ -7,11 +7,10 @@ import Observacoes from './components/Observacoes/Observacoes';
 import Valores from './components/Valores/Valores';
 import Footer from './components/Footer/Footer';
 import PageIInfoGeral from './components/PageIInfoGeral/PageIInfoGeral';
-import {OrcamentoStorage} from '../../scripts/OrcamentoContext'
-import { DadosInseridosStorage } from '../../scripts/DadosInseridosContext';
-import BotaoPaginas from '../../components/Botoes/BotaoPaginas.jsx'
+import { Link } from 'react-router-dom';
 
 const Impressao = () => {
+
   const printContainer = useRef(null);
   const handlePrint = () => {
     printContainer.current.style.display = 'none';
@@ -26,7 +25,7 @@ const Impressao = () => {
           <div className={styles.container}>
             <Header />
             <Infos />
-            <Tabela />
+            <Tabela/>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <Observacoes />
               <Valores />
@@ -39,15 +38,18 @@ const Impressao = () => {
         <div className={styles.pageInfoContainer}>
             <PageIInfoGeral />
           </div>
-        
         </div>
         <div  style={{justifyContent:'center', display:'flex', width:'100%', margin:'16px 0px 32px 0px'}} ref={printContainer}>
           <div style={{justifyContent:'center', display:'flex', gap:'16px',}} >
             <button className={styles.btnImprimir} onClick={handlePrint}>Imprimir</button>
-            <BotaoPaginas 
-                to={'/'} 
-                label={'Pagina inicial'} 
-              />
+            
+            <Link
+             className='bg-fundo-verde py-1 px-3 rounded-lg hover:bg-fundo-verdeH'
+             to={'/'}
+            >
+              Home
+            </Link>
+          
           </div>
         </div > 
       </div>

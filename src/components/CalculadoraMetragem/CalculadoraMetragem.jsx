@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { calcularMetragem } from '../../scripts/CalculoMetragem.class';
 import { DadosInseridosContext } from '../../scripts/DadosInseridosContext.jsx';
+import {DadosMetragemContext} from '../../context/DadosMetragemContext.jsx'
 
 import CheckBoxMetragens from './components/CheckBoxMetragens.jsx';
 import BotaoPadrao from '../Botoes/BotaoPadrao.jsx';
@@ -12,6 +13,8 @@ const CalculadoraMetragem = () => {
   const [resultados, setResultados] = React.useState({});
   const [exibeResultado, setExibeResultado] = React.useState(false)
   const [marquiseIsChecked, setMarquiseIsChecked] = React.useState(false)
+
+  const {setDadosMetragemOrcamento} = React.useContext(DadosMetragemContext)
 
   const adicionaResultado = (nome, valor) => {
     setResultados(prevState => ({
@@ -35,7 +38,7 @@ const CalculadoraMetragem = () => {
   };
 
   const preencherOrcamento = () =>{
-
+    setDadosMetragemOrcamento(dadosMetragem)
     adicionarDado('metragemQuadrada', {
       ...dadosInseridos.metragemQuadrada,
       lona: resultados.metragem,

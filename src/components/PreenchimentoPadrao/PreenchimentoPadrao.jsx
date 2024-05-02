@@ -4,7 +4,7 @@ import { DadosInseridosContext } from '../../scripts/DadosInseridosContext.jsx';
 import { calculoFechamento } from '../../scripts/CalculoFechamento.js';
 import ExibePopUp from '../ExibePopUp/ExibePopUp.jsx';
 import { usePopup } from '../../context/PopupContext.jsx';
-
+import {DadosMetragemContext} from '../../context/DadosMetragemContext.jsx'
 import SelectModeloLona from './components/SelectModeloLona/SelectModeloLona.jsx';
 import SelectMaterial from './components/SelectMaterial/SelectMaterial.jsx';
 import InputDiasDeTrabalho from '../InputDiasDeTrabalho/InputDiasDeTrabalho.jsx';
@@ -16,6 +16,7 @@ import BotaoPadrao from '../Botoes/BotaoPadrao.jsx'
 const PreenchimentoPadrao = () => {
   const {orcamentos, setOrcamentos} = React.useContext(OrcamentoContext);
   const { checksDoOrcamento, dadosMetragem, dadosInseridos } = React.useContext(DadosInseridosContext);
+  const {dadosMetragemOrcamento} = React.useContext(DadosMetragemContext)
   const {metragemQuadrada, selectedMaterial, diasDeTrabalho, selectedModelo} = dadosInseridos
   const { showPopup } = usePopup();
 
@@ -34,10 +35,10 @@ const PreenchimentoPadrao = () => {
       valorFechamento: valorFechamento,
       possuiAranha: checksDoOrcamento.aranhaIsChecked,
       valorFechamentoAranha: valorFechamentoAranha,
-      larguraDaLona: dadosMetragem.larguraDaLona,
-      comprimentoDaLona: dadosMetragem.comprimentoDaLona,
-      alturaFechamento: dadosMetragem.alturaFechamentoMetragem,
-      alturaAranha: dadosMetragem.alturaAranhaMetragem,
+      larguraDaLona: dadosMetragemOrcamento.larguraDaLona,
+      comprimentoDaLona: dadosMetragemOrcamento.comprimentoDaLona,
+      alturaFechamento: dadosMetragemOrcamento.alturaFechamentoMetragem,
+      alturaAranha: dadosMetragemOrcamento.alturaAranhaMetragem,
       maoDeObra: valoresDaLona.valorDaMaoDeObra,
       perimetroLona: dadosInseridos.perimetroLona,
     };

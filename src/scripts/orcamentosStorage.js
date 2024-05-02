@@ -3,7 +3,7 @@ export const getOrcamentosLonaStorage = () =>{
   return RecuperarDados ? JSON.parse(RecuperarDados) : []
 }
 
-export const setOrcamentoSLonatorage = (orcamentos) =>{
+export const setOrcamentosLonatorage = (orcamentos) =>{
   const orcamentoJson = JSON.stringify(orcamentos)
   localStorage.setItem('orcamentoJSON', orcamentoJson )
 } 

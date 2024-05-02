@@ -1,10 +1,6 @@
 import { Item } from "./Item.class";
-import { OrcamentoContext } from "./OrcamentoContext";
-import { getOrcamentosLonaStorage } from "./orcamentosStorage";
-
-const orcamentosAtivos = getOrcamentosLonaStorage()
   
-  export const FormataDescricaoLona = () =>{
+  export const FormataDescricaoLona = (orcamentosAtivos) =>{
     let orcamentosLonaOrganizados = []
 
     orcamentosAtivos.map((orcamento) => {

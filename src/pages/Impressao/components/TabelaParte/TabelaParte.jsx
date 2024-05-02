@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
 import styles from '../Tabela/Tabela.module.css'; 
+import { OrcamentoContext } from '../../../../scripts/OrcamentoContext';
 
 const TabelaParte = ({ dados, nomeParte, linhasMinimas }) => {
   const [quantidades, setQuantidades] = useState(dados.map(item => item.quantidade || ''));
   const [descricoes, setDescricoes] = useState(dados.map(item => item.descricao || ''));
   const [precosUnitarios, setPrecosUnitarios] = useState(dados.map(item => item.precoUnitario || ''));
   const [totais, setTotais] = useState(dados.map(item => item.total || ''));
+
+  React.useEffect(() => {
+    setQuantidades(dados.map(item => item.quantidade || ''));
+    setDescricoes(dados.map(item => item.descricao || ''));
+    setPrecosUnitarios(dados.map(item => item.precoUnitario || ''));
+    setTotais(dados.map(item => item.total || ''));
+  }, [dados]);
+
 
   const handleChange = (index, campo, valor) => {
     switch (campo) {
