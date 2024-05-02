@@ -1,7 +1,6 @@
 import React from 'react'
 import { OrcamentoContext } from '../../scripts/OrcamentoContext'
 import CardOrcamentoLona from '../CardOrcamentoLona/CardOrcamentoLona';
-import { getOrcamentosStorage } from '../../scripts/orcamentosStorage';
 
 const ExibeOrcamentos = () => {
   const {orcamentos} = React.useContext(OrcamentoContext);

@@ -1,20 +1,25 @@
 import React from 'react'
 import { DadosInseridosContext } from '../../../scripts/DadosInseridosContext.jsx';
 import InputsCheckBox from '../../InputsCheckBox/InputsCheckBox.jsx';
-import { checkbox } from '@material-tailwind/react';
 const CheckBoxMetragens = ({labelCheck, labelInput, id}) => {
-  const dadosInseridos = React.useContext(DadosInseridosContext)
-  const [fechamentoIsChecked, setFechamentoIsChecked] = React.useState(false)
-  const [alturaFechamento, setAlturaFechamento] = React.useState('');
+  const {adicionarCheckMetragem, adicionarMetragem, dadosMetragem, stateMetragem} = React.useContext(DadosInseridosContext)
+  const [fechamentoIsChecked, setFechamentoIsChecked] = React.useState(dadosMetragem.checkFechamento)
+  const [alturaFechamento, setAlturaFechamento] = React.useState(dadosMetragem.alturaFechamento);
+  
+
+  React.useEffect(() =>{
+    setAlturaFechamento(dadosMetragem.alturaFechamento)
+    setFechamentoIsChecked(dadosMetragem.checkFechamento)
+  },[stateMetragem])
 
   const handleCheckboxChange = () => {
     setFechamentoIsChecked(!fechamentoIsChecked);
-    dadosInseridos.adicionarCheckMetragem(`${id}IsChecked`, !fechamentoIsChecked )
+   adicionarCheckMetragem(`${id}IsChecked`, !fechamentoIsChecked )
   };
 
   const handleAlturaChange = (e) =>{
     setAlturaFechamento(e.target.value)
-    dadosInseridos.adicionarMetragem(`altura${id.charAt(0).toUpperCase() + id.slice(1)}`, e.target.value)
+   adicionarMetragem(`altura${id.charAt(0).toUpperCase() + id.slice(1)}`, e.target.value)
   }
   return (
    <div key={id} className='flex flex-col gap-2'> 

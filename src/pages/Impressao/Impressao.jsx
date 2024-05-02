@@ -10,7 +10,6 @@ import PageIInfoGeral from './components/PageIInfoGeral/PageIInfoGeral';
 import {OrcamentoStorage} from '../../scripts/OrcamentoContext'
 import { DadosInseridosStorage } from '../../scripts/DadosInseridosContext';
 import BotaoPaginas from '../../components/Botoes/BotaoPaginas.jsx'
-import DadosFormatados from './components/DadosFormatados/DadosFormatados';
 
 const Impressao = () => {
   const printContainer = useRef(null);
@@ -21,42 +20,38 @@ const Impressao = () => {
   };
 
   return (
-
-    <DadosInseridosStorage>
-      <OrcamentoStorage>
-        <DadosFormatados/>
-        <div  className='fontGothic flex flex-col justify-center bg-white '>
-          <div className={styles.mainContainer}>
-            <div className={styles.container}>
-              <Header />
-              <Infos />
-              <Tabela />
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Observacoes />
-                <Valores />
-              </div>
-              <Footer />
+    <>
+      <div  className='fontGothic flex flex-col justify-center bg-white '>
+        <div className={styles.mainContainer}>
+          <div className={styles.container}>
+            <Header />
+            <Infos />
+            <Tabela />
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Observacoes />
+              <Valores />
             </div>
+            <Footer />
           </div>
-          
-        <div className={styles.pageInfoMainContainer} >
-          <div className={styles.pageInfoContainer}>
-              <PageIInfoGeral />
-            </div>
-          
-          </div>
-          <div  style={{justifyContent:'center', display:'flex', width:'100%', margin:'16px 0px 32px 0px'}} ref={printContainer}>
-            <div style={{justifyContent:'center', display:'flex', gap:'16px',}} >
-              <button className={styles.btnImprimir} onClick={handlePrint}>Imprimir</button>
-              <BotaoPaginas 
-                  to={'/'} 
-                  label={'Pagina inicial'} 
-                />
-            </div>
-          </div > 
         </div>
-      </OrcamentoStorage>
-    </DadosInseridosStorage>
+        
+      <div className={styles.pageInfoMainContainer} >
+        <div className={styles.pageInfoContainer}>
+            <PageIInfoGeral />
+          </div>
+        
+        </div>
+        <div  style={{justifyContent:'center', display:'flex', width:'100%', margin:'16px 0px 32px 0px'}} ref={printContainer}>
+          <div style={{justifyContent:'center', display:'flex', gap:'16px',}} >
+            <button className={styles.btnImprimir} onClick={handlePrint}>Imprimir</button>
+            <BotaoPaginas 
+                to={'/'} 
+                label={'Pagina inicial'} 
+              />
+          </div>
+        </div > 
+      </div>
+    </>
   );
 };
 

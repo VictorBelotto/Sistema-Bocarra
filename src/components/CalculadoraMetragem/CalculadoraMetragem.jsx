@@ -8,7 +8,7 @@ import InputMetragem from './components/InputMetragem.jsx';
 import InputsCheckBox from '../InputsCheckBox/InputsCheckBox.jsx';
 
 const CalculadoraMetragem = () => {
-  const {dadosInseridos, dadosMetragem, adicionarDado, checksDaMetragem} = React.useContext(DadosInseridosContext)
+  const {dadosInseridos, dadosMetragem, adicionarDado, checksDaMetragem, resetaMetragem} = React.useContext(DadosInseridosContext)
   const [resultados, setResultados] = React.useState({});
   const [exibeResultado, setExibeResultado] = React.useState(false)
   const [marquiseIsChecked, setMarquiseIsChecked] = React.useState(false)
@@ -35,15 +35,17 @@ const CalculadoraMetragem = () => {
   };
 
   const preencherOrcamento = () =>{
+
     adicionarDado('metragemQuadrada', {
       ...dadosInseridos.metragemQuadrada,
       lona: resultados.metragem,
       fechamento: resultados.fechamento,
       aranha: resultados.fechamentoDaAranha,
     });
-
     adicionarDado('perimetroLona', resultados.perimetro)
-   
+    setExibeResultado(false)
+    setMarquiseIsChecked(false)
+    resetaMetragem()
 }
 
   return (

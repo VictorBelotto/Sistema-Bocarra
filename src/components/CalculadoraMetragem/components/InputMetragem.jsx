@@ -2,8 +2,12 @@ import React from 'react';
 import { DadosInseridosContext } from '../../../scripts/DadosInseridosContext.jsx';
 
 const InputMetragem = ({label, id}) => {
-  const [metragem, setMetragem] = React.useState('');
-  const {adicionarMetragem} = React.useContext(DadosInseridosContext)
+  const {adicionarMetragem, dadosMetragem, stateMetragem } = React.useContext(DadosInseridosContext)
+  const [metragem, setMetragem] = React.useState(dadosMetragem.alturaFechamento);
+  
+  React.useEffect(() =>{
+    setMetragem(dadosMetragem.alturaFechamento)
+  },[stateMetragem])
 
   const handleMetragemChange = (e) => {
     setMetragem(e.target.value)

@@ -28,13 +28,29 @@ export const DadosInseridosStorage = ({ children }) => {
   };
 
 
-  const [dadosMetragem, setDadosMetragem] = React.useState({})
+  const [dadosMetragem, setDadosMetragem] = React.useState({
+    larguraDaLona: '',
+    comprimentoDaLona: '',
+    checkFechamento: false,
+    alturaFechamento: ''
+  })
   const adicionarMetragem = (nome, valor) =>{ 
     setDadosMetragem(prevState => ({
       ...prevState, 
       [nome]:valor
     }))
   }
+  const [stateMetragem, setStateMetragem] = React.useState(null)
+  const resetaMetragem = () => {
+    setStateMetragem(Date.now());
+    setDadosMetragem({
+      larguraDaLona: '',
+      comprimentoDaLona: '',
+      checkFechamento: false,
+      alturaFechamento: ''
+    });
+  };
+
   const [checksDaMetragem, setChecksDaMetragem ] = React.useState({})
 
   const adicionarCheckMetragem = (nome, valor) =>{
@@ -52,8 +68,10 @@ export const DadosInseridosStorage = ({ children }) => {
     }))
   }
 
+
+
   return (
-    <DadosInseridosContext.Provider value={{ dadosInseridos, adicionarDado, dadosMetragem, adicionarMetragem, checksDaMetragem, adicionarCheckMetragem, checksDoOrcamento, adicionarChecksDoOrcamento}}>
+    <DadosInseridosContext.Provider value={{ dadosInseridos, adicionarDado, dadosMetragem, adicionarMetragem, setDadosMetragem,checksDaMetragem, adicionarCheckMetragem, checksDoOrcamento, adicionarChecksDoOrcamento, resetaMetragem, stateMetragem}}>
       {children}
     </DadosInseridosContext.Provider>
   );
