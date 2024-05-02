@@ -6,13 +6,11 @@ import CalculadoraEstruturas from '../../components/CalculadoraEstruturas/Calcul
 import BotaoMenu from '../../components/Botoes/BotaoMenu.jsx';
 import BotaoPaginas from '../../components/Botoes/BotaoPaginas.jsx';
 import ExportarParaPlanilha from '../../components/ExportarParaPlanilha/ExportarParaPlanilha.jsx';
-import Impressao from '../Impressao/Impressao.jsx';
-import {Cone ,PanelsTopLeft, Landmark} from 'lucide-react';
+import CalculadoraCupula from '../../components/CalculadoraCupula/CalculadoraCupula.jsx'; 
+import {Cone ,PanelsTopLeft, Landmark, Pyramid} from 'lucide-react';
 
 const Home = () => {
-  const [lonaView, setLonaView] = React.useState(true);
-  const [estruturaView, setEstruturaView] = React.useState(false);
-  const [viewsAtivas, setViewsAtivas] = React.useState('calculadoraLona')
+  const [viewsAtivas, setViewsAtivas] = React.useState('calculadoraCupula')
 
 
 
@@ -23,7 +21,7 @@ const Home = () => {
           <h1 className="text-fuchsia-700 text-4xl mt-2 mb-2">System</h1>
 
           <span className="w-4/5 h-0.5 bg-gray-500 bg-opacity-80"></span>
-          <h2 className='text-base font-semibold text-slate-500 w-4/5 flex gap-2'>Calculadoras</h2>
+          <h2 className='text-base font-semibold text-slate-500 w-4/5 flex gap-2'>Calculadora de Valor</h2>
             <BotaoMenu 
               label={'Lonas'} 
               onClick={()=> setEstruturaView('calculadoraLona')} 
@@ -34,7 +32,13 @@ const Home = () => {
               onClick={()=> setEstruturaView('calculadoraEstrutura')}
               icon={<Landmark/>}
             />
-
+          <span className="w-4/5 h-0.5 bg-gray-500 bg-opacity-80"></span>
+          <h2 className='text-base font-semibold text-slate-500 w-4/5 flex gap-2'>Calculadora de Metragem</h2>
+            <BotaoMenu 
+                label={'Cúpula'} 
+                onClick={()=> setEstruturaView('calculadoracupula')}
+                icon={<Pyramid/>}
+              />
           <span className="w-4/5 h-0.5 bg-gray-500 bg-opacity-80"></span>
           <h2 className='text-base font-semibold text-slate-500 w-4/5 flex gap-2'>Dashboards</h2>
           <BotaoPaginas 
@@ -60,8 +64,10 @@ const Home = () => {
               <CalculadoraEstruturas />
             </div>
           )}
-          {viewsAtivas === 'impressao' && (
-            <Impressao/>
+          {viewsAtivas === 'calculadoraCupula' && (
+            <div className="flex justify-center">
+              <CalculadoraCupula />
+            </div>
           )}
         </div>
         <div className='flex flex-col  p-6 max-w-[1040px] rounded-lg bg-card-escuro shadow-card'>
