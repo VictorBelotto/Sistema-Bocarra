@@ -1,6 +1,15 @@
 import React from 'react'
+import { CupulaContext } from '../../context/CupulaContext'
 
-const InputMetragem = ({value, label, id}) => {
+const InputMetragem = ({label, id}) => {
+  const {inputValues, adicionarValue} = React.useContext(CupulaContext)
+  const [value, setValue] = React.useState('')
+
+  const handleInputChange = (e) =>{
+    setValue(e.target.value)
+    adicionarValue(id, e.target.value)
+  }
+
   return (
     <div className='flex w-full justify-between'>
       <label htmlFor={id}>{label}</label>
@@ -8,6 +17,7 @@ const InputMetragem = ({value, label, id}) => {
         className='focus:outline-purple-700 outline-none py-1 w-16 text-slate-100 text-center  bg-card-contraste border-none rounded-md'
         value={value}
         id={id}
+        onChange={handleInputChange}
       />
     </div>
   )
