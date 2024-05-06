@@ -13,8 +13,6 @@ import { ViewAtivaContext } from '../../context/ViewAtiva.jsx';
 const Home = () => {
   const {viewAtiva, setViewAtiva} = React.useContext(ViewAtivaContext)
 
-
-
   return (
     <div className="flex fontRoboto">
       <aside className="w-72 h-screen overflow-y-auto shadow-lg ">
@@ -22,7 +20,6 @@ const Home = () => {
       </aside>
 
       {/* Conteudo main */}
-
       <main className="flex flex-col w-full px-4 py-4 h-screen overflow-y-auto items-center">
         <div className="flex flex-col gap-8 rounded-lg mb-8  mt-2">
           {viewAtiva === 'calculadoraLona' && (

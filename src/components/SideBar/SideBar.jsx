@@ -40,7 +40,7 @@ export function SideBar() {
           }
         >
           <ListItem className="p-0" selected={open === 1}>
-            <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-2 px-3 hover:bg-card-escuro  rounded-2xl">
+            <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-2  hover:bg-card-escuro  rounded-2xl">
               <Typography color="blue-gray" className="mr-auto font-normal text-lg">
                 Orçamentos
               </Typography>
@@ -69,8 +69,6 @@ export function SideBar() {
           </AccordionBody>   
         </Accordion>
 
-        <hr className="my-2 border-fundo-verde" />
-        
         <Accordion
             open={open === 2}
             icon={
@@ -101,7 +99,27 @@ export function SideBar() {
           </AccordionBody>
         </Accordion>
         <hr className="my-2 border-fundo-verde" />
-       
+
+        <Accordion
+            open={open === 2}
+            icon={
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""}`}
+              />
+            }
+        >
+          <ListItem className="p-0" selected={open === 3}>
+            <AccordionHeader onClick={() => handleOpen(3)} className="border-b-0 p-2 hover:bg-card-escuro rounded-2xl">
+              <Typography color="blue-gray" className="mr-auto font-normal text-lg">
+                Planilha
+              </Typography>
+            </AccordionHeader>
+          </ListItem>
+
+         
+        </Accordion>
+
       </List>
     </Card>
   );
