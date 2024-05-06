@@ -6,8 +6,9 @@ const InputMetragem = ({label, id}) => {
   const [value, setValue] = React.useState('')
 
   const handleInputChange = (e) =>{
+    const valor = parseFloat(e.target.value)
     setValue(e.target.value)
-    adicionarValue(id, e.target.value)
+    adicionarValue(id, valor)
   }
 
   return (
