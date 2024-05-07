@@ -2,12 +2,15 @@ import React from 'react'
 import InputMetragem from './InputMetragem'
 import BotaoPadrao from '../Botoes/BotaoPadrao'
 import { CupulaContext } from '../../context/CupulaContext'
+import { Tooltip, Typography } from '@material-tailwind/react'
+import Info from '../Info/Info'
 
 const CalculadoraCupula = () => {
   const {inputValues} = React.useContext(CupulaContext)
   const [tubo1, setTubo1] = React.useState(null)
   const [tubo2, setTubo2] = React.useState(null)
   const [tubo3, setTubo3] = React.useState(null)
+  const [exibeResultado, setExibeResultado] = React.useState(false)
 
   const calcularArco = (alturaArco, largura) =>{
     let h = 0;
@@ -55,45 +58,70 @@ const CalculadoraCupula = () => {
 
     console.log(`Arco: ${trelicaDiagonalDeFora}`)
 
-    setTubo1(parseFloat(ferragemGrossa))
-    setTubo2(parseFloat(travamentoDiagonal) + parseFloat(comprimentoArcos)  + parseFloat(trelicaReta) )
-    setTubo3(parseFloat(licacoes) + parseFloat(trelicasDiagonais))
-
+    setTubo1(parseFloat(ferragemGrossa).toFixed())
+    setTubo2((parseFloat(travamentoDiagonal) + parseFloat(comprimentoArcos)  + parseFloat(trelicaReta)).toFixed() )
+    setTubo3((parseFloat(licacoes) + parseFloat(trelicasDiagonais)).toFixed())
+    
+    setExibeResultado(true)
   }
 
   return (
-    <section className='flex flex-col w-fit p-4 gap-4 bg-card-escuro text-slate-100 rounded-lg'>
-      <InputMetragem
-        label={'Largura'}
-        id={'largura'}
-      />
-      <InputMetragem
-        label={'Lençol'}
-        id={'lencol'}
-      />
-      <InputMetragem
-        label={'Altura do arco'}
-        id={'alturaArco'}
-      />
-      <InputMetragem
-        label={'Altura lateral'}
-        id={'alturaLateral'}
-       
-      />
-      <BotaoPadrao
-        label={'Calcular'}
-        variant={'roxo'}
-        onClick={calcularCupula}
-        key={'calcular'}
-      />
+  <section className='flex flex-col w-[330px] py-4 px-6 gap-4 bg-card-escuro text-slate-100 rounded-lg'>
+    <h1 className='ti-1 mb-3 text-fundo-verdeH'>Metragem da Lona</h1>
+    <InputMetragem label={'Largura'} id={'largura'} />
+    <InputMetragem label={'Lençol'} id={'lencol'} />
+    <InputMetragem label={'Altura lateral'} id={'alturaLateral'} />
+    <InputMetragem label={'Altura do arco'} id={'alturaArco'} />
 
-      <div>
-        Resultados 
-        <p>Tubo 1 (Tubo de fora + Travessas) : {tubo1}</p>
-        <p>Tubo 2 (Treliça Reta + Travamento + Arcos) : {tubo2}</p>
-        <p>Tubo 3 (Treliça Diagonal e Ligações) : {tubo3}</p>
-
+      <div className='flex self-center'>
+        <BotaoPadrao label={'Calcular'} variant={'verde'} onClick={calcularCupula} />
       </div>
+
+    
+     {exibeResultado && (
+      <>
+       <h2>Resultados</h2>
+       <table className='w-full'>
+         <thead className='bg-slate-900'>
+           <tr>
+             <th className='py-2 px-4 text-base'>Tubo</th>
+             <th className='py-2 px-4 text-base'>Metragem</th>
+             <th className='py-2 px-4 text-base'>Qtd Tubos</th>
+           </tr>
+         </thead>
+         <tbody className=''>
+           <tr className='text-center'>
+             <td className='py-2 px-4 text-base'>
+               <Info titulo={'Tubo 1 composto por:'} descricao={'Tubo de fora + Travessas'}>
+                 <h3 className='font-bold'>1°</h3>
+               </Info>
+             </td>
+             <td className='py-2 px-4 text-base'>{tubo1}</td>
+             <td className='py-2 px-4 text-base'>{Math.floor(tubo1 / 6) + 1}</td>
+           </tr>
+           <tr className='text-center'>
+             <td className='py-2 px-4 text-base bg-card-escuro'>
+               <Info titulo={'Tubo 2 composto por:'} descricao={'Treliça Reta + Travamento + Arcos'}>
+                 <h3 className='font-bold'>2°</h3>
+               </Info>
+             </td>
+             <td className='py-2 px-4 text-base bg-card-escuro'>{tubo2}</td>
+             <td className='py-2 px-4 text-base bg-card-escuro'>{Math.floor(tubo2 / 6) + 1}</td>
+           </tr>
+           <tr className='text-center'>
+             <td className='py-2 px-4 text-base'>
+               <Info titulo={'Tubo 3 composto por:'} descricao={'Treliça Diagonal + Ligações'}>
+                 <h3 className='font-bold'>3°</h3>
+               </Info>
+             </td>
+             <td className='py-2 px-4 text-base'>{tubo3}</td>
+             <td className='py-2 px-4 text-base'>{Math.floor(tubo3 / 6) + 1}</td>
+           </tr>
+          </tbody>
+        </table>
+       </>
+     )}
+
     </section>
   )
 }
