@@ -3,15 +3,25 @@ import PreenchimentoPadrao from '../../components/PreenchimentoPadrao/Preenchime
 import CalculadoraMetragem from '../../components/CalculadoraMetragem/CalculadoraMetragem';
 import ExibeOrcamentos from '../../components/ExibeOrcamentos/ExibeOrcamentos';
 import CalculadoraEstruturas from '../../components/CalculadoraEstruturas/CalculadoraEstruturas';
-import BotaoMenu from '../../components/Botoes/BotaoMenu.jsx';
-import BotaoPaginas from '../../components/Botoes/BotaoPaginas.jsx';
 import ExportarParaPlanilha from '../../components/ExportarParaPlanilha/ExportarParaPlanilha.jsx';
 import CalculadoraCupula from '../../components/CalculadoraCupula/CalculadoraCupula.jsx'; 
 import { SideBar } from '../../components/SideBar/SideBar.jsx';
 import { ViewAtivaContext } from '../../context/ViewAtiva.jsx';
+import { OrcamentoContext } from '../../scripts/OrcamentoContext.jsx';
 
 const Home = () => {
   const {viewAtiva, setViewAtiva} = React.useContext(ViewAtivaContext)
+  const {orcamentos} = React.useContext(OrcamentoContext)
+  const [exibeResultado, setExibeResultado] = React.useState(false)
+
+  React.useEffect(()=>{
+    console.log(orcamentos.length)
+    if(orcamentos.length > 0){
+      setExibeResultado(true)
+    }else{
+      setExibeResultado(false)
+    }
+  }, [orcamentos])
 
   return (
     <div className="flex fontRoboto">
@@ -40,7 +50,7 @@ const Home = () => {
           )}
         </div>
 
-        {(viewAtiva === 'calculadoraLona' || viewAtiva === 'calculadoraEstrutura') && (
+        {(viewAtiva === 'calculadoraLona' || viewAtiva === 'calculadoraEstrutura')&& exibeResultado && (
            <div className='flex flex-col  p-6 max-w-[1040px] rounded-lg bg-card-escuro shadow-card'>
            <ExibeOrcamentos/>
            <div className='mt-4 self-end' >

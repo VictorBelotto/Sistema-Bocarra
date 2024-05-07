@@ -80,7 +80,7 @@ const CalculadoraCupula = () => {
     
      {exibeResultado && (
       <>
-       <h2>Resultados</h2>
+       <h2 className='ti-2 text-purple-400'>Resultado:</h2> 
        <table className='w-full'>
          <thead className='bg-slate-900'>
            <tr>
