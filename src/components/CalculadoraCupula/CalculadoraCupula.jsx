@@ -32,11 +32,13 @@ const CalculadoraCupula = () => {
   }
 
   const calcularCupula = () =>{
-    const perimetroTuboDeFora = (inputValues.largura * Math.PI) + (inputValues.lencol * 2)
+    const lencolReal = Math.floor(inputValues.lencol)
+
+    const perimetroTuboDeFora = (inputValues.largura * Math.PI) + (lencolReal * 2)
 
     const qtdTrelica = perimetroTuboDeFora
 
-    const trelicaDiagonalDeFora = Math.sqrt(Math.pow(inputValues.alturaLateral, 2) + Math.pow(0.50, 2))
+    const trelicaDiagonalDeFora = Math.sqrt(Math.pow(inputValues.alturaLateral, 2) + Math.pow(((inputValues.lencol / lencolReal)) / 2), 2))
 
     const trelicaDiagonalDaTravessa = Math.sqrt(Math.pow(inputValues.largura / 2, 2) + Math.pow(inputValues.alturaLateral, 2))
 
@@ -50,11 +52,11 @@ const CalculadoraCupula = () => {
 
     const comprimentoArco = calcularArco(inputValues.alturaArco, inputValues.largura)
 
-    const comprimentoArcos = comprimentoArco * (inputValues.lencol + 4)
+    const comprimentoArcos = comprimentoArco * (lencolReal + 4)
 
     const licacoes = inputValues.lencol * 3
 
-    const trelicaReta = (qtdTrelica * inputValues.alturaLateral) + (inputValues.alturaArco * (inputValues.lencol + 1))
+    const trelicaReta = (qtdTrelica * inputValues.alturaLateral) + (inputValues.alturaArco * (lencolReal + 1))
 
     console.log(`Arco: ${trelicaDiagonalDeFora}`)
 
