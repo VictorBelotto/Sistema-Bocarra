@@ -8,6 +8,7 @@ import CalculadoraCupula from '../../components/CalculadoraCupula/CalculadoraCup
 import { SideBar } from '../../components/SideBar/SideBar.jsx';
 import { ViewAtivaContext } from '../../context/ViewAtiva.jsx';
 import { OrcamentoContext } from '../../scripts/OrcamentoContext.jsx';
+import CardOrcamentoEstrutura from '../../components/CardOrcamentoEstrutura/CardOrcamentoEstrutura.jsx';
 
 const Home = () => {
   const {viewAtiva, setViewAtiva} = React.useContext(ViewAtivaContext)
@@ -15,7 +16,6 @@ const Home = () => {
   const [exibeResultado, setExibeResultado] = React.useState(false)
 
   React.useEffect(()=>{
-    console.log(orcamentos.length)
     if(orcamentos.length > 0){
       setExibeResultado(true)
     }else{
@@ -41,6 +41,7 @@ const Home = () => {
           {viewAtiva === 'calculadoraEstrutura' && (
             <div className="flex justify-center gap-12">
               <CalculadoraEstruturas />
+              <CardOrcamentoEstrutura/>
             </div>
           )}
           {viewAtiva === 'calculadoraCupula' && (

@@ -67,7 +67,7 @@ const CalculadoraCupula = () => {
 
   return (
   <section className='flex flex-col w-[330px] py-4 px-6 gap-4 bg-card-escuro text-slate-100 rounded-lg'>
-    <h1 className='ti-1 mb-3 text-fundo-verdeH'>Metragem da Lona</h1>
+    <h1 className='ti-1 mb-3 text-fundo-verdeH'>Metragem da Cúpula</h1>
     <InputMetragem label={'Largura'} id={'largura'} />
     <InputMetragem label={'Lençol'} id={'lencol'} />
     <InputMetragem label={'Altura lateral'} id={'alturaLateral'} />

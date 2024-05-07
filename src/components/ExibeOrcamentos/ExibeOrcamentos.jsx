@@ -11,6 +11,7 @@ const ExibeOrcamentos = () => {
         {orcamentos.map((orcamento, index) => (
           <CardOrcamentoLona key={index} orcamento={orcamento} index={index}/>
         ))}
+        {}
       </div>
     </>
   )

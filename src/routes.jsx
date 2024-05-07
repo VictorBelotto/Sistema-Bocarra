@@ -29,7 +29,6 @@ const AppRoutes = () => {
                 </Routes>
               </BrowserRouter>
               </ViewAtivaProvider>
-              
             </CupulaContextProvider>
           </OrcamentoStorage>
         </DadosInseridosStorage>
