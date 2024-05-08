@@ -1,14 +1,19 @@
 import React from "react";
 
-const ValoresEstruturasContext = React.createContext();
+export const OrcamentosEstruturasContext = React.createContext();
 
-const ValoresEstruturasStorage = ({children}) => {
-  const [valoresDigitados, setValoresDigitados] = React.useState({})
+export const OrcamentosEstruturasStorage = ({children}) => {
+  const [orcamentosEstruturas, setOrcamentosEstruturas] = React.useState([])
 
-  
+  const removerOrcamentoEstrutura = () => {
+    setOrcamentosEstruturas([]);
+  };
+
+ 
+
   return (
-    <ValoresEstruturasContext.Provider>
+    <OrcamentosEstruturasContext.Provider value={{orcamentosEstruturas, setOrcamentosEstruturas , removerOrcamentoEstrutura}}>
       {children}
-    </ValoresEstruturasContext.Provider>
+    </OrcamentosEstruturasContext.Provider>
   )
 }

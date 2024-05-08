@@ -38,7 +38,7 @@ const CalculadoraCupula = () => {
 
     const qtdTrelica = (inputValues.largura * Math.PI) + (lencolReal* 2)
 
-    const trelicaDiagonalDeFora = Math.sqrt(Math.pow(inputValues.alturaLateral, 2) + Math.pow((inputValues.lencol / lencolReal), 2))
+    const trelicaDiagonalDeFora = Math.sqrt(Math.pow(inputValues.alturaLateral, 2) + Math.pow(((inputValues.lencol / lencolReal) / 2), 2))
 
     const trelicaDiagonalDaTravessa = Math.sqrt(Math.pow((inputValues.largura / 2), 2) + Math.pow((inputValues.alturaLateral), 2))
 

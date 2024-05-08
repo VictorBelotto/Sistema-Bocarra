@@ -8,20 +8,22 @@ import CalculadoraCupula from '../../components/CalculadoraCupula/CalculadoraCup
 import { SideBar } from '../../components/SideBar/SideBar.jsx';
 import { ViewAtivaContext } from '../../context/ViewAtiva.jsx';
 import { OrcamentoContext } from '../../scripts/OrcamentoContext.jsx';
-import CardOrcamentoEstrutura from '../../components/CardOrcamentoEstrutura/CardOrcamentoEstrutura.jsx';
+import { OrcamentosEstruturasContext } from '../../context/OrcamentoEstruturasContext.jsx';
 
 const Home = () => {
   const {viewAtiva, setViewAtiva} = React.useContext(ViewAtivaContext)
   const {orcamentos} = React.useContext(OrcamentoContext)
+  const {orcamentosEstruturas} = React.useContext(OrcamentosEstruturasContext)
   const [exibeResultado, setExibeResultado] = React.useState(false)
+  
 
   React.useEffect(()=>{
-    if(orcamentos.length > 0){
+    if(orcamentos.length > 0 || orcamentosEstruturas.length > 0 ){
       setExibeResultado(true)
     }else{
       setExibeResultado(false)
     }
-  }, [orcamentos])
+  }, [orcamentos, orcamentosEstruturas])
 
   return (
     <div className="flex fontRoboto">
@@ -41,7 +43,6 @@ const Home = () => {
           {viewAtiva === 'calculadoraEstrutura' && (
             <div className="flex justify-center gap-12">
               <CalculadoraEstruturas />
-              <CardOrcamentoEstrutura/>
             </div>
           )}
           {viewAtiva === 'calculadoraCupula' && (

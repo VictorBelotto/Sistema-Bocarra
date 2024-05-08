@@ -10,6 +10,7 @@ import { DadosInseridosStorage } from './scripts/DadosInseridosContext'
 import { DadosMetragemProvider } from './context/DadosMetragemContext'
 import { CupulaContextProvider } from './context/CupulaContext'
 import { ViewAtivaProvider } from './context/ViewAtiva'
+import { OrcamentosEstruturasStorage } from './context/OrcamentoEstruturasContext'
 
 const AppRoutes = () => {
   return (
@@ -19,15 +20,17 @@ const AppRoutes = () => {
           <OrcamentoStorage>
             <CupulaContextProvider>
               <ViewAtivaProvider>
-              <BrowserRouter>
-                <Routes>
-                  <Route path='/' element={<PaginaBase/>}>
-                  <Route index element={<Home/>} />
-                  <Route path='/Testes' element={<Testes/>} />
-                  <Route path='/Impressao' element={<Impressao/>} />
-                  </Route>
-                </Routes>
-              </BrowserRouter>
+                <OrcamentosEstruturasStorage>
+                  <BrowserRouter>
+                    <Routes>
+                      <Route path='/' element={<PaginaBase/>}>
+                      <Route index element={<Home/>} />
+                      <Route path='/Testes' element={<Testes/>} />
+                      <Route path='/Impressao' element={<Impressao/>} />
+                      </Route>
+                   </Routes>
+                 </BrowserRouter>
+                </OrcamentosEstruturasStorage>
               </ViewAtivaProvider>
             </CupulaContextProvider>
           </OrcamentoStorage>

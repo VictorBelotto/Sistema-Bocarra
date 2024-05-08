@@ -6,7 +6,7 @@ import formataValor from '../../scripts/formataValor.js';
 
 const CardOrcamentoLona = ({ orcamento, index}) => {
   const { removerOrcamento } = React.useContext(OrcamentoContext);
-  const {showPopup} = React.usePopup();
+  const {showPopup} = usePopup();
   const [infoCompleta, setInfoCompleta] = React.useState(false)
 
   const handleClick = () => {
