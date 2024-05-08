@@ -18,7 +18,7 @@ const CardOrcamentoEstrutura = ({estrutura}) => {
   return (
     <main
       onClick={handleClick} 
-      className='flex p-3 flex-col gap-3 w-80 h-fit bg-card-contraste  text-slate-100 rounded-2xl cursor-pointer 
+      className='flex p-3 flex-col gap-3 w-80 min-h-[242px] h-fit bg-card-contraste  text-slate-100 rounded-2xl cursor-pointer 
       shadow-card outline-none hover:outline-indigo-600'
     >
       <div className='flex justify-between items-center' >

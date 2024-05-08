@@ -42,6 +42,11 @@ const PreenchimentoTabela = () => {
    setOrcamentosEstruturas(itensPreenchidos)
   };
 
+  const handleWheel = (e) => {
+    e.preventDefault();
+    inputElem.current.blur();
+  };
+
   const valorTotal = ValoresDaEstrutura.reduce((total, item, index) => total + valoresUnitarios[index] * quantidades[index], 0);
 
   return (
@@ -56,7 +61,7 @@ const PreenchimentoTabela = () => {
       {ValoresDaEstrutura.map((item, index) => (
         <div className='flex border-b border-slate-500 py-1 gap-4' key={index}>
           <div className='w-40 py-1'>{item.label}</div>
-          <div className='w-32 py-1'>
+          <div  className='w-32 py-1'>
             <input
               className='bg-card-contraste w-24 py-1 rounded-lg text-center'
               type="number"
@@ -64,7 +69,7 @@ const PreenchimentoTabela = () => {
               onChange={(e) => handleChangeValorUnitario(index, e.target.value)}
             />
           </div>
-          <div className='w-28 py-1'>
+          <div className='w-28 py-1' >
             <input
               className='bg-card-contraste w-20 py-1 rounded-lg text-center'
               type="number"
