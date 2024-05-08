@@ -66,6 +66,7 @@ const PreenchimentoTabela = () => {
               className='bg-card-contraste w-24 py-1 rounded-lg text-center'
               type="number"
               value={valoresUnitarios[index]}
+              onWheel={() => document.activeElement.blur()}
               onChange={(e) => handleChangeValorUnitario(index, e.target.value)}
             />
           </div>
@@ -74,6 +75,7 @@ const PreenchimentoTabela = () => {
               className='bg-card-contraste w-20 py-1 rounded-lg text-center'
               type="number"
               value={quantidades[index]}
+              onWheel={() => document.activeElement.blur()}
               onChange={(e) => handleChangeQuantidade(index, parseInt(e.target.value))}
             />
           </div>
