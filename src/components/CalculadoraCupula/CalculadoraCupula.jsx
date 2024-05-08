@@ -34,21 +34,21 @@ const CalculadoraCupula = () => {
   const calcularCupula = () =>{
     const lencolReal = Math.floor(inputValues.lencol)
 
-    const perimetroTuboDeFora = (inputValues.largura * Math.PI) + (lencolReal * 2)
+    const perimetroTuboDeFora = (inputValues.largura * Math.PI) + (inputValues.lencol* 2)
 
-    const qtdTrelica = perimetroTuboDeFora
+    const qtdTrelica = (inputValues.largura * Math.PI) + (lencolReal* 2)
 
-    const trelicaDiagonalDeFora = Math.sqrt(Math.pow(inputValues.alturaLateral, 2) + Math.pow(((inputValues.lencol / lencolReal)) / 2), 2))
+    const trelicaDiagonalDeFora = Math.sqrt(Math.pow(inputValues.alturaLateral, 2) + Math.pow((inputValues.lencol / lencolReal), 2))
 
-    const trelicaDiagonalDaTravessa = Math.sqrt(Math.pow(inputValues.largura / 2, 2) + Math.pow(inputValues.alturaLateral, 2))
+    const trelicaDiagonalDaTravessa = Math.sqrt(Math.pow((inputValues.largura / 2), 2) + Math.pow((inputValues.alturaLateral), 2))
 
-    const trelicasDiagonais = ((trelicaDiagonalDaTravessa * 2) * (inputValues.lencol + 1)) + ((qtdTrelica * 2) * trelicaDiagonalDeFora)
+    const trelicasDiagonais = ((trelicaDiagonalDaTravessa * 2) * (lencolReal + 1)) + ((qtdTrelica * 2) * trelicaDiagonalDeFora)
     
-    const ferragemGrossa = (((inputValues.largura * (inputValues.lencol + 1)) * 2 )) + ((inputValues.lencol + 1) * (inputValues.alturaLateral * 3)) + (perimetroTuboDeFora * 2) 
+    const ferragemGrossa = (((inputValues.largura * (lencolReal + 1)) * 2 )) + ((lencolReal + 1) * (inputValues.alturaLateral * 3)) + (perimetroTuboDeFora * 2) + (inputValues.alturaLateral * 2)
 
     const hipotenusaTravamento = Math.sqrt(Math.pow(inputValues.largura, 2) + Math.pow(1, 2)) 
 
-    const travamentoDiagonal = (Math.sqrt(Math.pow(inputValues.alturaLateral, 2) + Math.pow(hipotenusaTravamento, 2))) * inputValues.lencol
+    const travamentoDiagonal = (Math.sqrt(Math.pow(inputValues.alturaLateral, 2) + Math.pow(hipotenusaTravamento, 2))) * lencolReal
 
     const comprimentoArco = calcularArco(inputValues.alturaArco, inputValues.largura)
 
@@ -58,7 +58,7 @@ const CalculadoraCupula = () => {
 
     const trelicaReta = (qtdTrelica * inputValues.alturaLateral) + (inputValues.alturaArco * (lencolReal + 1))
 
-    console.log(`Arco: ${trelicaDiagonalDeFora}`)
+    console.log(`trav: ${trelicaDiagonalDaTravessa}, fora ${trelicaDiagonalDeFora}`)
 
     setTubo1(parseFloat(ferragemGrossa).toFixed())
     setTubo2((parseFloat(travamentoDiagonal) + parseFloat(comprimentoArcos)  + parseFloat(trelicaReta)).toFixed() )
