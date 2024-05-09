@@ -9,8 +9,6 @@ export const OrcamentosEstruturasStorage = ({children}) => {
     setOrcamentosEstruturas([]);
   };
 
- 
-
   return (
     <OrcamentosEstruturasContext.Provider value={{orcamentosEstruturas, setOrcamentosEstruturas , removerOrcamentoEstrutura}}>
       {children}

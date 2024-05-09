@@ -14,8 +14,12 @@ const ExibeOrcamentos = () => {
         {orcamentos.map((orcamento, index) => (
           <CardOrcamentoLona key={index} orcamento={orcamento} index={index}/>
         ))}
-        
-          <CardOrcamentoEstrutura key={'card'} estrutura={orcamentosEstruturas} index={'card'}/>
+        {orcamentosEstruturas.length > 0 &&(
+          <>
+            <CardOrcamentoEstrutura key={'card'} estrutura={orcamentosEstruturas} index={'card'}/>
+          </>
+        )}
+          
       
       </div>
     </>

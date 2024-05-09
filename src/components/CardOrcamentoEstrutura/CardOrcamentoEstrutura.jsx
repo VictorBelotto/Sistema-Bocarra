@@ -1,11 +1,13 @@
 import React, { useContext } from 'react'
 import { X } from 'lucide-react';
 import { OrcamentosEstruturasContext } from '../../context/OrcamentoEstruturasContext';
-
+import formataValor from '../../scripts/formataValor'
 const CardOrcamentoEstrutura = ({estrutura}) => {
   const [infoCompleta, setInfoCompleta] = React.useState(false)
   const {removerOrcamentoEstrutura} = useContext(OrcamentosEstruturasContext)
+  let valorTotal
 
+  estrutura.forEach(i => (i.value * i.quantidade) )
 
   const handleClick = () => {
     setInfoCompleta(!infoCompleta)
@@ -37,14 +39,17 @@ const CardOrcamentoEstrutura = ({estrutura}) => {
   estrutura.slice(0, 2).map((item, index) => (
     <div key={index} className='gap-0.5 flex flex-col'>
       <p><strong className='text-purple-400'>{item.label}:</strong> </p>
-      <p><strong className='text-fundo-verdeH'>Quantidade:</strong> {item.quantidade} X <strong className='text-fundo-verdeH'>Valor Uni:</strong> {item.value}</p>
+      <p><strong className='text-fundo-verdeH'>Quantidade:</strong> {item.quantidade} <strong className='text-purple-400'>X</strong> <strong 
+      className='text-fundo-verdeH'>Valor :</strong> {formataValor(item.value * item.quantidade)}</p>
+      
     </div>
   ))
 ) : (
   estrutura.map((item, index) => (
     <div key={index} className='gap-0.5 flex flex-col'>
       <p><strong className='text-purple-400'>{item.label}:</strong> </p>
-      <p><strong className='text-fundo-verdeH'>Quantidade:</strong> {item.quantidade} X <strong className='text-fundo-verdeH'>Valor Uni:</strong> {item.value}</p>
+      <p><strong className='text-fundo-verdeH'>Quantidade:</strong> {item.quantidade} <strong className='text-purple-400'>X</strong> <strong className='text-fundo-verdeH'>Valor :</strong> {formataValor(item.value * item.quantidade)}</p>
+      
     </div>
   ))
 )}
@@ -58,9 +63,14 @@ const CardOrcamentoEstrutura = ({estrutura}) => {
         {estrutura.slice(2).map((item, index) => (
           <div key={index}>
             <p><strong className='text-purple-400'>{item.label}:</strong> </p>
-            <p><strong className='text-fundo-verdeH'>Quantidade:</strong> {item.quantidade} X <strong className='text-fundo-verdeH'>Valor Uni:</strong> {item.value}</p>
+            <p className='flex justify-between'><strong className='text-fundo-verdeH'>Quantidade:</strong> {item.quantidade} <strong className='text-purple-400'>X</strong> <strong className='text-fundo-verdeH'>Valor :</strong> {formataValor(item.value * item.quantidade)}</p>
+            
           </div>
         ))}
+        <div>
+          <hr className='w-[75%]' />
+          <p><strong className='text-purple-400'>Valor total:</strong>{} </p>
+        </div>
       </>
     )}
 
