@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Header.module.css'
 import getOrderNumber from '../../../../scripts/getOrderNumber';
-
+import Logo from '../../../../assets/images/L1Preto.svg'
 
 const Header = () => {
   const dates = getOrderNumber(); 
@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.container} >
-        <div><img src="src\assets\images\L1Preto.svg" alt="" /></div>
+        <div><img src={Logo} alt="Logo" /></div>
         <div>
          <p>{dates.orderNumber}</p>
          <p>Data: {dates.data}</p>
