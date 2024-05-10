@@ -38,7 +38,6 @@ const PreenchimentoTabela = () => {
         itensPreenchidos.push(orcamentoItem);
       }
     });
-   console.log(orcamentosEstruturas)
    setOrcamentosEstruturas(itensPreenchidos)
   };
 

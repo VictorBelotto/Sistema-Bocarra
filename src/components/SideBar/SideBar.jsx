@@ -104,6 +104,13 @@ export function SideBar() {
                   onClick={()=> setViewAtiva('calculadoraCupula')}
                 />
               </ListItem>
+              <ListItem className={`p-0 w-full rounded-2xl ${viewAtiva === 'calculadoraTorre'? 'bg-purple-700': ''}`}>
+                <BotaoMenu 
+                  label={'Torre'} 
+                  icon={<ChevronRightIcon strokeWidth={3} className="h-3 w-5 self-center" />} 
+                  onClick={()=> setViewAtiva('calculadoraTorre')}
+                />
+              </ListItem>
             </List>
           </AccordionBody>
         </Accordion>

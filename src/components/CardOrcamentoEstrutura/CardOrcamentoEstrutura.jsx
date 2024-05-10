@@ -5,9 +5,9 @@ import formataValor from '../../scripts/formataValor'
 const CardOrcamentoEstrutura = ({estrutura}) => {
   const [infoCompleta, setInfoCompleta] = React.useState(false)
   const {removerOrcamentoEstrutura} = useContext(OrcamentosEstruturasContext)
-  let valorTotal
 
-  estrutura.forEach(i => (i.value * i.quantidade) )
+  const valorTotal = estrutura.reduce((a, item) => a + (item.value * item.quantidade), 0);
+
 
   const handleClick = () => {
     setInfoCompleta(!infoCompleta)
@@ -36,20 +36,21 @@ const CardOrcamentoEstrutura = ({estrutura}) => {
 
     
       {estrutura.length > 2 ? (
-  estrutura.slice(0, 2).map((item, index) => (
-    <div key={index} className='gap-0.5 flex flex-col'>
-      <p><strong className='text-purple-400'>{item.label}:</strong> </p>
-      <p><strong className='text-fundo-verdeH'>Quantidade:</strong> {item.quantidade} <strong className='text-purple-400'>X</strong> <strong 
-      className='text-fundo-verdeH'>Valor :</strong> {formataValor(item.value * item.quantidade)}</p>
+       estrutura.slice(0, 2).map((item, index) => (
+      <div key={index} className='gap-0.5 flex flex-col'>
+       <p><strong className='text-purple-400'>{item.label}:</strong> </p>
+       <p><strong className='text-fundo-verdeH'>Quantidade:</strong> {item.quantidade} <strong className='text-purple-400'>X</strong> <strong 
+       className='text-fundo-verdeH'>Valor :</strong> {formataValor(item.value * item.quantidade)}</p>
       
-    </div>
+     </div>
   ))
 ) : (
   estrutura.map((item, index) => (
     <div key={index} className='gap-0.5 flex flex-col'>
       <p><strong className='text-purple-400'>{item.label}:</strong> </p>
       <p><strong className='text-fundo-verdeH'>Quantidade:</strong> {item.quantidade} <strong className='text-purple-400'>X</strong> <strong className='text-fundo-verdeH'>Valor :</strong> {formataValor(item.value * item.quantidade)}</p>
-      
+      <hr className='w-[75%] mb-2' />
+      <p><strong className='text-red-400 h-3'>Valor total:</strong>{formataValor(valorTotal)} </p>
     </div>
   ))
 )}
@@ -63,13 +64,13 @@ const CardOrcamentoEstrutura = ({estrutura}) => {
         {estrutura.slice(2).map((item, index) => (
           <div key={index}>
             <p><strong className='text-purple-400'>{item.label}:</strong> </p>
-            <p className='flex justify-between'><strong className='text-fundo-verdeH'>Quantidade:</strong> {item.quantidade} <strong className='text-purple-400'>X</strong> <strong className='text-fundo-verdeH'>Valor :</strong> {formataValor(item.value * item.quantidade)}</p>
+            <p className='flex gap-0.5'><strong className='text-fundo-verdeH'>Quantidade:</strong> {item.quantidade} <strong className='text-purple-400'>X</strong> <strong className='text-fundo-verdeH'>Valor :</strong> {formataValor(item.value * item.quantidade)}</p>
             
           </div>
         ))}
         <div>
-          <hr className='w-[75%]' />
-          <p><strong className='text-purple-400'>Valor total:</strong>{} </p>
+          <hr className='w-[75%] mb-2' />
+          <p><strong className='text-red-400 mt-1'>Valor total:</strong>{formataValor(valorTotal)} </p>
         </div>
       </>
     )}

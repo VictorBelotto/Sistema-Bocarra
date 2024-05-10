@@ -9,6 +9,7 @@ import { SideBar } from '../../components/SideBar/SideBar.jsx';
 import { ViewAtivaContext } from '../../context/ViewAtiva.jsx';
 import { OrcamentoContext } from '../../scripts/OrcamentoContext.jsx';
 import { OrcamentosEstruturasContext } from '../../context/OrcamentoEstruturasContext.jsx';
+import CalculadoraTorre from '../../components/CalculadoraTorre/CalculadoraTorre.jsx';
 
 const Home = () => {
   const {viewAtiva, setViewAtiva} = React.useContext(ViewAtivaContext)
@@ -48,6 +49,11 @@ const Home = () => {
           {viewAtiva === 'calculadoraCupula' && (
             <div className="flex justify-center">
               <CalculadoraCupula />
+            </div>
+          )}
+          {viewAtiva === 'calculadoraTorre' && (
+            <div className="flex justify-center">
+              <CalculadoraTorre />
             </div>
           )}
         </div>
