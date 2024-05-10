@@ -5,13 +5,13 @@ const InputsCheckBox = ({id, value, onClick, label}) => {
 
   return (
     <label 
-    className='text-purple-400 font-semibold flex  w-56  h-10 px-2 items-center justify-between  hover:bg-card-escuro cursor-pointer rounded-lg ' 
-    htmlFor={`${id}CheckboxOrcamento`}>
+    className='text-purple-400 font-semibold flex  w-56  h-10 px-2 items-center justify-between  hover:bg-card-claro cursor-pointer rounded-lg ' 
+    htmlFor={`${id}Checkbox`}>
       {label}
       <input
         className=' appearance-none '
         type="checkbox"
-        id={`${id}CheckboxOrcamento`}
+        id={`${id}Checkbox`}
         value={value}
         onClick={onClick}
       />

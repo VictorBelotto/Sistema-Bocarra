@@ -11,6 +11,7 @@ import { DadosMetragemProvider } from './context/DadosMetragemContext'
 import { CupulaContextProvider } from './context/CupulaContext'
 import { ViewAtivaProvider } from './context/ViewAtiva'
 import { OrcamentosEstruturasStorage } from './context/OrcamentoEstruturasContext'
+import { TorreContextProvider } from './context/TorreContext'
 
 const AppRoutes = () => {
   return (
@@ -21,15 +22,17 @@ const AppRoutes = () => {
             <CupulaContextProvider>
               <ViewAtivaProvider>
                 <OrcamentosEstruturasStorage>
+                <TorreContextProvider>
                   <BrowserRouter>
                     <Routes>
                       <Route path='/' element={<PaginaBase/>}>
-                      <Route index element={<Home/>} />
-                      <Route path='/Testes' element={<Testes/>} />
-                      <Route path='/Impressao' element={<Impressao/>} />
+                        <Route index element={<Home/>} />
+                        <Route path='/Testes' element={<Testes/>} />
+                        <Route path='/Impressao' element={<Impressao/>} />
                       </Route>
-                   </Routes>
-                 </BrowserRouter>
+                    </Routes>
+                  </BrowserRouter>
+                </TorreContextProvider>
                 </OrcamentosEstruturasStorage>
               </ViewAtivaProvider>
             </CupulaContextProvider>

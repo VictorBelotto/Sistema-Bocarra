@@ -70,10 +70,10 @@ const CalculadoraCupula = () => {
   return (
   <section className='flex flex-col w-[330px] py-4 px-6 gap-4 bg-card-escuro text-slate-100 rounded-lg'>
     <h1 className='ti-1 mb-3 text-fundo-verdeH'>Metragem da Cúpula</h1>
-    <InputMetragem label={'Largura'} id={'largura'} />
-    <InputMetragem label={'Lençol'} id={'lencol'} />
-    <InputMetragem label={'Altura lateral'} id={'alturaLateral'} />
-    <InputMetragem label={'Altura do arco'} id={'alturaArco'} />
+    <InputMetragem context={'CupulaContext'} label={'Largura'} id={'largura'} />
+    <InputMetragem context={'CupulaContext'} label={'Lençol'} id={'lencol'} />
+    <InputMetragem context={'CupulaContext'} label={'Altura lateral'} id={'alturaLateral'} />
+    <InputMetragem context={'CupulaContext'} label={'Altura do arco'} id={'alturaArco'} />
 
       <div className='flex self-center'>
         <BotaoPadrao label={'Calcular'} variant={'verde'} onClick={calcularCupula} />
