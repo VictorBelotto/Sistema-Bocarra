@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../Tabela/Tabela.module.css'; 
-import { OrcamentoContext } from '../../../../scripts/OrcamentoContext';
+import formataValor from '../../../../scripts/formataValor';
 
 const TabelaParte = ({ dados, nomeParte, linhasMinimas }) => {
   const [quantidades, setQuantidades] = useState(dados.map(item => item.quantidade || ''));
@@ -12,7 +12,7 @@ const TabelaParte = ({ dados, nomeParte, linhasMinimas }) => {
     setQuantidades(dados.map(item => item.quantidade || ''));
     setDescricoes(dados.map(item => item.descricao || ''));
     setPrecosUnitarios(dados.map(item => item.precoUnitario || ''));
-    setTotais(dados.map(item => item.total || ''));
+    setTotais(dados.map(item => formataValor(Number(item.total))|| ''));
   }, [dados]);
 
 

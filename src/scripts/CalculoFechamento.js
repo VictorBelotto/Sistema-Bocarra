@@ -10,7 +10,7 @@ const valorPorMetroQuadrado = {
 export const calculoFechamento = (metragem, material, diasDeTrabalho) => {
   const maoDeObra = 2727.27 * parseFloat(diasDeTrabalho)
   const valor = valorPorMetroQuadrado[material]
-  const resultado = (((parseFloat(metragem) * parseFloat(valor)) + parseFloat(maoDeObra)) * 1.18)
+  const resultado = (((parseFloat(metragem) * parseFloat(valor)) + parseFloat(maoDeObra)) * 1.18).toFixed(2)
 
   return resultado
 }

@@ -11,6 +11,7 @@ const Tabela = () => {
   const {orcamentosEstruturasExportado} = React.useContext(OrcamentosEstruturasContext)
   const [orcamentosLonas, setOrcamentosLonas] = React.useState([])
   const [orcamentosEstruturas, setOrcamentosEstruturas] = React.useState([])
+  const [orcamentosAcessorios, setOrcamentosAcessorios] = React.useState([])
 
   React.useEffect(()=>{
     let orcamentoFormatado = FormataDescricaoLona(orcamentoExportado)
@@ -18,9 +19,10 @@ const Tabela = () => {
   }, [orcamentoExportado])
 
   React.useEffect(()=>{
-    let orcamentoFormatado = FormataDescricaoEstrutura(orcamentosEstruturasExportado)
-    setOrcamentosEstruturas(orcamentoFormatado)
-  }, )
+    let {orcamentosEstruturasOrganizados, orcamentosAcessoriosOrganizados} = FormataDescricaoEstrutura(orcamentosEstruturasExportado)
+    setOrcamentosEstruturas(orcamentosEstruturasOrganizados)
+    setOrcamentosAcessorios(orcamentosAcessoriosOrganizados)
+  },[orcamentosEstruturasExportado] )
 
   const rows = 10
 
@@ -41,7 +43,7 @@ const Tabela = () => {
       </thead>
       <TabelaParte dados={orcamentosLonas} linhasMinimas={rows} nomeParte={'Lona'} />
       <TabelaParte dados={orcamentosEstruturas} linhasMinimas={rows} nomeParte={'Estrutura Metálica'} />
-      <TabelaParte dados={dados} linhasMinimas={rows} nomeParte={'Acessórios'} />
+      <TabelaParte dados={orcamentosAcessorios} linhasMinimas={rows} nomeParte={'Acessórios'} />
     </table>
   );
 };

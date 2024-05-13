@@ -8,7 +8,7 @@ export  const calculaValorDaLona = ({selectedModelo,selectedMaterial, diasDeTrab
     const valorDaMaoDeObra = (maoDeObraAjustada * diasDeTrabalho.lona).toFixed(2)
 
     return {
-        valorDaLona: valorDaLona,
-        valorDaMaoDeObra: valorDaMaoDeObra
+        valorDaLona:Number(valorDaLona).toFixed(2),
+        valorDaMaoDeObra: Number(valorDaMaoDeObra).toFixed(2)
     }
 }
