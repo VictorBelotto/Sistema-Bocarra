@@ -8,13 +8,14 @@ export const TorreContextProvider = ({children}) =>{
   })
   const [checks, setChecks] = React.useState({
     passoCheck: false,
-    comprimentoCheck: false
+    travecaoCheck: false,
+    parrudaCheck: false
   })
 
   const adicionarValueTorre = (id, value) =>{
     setInputValues(prevState => ({
       ...prevState,
-      [id]: value,
+      [id]: parseFloat(value),
     })
     )
   }

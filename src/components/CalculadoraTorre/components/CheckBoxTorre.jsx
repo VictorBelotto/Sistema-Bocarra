@@ -9,7 +9,7 @@ const CheckBoxTorre = ({labelInput, labelCheck, id, context}) => {
   const {adicionarCheck} = React.useContext(TorreContext)
 
   const handleCheckBoxChange = () =>{
-    adicionarCheck(!`${id}Check`, !isChecked)
+    adicionarCheck(`${id}Check`, !isChecked)
     setIsChecked(!isChecked)
   }
 
@@ -22,7 +22,7 @@ const CheckBoxTorre = ({labelInput, labelCheck, id, context}) => {
         label={labelCheck}
       />
 
-      {isChecked && (
+      {isChecked && labelInput !== null && (
         <div>
           <InputMetragem
             className='flex-col gap-3'
