@@ -7,7 +7,7 @@ import CardOrcamentoEstrutura from '../CardOrcamentoEstrutura/CardOrcamentoEstru
 const ExibeOrcamentos = () => {
   const {orcamentos} = React.useContext(OrcamentoContext);
   const {orcamentosEstruturas} = React.useContext(OrcamentosEstruturasContext)
-
+  console.log(orcamentosEstruturas)
   return (
     <>
       <div className='flex w-fit flex-wrap gap-4'>
@@ -19,8 +19,6 @@ const ExibeOrcamentos = () => {
             <CardOrcamentoEstrutura key={'card'} estrutura={orcamentosEstruturas} index={'card'}/>
           </>
         )}
-          
-      
       </div>
     </>
   )

@@ -3,17 +3,25 @@ import styles from './Tabela.module.css';
 import TabelaParte from '../TabelaParte/TabelaParte';
 import { OrcamentoContext } from '../../../../scripts/OrcamentoContext.jsx';
 import { FormataDescricaoLona } from '../../../../scripts/FormataDescricaoLona.js';
+import { OrcamentosEstruturasContext } from '../../../../context/OrcamentoEstruturasContext.jsx';
+import { FormataDescricaoEstrutura } from '../../../../scripts/FormataDescricaoEstrutura.js';
 
 const Tabela = () => {
   const {orcamentoExportado} = React.useContext(OrcamentoContext)
-  const [orcamentos, setOrcamentos] = React.useState([])
+  const {orcamentosEstruturasExportado} = React.useContext(OrcamentosEstruturasContext)
+  const [orcamentosLonas, setOrcamentosLonas] = React.useState([])
+  const [orcamentosEstruturas, setOrcamentosEstruturas] = React.useState([])
 
   React.useEffect(()=>{
-    const orcamentoFormatado = FormataDescricaoLona(orcamentoExportado)
-    setOrcamentos(orcamentoFormatado)
+    let orcamentoFormatado = FormataDescricaoLona(orcamentoExportado)
+    setOrcamentosLonas(orcamentoFormatado)
   }, [orcamentoExportado])
 
-  
+  React.useEffect(()=>{
+    let orcamentoFormatado = FormataDescricaoEstrutura(orcamentosEstruturasExportado)
+    setOrcamentosEstruturas(orcamentoFormatado)
+  }, )
+
   const rows = 10
 
   const dados = [
@@ -31,8 +39,8 @@ const Tabela = () => {
           <th className={styles.totalHeader}>TOTAL</th>
         </tr>
       </thead>
-      <TabelaParte dados={orcamentos} linhasMinimas={rows} nomeParte={'Lona'} />
-      <TabelaParte dados={dados} linhasMinimas={rows} nomeParte={'Estrutura Metálica'} />
+      <TabelaParte dados={orcamentosLonas} linhasMinimas={rows} nomeParte={'Lona'} />
+      <TabelaParte dados={orcamentosEstruturas} linhasMinimas={rows} nomeParte={'Estrutura Metálica'} />
       <TabelaParte dados={dados} linhasMinimas={rows} nomeParte={'Acessórios'} />
     </table>
   );

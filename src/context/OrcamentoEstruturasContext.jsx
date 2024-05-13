@@ -9,8 +9,10 @@ export const OrcamentosEstruturasStorage = ({children}) => {
     setOrcamentosEstruturas([]);
   };
 
+  const [orcamentosEstruturasExportado, setOrcamentosEstruturasExportado] = React.useState([])
+
   return (
-    <OrcamentosEstruturasContext.Provider value={{orcamentosEstruturas, setOrcamentosEstruturas , removerOrcamentoEstrutura}}>
+    <OrcamentosEstruturasContext.Provider value={{orcamentosEstruturas, setOrcamentosEstruturas , removerOrcamentoEstrutura, setOrcamentosEstruturasExportado, orcamentosEstruturasExportado}}>
       {children}
     </OrcamentosEstruturasContext.Provider>
   )
