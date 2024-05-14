@@ -24,8 +24,7 @@ const Observacoes = () => {
         <p>Estrutura Metálica:</p>
         {estrutura? <p> Incluso</p>: <p> Não incluso</p>}
       </div>
-      <p>Estrutura Metálica:</p>
-      <p style={{textDecoration: 'underline'}} >Validade do Orçamento: <strong>15 dias</strong></p>
+      
 
       <h3>Forma de pagamento</h3>
       <span className={styles.detalhe} ></span>

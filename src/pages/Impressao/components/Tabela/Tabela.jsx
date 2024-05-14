@@ -41,9 +41,9 @@ const Tabela = () => {
           <th className={styles.totalHeader}>TOTAL</th>
         </tr>
       </thead>
-      <TabelaParte dados={orcamentosLonas} linhasMinimas={rows} nomeParte={'Lona'} />
-      <TabelaParte dados={orcamentosEstruturas} linhasMinimas={rows} nomeParte={'Estrutura Metálica'} />
-      <TabelaParte dados={orcamentosAcessorios} linhasMinimas={rows} nomeParte={'Acessórios'} />
+      <TabelaParte dados={orcamentosLonas} linhasMinimas={rows} nomeParte={'Lona'} id={'lona'} />
+      <TabelaParte dados={orcamentosEstruturas} linhasMinimas={rows} nomeParte={'Estrutura Metálica'} id={'estrutura'} />
+      <TabelaParte dados={orcamentosAcessorios} linhasMinimas={rows} nomeParte={'Acessórios'} id={'acessorios'}/>
     </table>
   );
 };

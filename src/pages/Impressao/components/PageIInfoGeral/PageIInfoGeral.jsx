@@ -1,7 +1,22 @@
 import React from 'react'
 import styles from './PageIInfoGeral.module.css'
 import Footer from '../Footer/Footer.jsx'
+import { OrcamentoContext } from '../../../../scripts/OrcamentoContext.jsx'
+OrcamentoContext
+
 const PageIInfoGeral = () => {
+  const {orcamentoExportado} = React.useContext(OrcamentoContext)
+  let durabilidade
+  if(orcamentoExportado.length >= 1){
+    const material = orcamentoExportado[0].material
+     durabilidade = material === 'MP1400' || material === 'MP10722'? '5 a 7' : '3 a 5'
+  }else{
+     durabilidade = ''
+  }
+
+  const [visivel, setVisivel] = React.useState(false)
+
+
   return (
     <div className={styles.mainContainer} >
       <h3>Confecção</h3>
@@ -17,9 +32,14 @@ const PageIInfoGeral = () => {
       <h3>Garantias</h3>
       <span className={styles.detalhe}></span>
       <div style={{display:'flex', justifyContent:'space-between'}} >
-        <div className={styles.garantiasContainer} >
+
+        <div onClick={()=> setVisivel(!visivel)} className={styles.garantiasContainer}>
           <h3>Lona Vinílica</h3>
-          <p><strong>Durabilidade Média: </strong>3 a 5 Anos (atrelado à manutenção preventiva adequada)</p>
+          {visivel && (
+            <>
+              <p ><strong>Durabilidade Média: </strong>{durabilidade} Anos (atrelado à manutenção preventiva adequada)</p>
+            </>
+          )}
           <p><strong>Garantia: </strong>1 Ano (pelo fabricante)</p>
           </div>
         <div>
