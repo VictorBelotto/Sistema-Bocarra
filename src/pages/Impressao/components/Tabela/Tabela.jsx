@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Tabela.module.css'; 
+import styles from './Tabela.module.css';
 import TabelaParte from '../TabelaParte/TabelaParte';
 import { OrcamentoContext } from '../../../../scripts/OrcamentoContext.jsx';
 import { FormataDescricaoLona } from '../../../../scripts/FormataDescricaoLona.js';
@@ -7,28 +7,29 @@ import { OrcamentosEstruturasContext } from '../../../../context/OrcamentoEstrut
 import { FormataDescricaoEstrutura } from '../../../../scripts/FormataDescricaoEstrutura.js';
 
 const Tabela = () => {
-  const {orcamentoExportado} = React.useContext(OrcamentoContext)
-  const {orcamentosEstruturasExportado} = React.useContext(OrcamentosEstruturasContext)
+  const { orcamentoExportado } = React.useContext(OrcamentoContext)
+  const { orcamentosEstruturasExportado } = React.useContext(OrcamentosEstruturasContext)
   const [orcamentosLonas, setOrcamentosLonas] = React.useState([])
   const [orcamentosEstruturas, setOrcamentosEstruturas] = React.useState([])
   const [orcamentosAcessorios, setOrcamentosAcessorios] = React.useState([])
 
-  React.useEffect(()=>{
+  React.useEffect(() => {
     let orcamentoFormatado = FormataDescricaoLona(orcamentoExportado)
     setOrcamentosLonas(orcamentoFormatado)
   }, [orcamentoExportado])
 
-  React.useEffect(()=>{
-    let {orcamentosEstruturasOrganizados, orcamentosAcessoriosOrganizados} = FormataDescricaoEstrutura(orcamentosEstruturasExportado)
+  React.useEffect(() => {
+    let { orcamentosEstruturasOrganizados, orcamentosAcessoriosOrganizados } = FormataDescricaoEstrutura(orcamentosEstruturasExportado)
     setOrcamentosEstruturas(orcamentosEstruturasOrganizados)
     setOrcamentosAcessorios(orcamentosAcessoriosOrganizados)
-  },[orcamentosEstruturasExportado] )
+  }, [orcamentosEstruturasExportado])
 
   const rows = 10
 
   const dados = [
-    { quantidade: '', descricao: '', precoUnitario: '', total:'' },
+    { quantidade: '', descricao: '', precoUnitario: '', total: '' },
   ];
+
 
   return (
     <table className={styles.table}>
@@ -43,7 +44,7 @@ const Tabela = () => {
       </thead>
       <TabelaParte dados={orcamentosLonas} linhasMinimas={rows} nomeParte={'Lona'} id={'lona'} />
       <TabelaParte dados={orcamentosEstruturas} linhasMinimas={rows} nomeParte={'Estrutura Metálica'} id={'estrutura'} />
-      <TabelaParte dados={orcamentosAcessorios} linhasMinimas={rows} nomeParte={'Acessórios'} id={'acessorios'}/>
+      <TabelaParte dados={orcamentosAcessorios} linhasMinimas={rows} nomeParte={'Acessórios'} id={'acessorios'} />
     </table>
   );
 };

@@ -9,22 +9,22 @@ const Observacoes = () => {
       <h3>Observações</h3>
       <span className={styles.detalhe} ></span>
 
-      <div 
-        onClick={()=> setFrete(!frete)}
-        style={{display:'flex', gap: '4px', cursor:'pointer'}}
+      <div
+        onClick={() => setFrete(!frete)}
+        style={{ display: 'flex', gap: '4px', cursor: 'pointer' }}
       >
         <p>Frete e Instalação: </p>
-        {frete? <p> Incluso</p>: <p> Não incluso</p>}
+        {frete ? <p> Incluso</p> : <p> Não incluso</p>}
       </div>
 
-      <div 
-        onClick={()=> setEstrutura(!estrutura)}
-        style={{display:'flex', gap: '4px', cursor:'pointer'}} 
+      <div
+        onClick={() => setEstrutura(!estrutura)}
+        style={{ display: 'flex', gap: '4px', cursor: 'pointer' }}
       >
         <p>Estrutura Metálica:</p>
-        {estrutura? <p> Incluso</p>: <p> Não incluso</p>}
+        {estrutura ? <p> Incluso</p> : <p> Não incluso</p>}
       </div>
-      
+
 
       <h3>Forma de pagamento</h3>
       <span className={styles.detalhe} ></span>

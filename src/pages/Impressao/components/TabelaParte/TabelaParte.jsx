@@ -12,15 +12,17 @@ const TabelaParte = ({ dados, nomeParte, linhasMinimas, id }) => {
   const {adicionaValorTotal} = React.useContext(OrcamentoContext)
 
   React.useEffect(()=>{
-    const valores = dados.reduce((a, item) => Number(item.total) + a , 0)
-    adicionaValorTotal(id, valores)
-  }, [totais, dados])
+    
+  }, [totais])
 
   React.useEffect(() => {
     setQuantidades(dados.map(item => item.quantidade || ''));
     setDescricoes(dados.map(item => item.descricao || ''));
     setPrecosUnitarios(dados.map(item => item.precoUnitario || ''));
     setTotais(dados.map(item => formataValor(Number(item.total))|| ''));
+
+    const valores = dados.reduce((a, item) => Number(item.total) + a , 0)
+    adicionaValorTotal(id, valores)
   }, [dados]);
 
 
@@ -46,6 +48,7 @@ const TabelaParte = ({ dados, nomeParte, linhasMinimas, id }) => {
         const newTotais = [...totais];
         newTotais[index] = valor;
         setTotais(newTotais);
+        
         break;
       default:
         break;
