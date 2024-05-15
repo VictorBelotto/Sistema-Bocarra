@@ -18,9 +18,9 @@ const Home = () => {
   const [exibeResultado, setExibeResultado] = React.useState(false)
 
   const viewAtivaStore = useViewAtivaStore(state => state.viewAtiva)
- 
- 
- 
+
+
+
   React.useEffect(() => {
     if (orcamentos.length > 0 || orcamentosEstruturas.length > 0) {
       setExibeResultado(true)

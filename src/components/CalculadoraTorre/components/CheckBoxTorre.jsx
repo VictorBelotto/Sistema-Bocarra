@@ -1,12 +1,12 @@
 import React from 'react'
 import InputsCheckBox from '../../InputsCheckBox/InputsCheckBox'
 import InputMetragem from './InputMetragem'
-import { TorreContext } from '../../../context/TorreContext'
+import {useTorreStore} from '../../../context/TorreStorage.js'
 
 const CheckBoxTorre = ({labelInput, labelCheck, id, context}) => {
   const [isChecked, setIsChecked] = React.useState(false)
-  const [input, setInput] = React.useState('')
-  const {adicionarCheck} = React.useContext(TorreContext)
+  const adicionarCheck = useTorreStore(state => state.adicionarCheck)
+
 
   const handleCheckBoxChange = () =>{
     adicionarCheck(`${id}Check`, !isChecked)
@@ -27,7 +27,6 @@ const CheckBoxTorre = ({labelInput, labelCheck, id, context}) => {
           <InputMetragem
             className='flex-col gap-3'
             id={id}
-            value={input}
             label={labelInput}
             context={context}
           />

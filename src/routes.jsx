@@ -9,7 +9,6 @@ import { OrcamentoStorage } from './scripts/OrcamentoContext'
 import { DadosInseridosStorage } from './scripts/DadosInseridosContext'
 import { DadosMetragemProvider } from './context/DadosMetragemContext'
 import { CupulaContextProvider } from './context/CupulaContext'
-import { ViewAtivaProvider } from './context/ViewAtiva'
 import { OrcamentosEstruturasStorage } from './context/OrcamentoEstruturasContext'
 import { TorreContextProvider } from './context/TorreContext'
 
@@ -20,7 +19,7 @@ const AppRoutes = () => {
         <DadosInseridosStorage>
           <OrcamentoStorage>
             <CupulaContextProvider>
-              <ViewAtivaProvider>
+          
                 <OrcamentosEstruturasStorage>
                 <TorreContextProvider>
                   <BrowserRouter>
@@ -34,7 +33,7 @@ const AppRoutes = () => {
                   </BrowserRouter>
                 </TorreContextProvider>
                 </OrcamentosEstruturasStorage>
-              </ViewAtivaProvider>
+             
             </CupulaContextProvider>
           </OrcamentoStorage>
         </DadosInseridosStorage>
