@@ -1,7 +1,7 @@
 import React from 'react'
 import InputsCheckBox from '../../InputsCheckBox/InputsCheckBox'
 import InputMetragem from './InputMetragem'
-import {useTorreStore} from '../../../context/TorreStorage.js'
+import {useTorreStore} from '../../../context/TorreStore.js'
 
 const CheckBoxTorre = ({labelInput, labelCheck, id, context}) => {
   const [isChecked, setIsChecked] = React.useState(false)

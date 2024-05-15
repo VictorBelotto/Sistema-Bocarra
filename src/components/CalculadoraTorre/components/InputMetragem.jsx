@@ -1,7 +1,7 @@
 import React from 'react'
 import { CupulaContext } from '../../../context/CupulaContext'
 import { twMerge } from 'tailwind-merge'
-import { useTorreStore } from '../../../context/TorreStorage'
+import { useTorreStore } from '../../../context/TorreStore'
 
 const InputMetragem = ({ label, id, context, className }) => {
   const { adicionarValue } = React.useContext(CupulaContext)

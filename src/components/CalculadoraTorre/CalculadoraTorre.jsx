@@ -3,7 +3,7 @@ import InputMetragem from './components/InputMetragem'
 import BotaoPadrao from '../Botoes/BotaoPadrao'
 import CheckBoxTorre from './components/CheckBoxTorre'
 import Info from '../Info/Info'
-import { useTorreStore } from '../../context/TorreStorage'
+import { useTorreStore } from '../../context/TorreStore'
 const resultadosValuesInitial = {
   travessa: 0,
   passo: 0,
@@ -12,7 +12,7 @@ const resultadosValuesInitial = {
 }
 
 const CalculadoraTorre = () => {
-  const [inputValues, checks] = useTorreStore(store => [store.inputValues, store.checks])
+  const [inputValues, checks] = useTorreStore(state => [state.inputValues, state.checks])
   const [exibeResultado, setExibeResultado] = React.useState(false)
   const [resultados, setResultados] = React.useState(resultadosValuesInitial)
 

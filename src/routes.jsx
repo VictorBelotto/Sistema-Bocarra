@@ -8,9 +8,8 @@ import { PopupProvider } from './context/PopupContext'
 import { OrcamentoStorage } from './scripts/OrcamentoContext'
 import { DadosInseridosStorage } from './scripts/DadosInseridosContext'
 import { DadosMetragemProvider } from './context/DadosMetragemContext'
-import { CupulaContextProvider } from './context/CupulaContext'
 import { OrcamentosEstruturasStorage } from './context/OrcamentoEstruturasContext'
-import { TorreContextProvider } from './context/TorreContext'
+
 
 const AppRoutes = () => {
   return (
@@ -18,10 +17,9 @@ const AppRoutes = () => {
       <PopupProvider>
         <DadosInseridosStorage>
           <OrcamentoStorage>
-            <CupulaContextProvider>
           
                 <OrcamentosEstruturasStorage>
-                <TorreContextProvider>
+              
                   <BrowserRouter>
                     <Routes>
                       <Route path='/' element={<PaginaBase/>}>
@@ -31,10 +29,9 @@ const AppRoutes = () => {
                       </Route>
                     </Routes>
                   </BrowserRouter>
-                </TorreContextProvider>
+               
                 </OrcamentosEstruturasStorage>
              
-            </CupulaContextProvider>
           </OrcamentoStorage>
         </DadosInseridosStorage>
       </PopupProvider>
