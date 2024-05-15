@@ -31,7 +31,6 @@ export const DadosInseridosStorage = ({ children }) => {
   const [dadosMetragem, setDadosMetragem] = React.useState({
     larguraDaLona: '',
     comprimentoDaLona: '',
-    checkFechamento: false,
     alturaFechamento: ''
   })
   const adicionarMetragem = (nome, valor) =>{ 
@@ -41,6 +40,7 @@ export const DadosInseridosStorage = ({ children }) => {
     }))
   }
   const [stateMetragem, setStateMetragem] = React.useState(null)
+
   const resetaMetragem = () => {
     setStateMetragem(Date.now());
     setDadosMetragem({
@@ -61,6 +61,7 @@ export const DadosInseridosStorage = ({ children }) => {
   }
 
   const [checksDoOrcamento, setChecksDoOrcamento] = React.useState({})
+
   const adicionarChecksDoOrcamento = (nome, valor) =>{
     setChecksDoOrcamento(prevState =>({
       ...prevState,
