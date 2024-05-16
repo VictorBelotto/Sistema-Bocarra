@@ -1,8 +1,12 @@
 import React from 'react'
-import { DadosInseridosContext } from '../../../scripts/DadosInseridosContext.jsx';
 import InputsCheckBox from '../../InputsCheckBox/InputsCheckBox.jsx';
+import { useCalculadoraMetragemStore } from '../../../context/CalculadoraMetragemStore.js';
+
 const CheckBoxMetragens = ({labelCheck, labelInput, id}) => {
-  const {adicionarCheckMetragem, adicionarMetragem, dadosMetragem, stateMetragem} = React.useContext(DadosInseridosContext)
+  const [adicionarCheckMetragem, adicionarMetragem, dadosMetragem, stateMetragem] = useCalculadoraMetragemStore(state =>
+    [state.adicionarCheckMetragem, state.adicionarMetragem, state.dadosMetragem, state.stateMetragem]
+  )
+
   const [fechamentoIsChecked, setFechamentoIsChecked] = React.useState(dadosMetragem.checkFechamento)
   const [alturaFechamento, setAlturaFechamento] = React.useState(dadosMetragem.alturaFechamento);
   

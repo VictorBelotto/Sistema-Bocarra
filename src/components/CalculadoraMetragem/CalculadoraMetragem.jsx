@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { calcularMetragem } from '../../scripts/CalculoMetragem.class';
 import { DadosInseridosContext } from '../../scripts/DadosInseridosContext.jsx';
 import { DadosMetragemContext } from '../../context/DadosMetragemContext.jsx'

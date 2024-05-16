@@ -1,8 +1,12 @@
 import React from 'react';
-import { DadosInseridosContext } from '../../../scripts/DadosInseridosContext.jsx';
+import { useCalculadoraMetragemStore } from '../../../context/CalculadoraMetragemStore.js';
 
 const InputMetragem = ({label, id}) => {
-  const {adicionarMetragem, dadosMetragem, stateMetragem } = React.useContext(DadosInseridosContext)
+  const [adicionarMetragem, dadosMetragem, stateMetragem ] = useCalculadoraMetragemStore(state =>
+    [state.adicionarMetragem, state.dadosMetragem, state.stateMetragem]
+  )
+  
+
   const [metragem, setMetragem] = React.useState(dadosMetragem.alturaFechamento);
   
   React.useEffect(() =>{
