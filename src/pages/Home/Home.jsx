@@ -6,28 +6,22 @@ import CalculadoraEstruturas from '../../components/CalculadoraEstruturas/Calcul
 import ExportarParaPlanilha from '../../components/ExportarParaPlanilha/ExportarParaPlanilha.jsx';
 import CalculadoraCupula from '../../components/CalculadoraCupula/CalculadoraCupula.jsx';
 import { SideBar } from '../../components/SideBar/SideBar.jsx';
-import { OrcamentoContext } from '../../scripts/OrcamentoContext.jsx';
-import { OrcamentosEstruturasContext } from '../../context/OrcamentoEstruturasContext.jsx';
 import CalculadoraTorre from '../../components/CalculadoraTorre/CalculadoraTorre.jsx';
-
 import { useViewAtivaStore } from '../../context/ViewAtivaStore.js';
+import { useOrcamentosStore } from '../../context/OrcamentosStore.js';
 
 const Home = () => {
-  const { orcamentos } = React.useContext(OrcamentoContext)
-  const { orcamentosEstruturas } = React.useContext(OrcamentosEstruturasContext)
+  const [orcamentosLona, orcamentosEstruturas] = useOrcamentosStore(state => [state.orcamentosLona, state.orcamentosEstruturas])
   const [exibeResultado, setExibeResultado] = React.useState(false)
-
   const viewAtivaStore = useViewAtivaStore(state => state.viewAtiva)
 
-
-
   React.useEffect(() => {
-    if (orcamentos.length > 0 || orcamentosEstruturas.length > 0) {
+    if (orcamentosLona.length > 0 || orcamentosEstruturas.length > 0) {
       setExibeResultado(true)
     } else {
       setExibeResultado(false)
     }
-  }, [orcamentos, orcamentosEstruturas])
+  }, [orcamentosLona, orcamentosEstruturas])
 
   return (
     <div className="flex fontRoboto">

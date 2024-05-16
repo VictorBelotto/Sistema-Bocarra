@@ -1,19 +1,15 @@
 import React from 'react';
 import styles from '../Tabela/Tabela.module.css'; 
 import formataValor from '../../../../scripts/formataValor';
-import { OrcamentoContext } from '../../../../scripts/OrcamentoContext';
-OrcamentoContext
+import { useValoresOrcamentosStore } from '../../../../context/ValoresOrcamentosStore';
 
 const TabelaParte = ({ dados, nomeParte, linhasMinimas, id }) => {
   const [quantidades, setQuantidades] = React.useState(dados.map(item => item.quantidade || ''));
   const [descricoes, setDescricoes] = React.useState(dados.map(item => item.descricao || ''));
   const [precosUnitarios, setPrecosUnitarios] = React.useState(dados.map(item => item.precoUnitario || ''));
   const [totais, setTotais] = React.useState(dados.map(item => item.total || ''));
-  const {adicionaValorTotal} = React.useContext(OrcamentoContext)
+  const adicionarValor = useValoresOrcamentosStore(state => state.adicionarValor)
 
-  React.useEffect(()=>{
-    
-  }, [totais])
 
   React.useEffect(() => {
     setQuantidades(dados.map(item => item.quantidade || ''));
@@ -22,7 +18,7 @@ const TabelaParte = ({ dados, nomeParte, linhasMinimas, id }) => {
     setTotais(dados.map(item => formataValor(Number(item.total))|| ''));
 
     const valores = dados.reduce((a, item) => Number(item.total) + a , 0)
-    adicionaValorTotal(id, valores)
+    adicionarValor(id, valores)
   }, [dados]);
 
 

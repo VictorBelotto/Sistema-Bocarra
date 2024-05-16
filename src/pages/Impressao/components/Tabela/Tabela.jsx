@@ -1,28 +1,27 @@
 import React from 'react';
 import styles from './Tabela.module.css';
 import TabelaParte from '../TabelaParte/TabelaParte';
-import { OrcamentoContext } from '../../../../scripts/OrcamentoContext.jsx';
 import { FormataDescricaoLona } from '../../../../scripts/FormataDescricaoLona.js';
-import { OrcamentosEstruturasContext } from '../../../../context/OrcamentoEstruturasContext.jsx';
 import { FormataDescricaoEstrutura } from '../../../../scripts/FormataDescricaoEstrutura.js';
+import { useOrcamentosStore } from '../../../../context/OrcamentosStore.js';
 
 const Tabela = () => {
-  const { orcamentoExportado } = React.useContext(OrcamentoContext)
-  const { orcamentosEstruturasExportado } = React.useContext(OrcamentosEstruturasContext)
+  const [orcamentosLonaExportardo, orcamentosEstruturaExportardo] = useOrcamentosStore(state => 
+    [state.orcamentosLonaExportardo, state.orcamentosEstruturaExportardo])
   const [orcamentosLonas, setOrcamentosLonas] = React.useState([])
   const [orcamentosEstruturas, setOrcamentosEstruturas] = React.useState([])
   const [orcamentosAcessorios, setOrcamentosAcessorios] = React.useState([])
 
   React.useEffect(() => {
-    let orcamentoFormatado = FormataDescricaoLona(orcamentoExportado)
+    let orcamentoFormatado = FormataDescricaoLona(orcamentosLonaExportardo)
     setOrcamentosLonas(orcamentoFormatado)
-  }, [orcamentoExportado])
+  }, [orcamentosLonaExportardo])
 
   React.useEffect(() => {
-    let { orcamentosEstruturasOrganizados, orcamentosAcessoriosOrganizados } = FormataDescricaoEstrutura(orcamentosEstruturasExportado)
+    let { orcamentosEstruturasOrganizados, orcamentosAcessoriosOrganizados } = FormataDescricaoEstrutura(orcamentosEstruturaExportardo)
     setOrcamentosEstruturas(orcamentosEstruturasOrganizados)
     setOrcamentosAcessorios(orcamentosAcessoriosOrganizados)
-  }, [orcamentosEstruturasExportado])
+  }, [orcamentosEstruturaExportardo])
 
   const rows = 10
 

@@ -1,20 +1,20 @@
 import React from 'react'
 import styles from './Valores.module.css'
-import { OrcamentoContext } from '../../../../scripts/OrcamentoContext'
 import formataValor from '../../../../scripts/formataValor'
-
-
+import { useValoresOrcamentosStore } from '../../../../context/ValoresOrcamentosStore'
 
 function Valores() {
-  const {valorTotal} = React.useContext(OrcamentoContext)
+  const {lona, estrutura, acessorios} = useValoresOrcamentosStore(state => state.valoresTotais)
   const [subtotal, setSubtotal ] = React.useState(0)
   const [imposto, setImposto] = React.useState(0)
   const [instalacaoFrete, setInstalacaoFrete] = React.useState(0)
 
   React.useEffect(()=>{
-    setSubtotal(valorTotal.total)
-    setImposto(Number((subtotal * 0.15).toFixed(2)))
-  }, [valorTotal])
+    const somaValoresTotais = lona + estrutura + acessorios
+    setSubtotal(somaValoresTotais)
+
+    setImposto(Number((somaValoresTotais * 0.15).toFixed(2)))
+  }, [lona, estrutura, acessorios])
   
   return (
     <div className={styles.mainContainer} >

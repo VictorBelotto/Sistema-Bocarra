@@ -1,5 +1,4 @@
 import React from 'react';
-import { OrcamentoContext } from '../../scripts/OrcamentoContext.jsx';
 import { DadosInseridosContext } from '../../scripts/DadosInseridosContext.jsx';
 import { calculoFechamento } from '../../scripts/CalculoFechamento.js';
 import ExibePopUp from '../ExibePopUp/ExibePopUp.jsx';
@@ -13,8 +12,11 @@ import { calculaValorDaLona } from '../../scripts/CalculaValorDaLona.js';
 import CheckBoxFechamentos from './components/CheckBoxFechamentos.jsx';
 import BotaoPadrao from '../Botoes/BotaoPadrao.jsx'
 
+import { useOrcamentosStore } from '../../context/OrcamentosStore.js';
+
 const PreenchimentoPadrao = () => {
-  const {orcamentos, setOrcamentos} = React.useContext(OrcamentoContext);
+  const adicionarOrcamentoLona = useOrcamentosStore(state =>  state.adicionarOrcamentoLona)
+
   const { checksDoOrcamento, dadosMetragem, dadosInseridos } = React.useContext(DadosInseridosContext);
   const {dadosMetragemOrcamento} = React.useContext(DadosMetragemContext)
   const {metragemQuadrada, selectedMaterial, diasDeTrabalho, selectedModelo} = dadosInseridos
@@ -43,7 +45,7 @@ const PreenchimentoPadrao = () => {
       perimetroLona: dadosInseridos.perimetroLona,
     };
 
-    setOrcamentos([...orcamentos, novoOrcamento]);
+    adicionarOrcamentoLona(novoOrcamento);
     showPopup('Orçamento adicionado a lista', 'blue');
   };
   

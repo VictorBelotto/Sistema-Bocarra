@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { X } from 'lucide-react';
-import { OrcamentosEstruturasContext } from '../../context/OrcamentoEstruturasContext';
 import formataValor from '../../scripts/formataValor'
+import { useOrcamentosStore } from '../../context/OrcamentosStore';
+
 const CardOrcamentoEstrutura = ({estrutura}) => {
   const [infoCompleta, setInfoCompleta] = React.useState(false)
-  const {removerOrcamentoEstrutura} = useContext(OrcamentosEstruturasContext)
-
+  const removerOrcamentoEstrutura = useOrcamentosStore(state => state.removerOrcamentoEstrutura)
+  
   const valorTotal = estrutura.reduce((a, item) => a + (item.value * item.quantidade), 0);
-
 
   const handleClick = () => {
     setInfoCompleta(!infoCompleta)

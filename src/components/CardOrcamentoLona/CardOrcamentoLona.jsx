@@ -1,11 +1,11 @@
 import React from 'react';
-import {OrcamentoContext} from '../../scripts/OrcamentoContext.jsx'
 import { usePopup } from '../../context/PopupContext.jsx';
 import { X } from 'lucide-react';
 import formataValor from '../../scripts/formataValor.js';
+import { useOrcamentosStore } from '../../context/OrcamentosStore.js';
 
 const CardOrcamentoLona = ({ orcamento, index}) => {
-  const { removerOrcamento } = React.useContext(OrcamentoContext);
+  const removerOrcamentoLona = useOrcamentosStore(state => state.removerOrcamentoLona)
   const {showPopup} = usePopup();
   const [infoCompleta, setInfoCompleta] = React.useState(false)
 
@@ -32,7 +32,7 @@ const CardOrcamentoLona = ({ orcamento, index}) => {
 
 
   const handleClickRemover = () =>{
-    removerOrcamento(index)
+    removerOrcamentoLona(index)
     showPopup('Orçamento removido da lista', 'red')
   }
 

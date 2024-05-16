@@ -1,18 +1,15 @@
 import React from 'react'
-import { OrcamentoContext } from '../../scripts/OrcamentoContext'
 import BotaoPadrao from '../Botoes/BotaoPadrao'
-import { DadosInseridosContext } from '../../scripts/DadosInseridosContext'
-import { OrcamentosEstruturasContext } from '../../context/OrcamentoEstruturasContext'
+import { useOrcamentosStore } from '../../context/OrcamentosStore'
 
 const ExportarParaPlanilha = () => {
-  const {orcamentos, setOrcamentoExportado} = React.useContext(OrcamentoContext)
-  const {setOrcamentosEstruturasExportado, orcamentosEstruturas} = React.useContext(OrcamentosEstruturasContext)
-  const {dadosMetragem} =React.useContext(DadosInseridosContext)
+  const [orcamentosLona, setOrcamentoLonaExportado, orcamentosEstruturas, setOrcamentoEstruturaExportado] = useOrcamentosStore(state =>
+    [state.orcamentosLona, state.setOrcamentoLonaExportado, state.orcamentosEstruturas, state.setOrcamentoEstruturaExportado]
+  )
 
-  const exportar = () =>{ 
-    setOrcamentoExportado(orcamentos)
-    setOrcamentosEstruturasExportado(orcamentosEstruturas)
-    console.log(orcamentos)
+  const exportar = () => {
+    setOrcamentoLonaExportado(orcamentosLona)
+    setOrcamentoEstruturaExportado(orcamentosEstruturas)
   }
 
   return (

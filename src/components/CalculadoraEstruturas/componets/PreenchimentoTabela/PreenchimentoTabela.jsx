@@ -1,12 +1,12 @@
 import React from 'react';
 import { ValoresDaEstrutura } from '../../../../scripts/ValoresDaEstrutura';
 import BotaoPadrao from '../../../Botoes/BotaoPadrao.jsx'
-import { OrcamentosEstruturasContext } from '../../../../context/OrcamentoEstruturasContext';
+import { useOrcamentosStore } from '../../../../context/OrcamentosStore.js';
 
 const PreenchimentoTabela = () => {
   const [quantidades, setQuantidades] = React.useState(Array(ValoresDaEstrutura.length).fill(0));
   const [valoresUnitarios, setValoresUnitarios] = React.useState(ValoresDaEstrutura.map(item => item.valor));
-  const { setOrcamentosEstruturas, orcamentosEstruturas } = React.useContext(OrcamentosEstruturasContext);
+  const adicionarOrcamentoEstruturas = useOrcamentosStore(state => state.adicionarOrcamentoEstruturas)
 
   function formatarValorBRL(valor) {
     return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -38,7 +38,7 @@ const PreenchimentoTabela = () => {
         itensPreenchidos.push(orcamentoItem);
       }
     });
-   setOrcamentosEstruturas(itensPreenchidos)
+    adicionarOrcamentoEstruturas(itensPreenchidos)
   };
 
   const handleWheel = (e) => {

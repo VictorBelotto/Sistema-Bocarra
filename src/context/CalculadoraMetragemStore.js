@@ -3,7 +3,8 @@ import {create} from "zustand";
 const dadosMetragemInicial = {
   larguraDaLona: '',
   comprimentoDaLona: '',
-  alturaFechamento: ''
+  alturaFechamento: '',
+  alturaAranha: ''
 };
 
 const checksDaMetragemInicial = {};

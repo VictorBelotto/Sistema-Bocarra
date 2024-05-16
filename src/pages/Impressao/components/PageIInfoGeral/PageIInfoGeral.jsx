@@ -1,14 +1,13 @@
 import React from 'react'
 import styles from './PageIInfoGeral.module.css'
 import Footer from '../Footer/Footer.jsx'
-import { OrcamentoContext } from '../../../../scripts/OrcamentoContext.jsx'
-OrcamentoContext
+import { useOrcamentosStore } from '../../../../context/OrcamentosStore.js'
 
 const PageIInfoGeral = () => {
-  const {orcamentoExportado} = React.useContext(OrcamentoContext)
+  const orcamentoLonaExportado = useOrcamentosStore(state => state.orcamentoLonaExportado)
   let durabilidade
-  if(orcamentoExportado.length >= 1){
-    const material = orcamentoExportado[0].material
+  if(orcamentoLonaExportado >= 1){
+    const material = orcamentoLonaExportado[0].material
      durabilidade = material === 'MP1400' || material === 'MP10722'? '5 a 7' : '3 a 5'
   }else{
      durabilidade = ''

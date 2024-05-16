@@ -20,27 +20,24 @@ export const DadosInseridosStorage = ({ children }) => {
     metragemQuadrada: metragemQuadrada,
   });
 
-  const adicionarDado = (nome, valor) =>{
+  const adicionarDado = (nome, valor) => {
     setDadosInseridos(prevState => ({
-      ...prevState, 
-      [nome]:valor
+      ...prevState,
+      [nome]: valor
     }));
   };
 
-
   const [checksDoOrcamento, setChecksDoOrcamento] = React.useState({})
 
-  const adicionarChecksDoOrcamento = (nome, valor) =>{
-    setChecksDoOrcamento(prevState =>({
+  const adicionarChecksDoOrcamento = (nome, valor) => {
+    setChecksDoOrcamento(prevState => ({
       ...prevState,
       [nome]: valor
     }))
   }
 
-
-
   return (
-    <DadosInseridosContext.Provider value={{ dadosInseridos, adicionarDado, checksDoOrcamento, adicionarChecksDoOrcamento}}>
+    <DadosInseridosContext.Provider value={{ dadosInseridos, adicionarDado, checksDoOrcamento, adicionarChecksDoOrcamento }}>
       {children}
     </DadosInseridosContext.Provider>
   );
