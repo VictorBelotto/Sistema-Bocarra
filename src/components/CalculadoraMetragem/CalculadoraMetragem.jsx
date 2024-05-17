@@ -1,7 +1,6 @@
 import React from 'react';
 import { calcularMetragem } from '../../scripts/CalculoMetragem.class';
 import { DadosInseridosContext } from '../../scripts/DadosInseridosContext.jsx';
-import { DadosMetragemContext } from '../../context/DadosMetragemContext.jsx'
 import { useCalculadoraMetragemStore } from '../../context/CalculadoraMetragemStore.js';
 
 import CheckBoxMetragens from './components/CheckBoxMetragens.jsx';
@@ -11,15 +10,13 @@ import InputsCheckBox from '../InputsCheckBox/InputsCheckBox.jsx';
 
 const CalculadoraMetragem = () => {
   const { dadosInseridos, adicionarDado } = React.useContext(DadosInseridosContext)
-  const [dadosMetragem, checksDaMetragem, resetaMetragem] = useCalculadoraMetragemStore(state =>
-    [state.dadosMetragem, state.checksDaMetragem, state.resetaMetragem]
+  const [dadosMetragem, checksDaMetragem, resetaMetragem, adicionarDadosMetragemOrcamento] = useCalculadoraMetragemStore(state =>
+    [state.dadosMetragem, state.checksDaMetragem, state.resetaMetragem, state.adicionarDadosMetragemOrcamento]
   )
 
   const [resultados, setResultados] = React.useState({});
   const [exibeResultado, setExibeResultado] = React.useState(false)
   const [marquiseIsChecked, setMarquiseIsChecked] = React.useState(false)
-
-  const { setDadosMetragemOrcamento } = React.useContext(DadosMetragemContext)
 
   const adicionaResultado = (nome, valor) => {
     setResultados(prevState => ({
@@ -33,17 +30,16 @@ const CalculadoraMetragem = () => {
   }
 
   const calcular = () => {
+    adicionarDadosMetragemOrcamento(dadosMetragem)
     const resultado = calcularMetragem(dadosMetragem, marquiseIsChecked)
     adicionaResultado('metragem', resultado['metragem'])
     adicionaResultado('fechamento', resultado['fechamento'])
     adicionaResultado('fechamentoDaAranha', resultado['fechamentoDaAranha'])
     adicionaResultado('perimetro', resultado['perimetro'])
-
     setExibeResultado(true)
   };
 
   const preencherOrcamento = () => {
-    setDadosMetragemOrcamento(dadosMetragem)
     adicionarDado('metragemQuadrada', {
       ...dadosInseridos.metragemQuadrada,
       lona: resultados.metragem,

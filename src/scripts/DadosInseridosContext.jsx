@@ -9,9 +9,9 @@ const diasDeTrabalho = {
 }
 
 const metragemQuadrada = {
-  lona: 0,
-  fechamento: 0,
-  aranha: 0,
+  lona: '',
+  fechamento: '',
+  aranha: '',
 }
 
 export const DadosInseridosStorage = ({ children }) => {

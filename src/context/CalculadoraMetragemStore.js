@@ -3,22 +3,25 @@ import {create} from "zustand";
 const dadosMetragemInicial = {
   larguraDaLona: '',
   comprimentoDaLona: '',
-  alturaFechamento: '',
-  alturaAranha: ''
+  alturaFechamentoMetragem: '',
+  alturaAranhaMetragem: ''
 };
 
 const checksDaMetragemInicial = {};
 
 export const useCalculadoraMetragemStore = create((set) => ({
   dadosMetragem: dadosMetragemInicial,
-  adicionarMetragem: (nome, valor) =>
+  adicionarMetragem: (id, valor) =>
     set((state) => ({
       dadosMetragem: {
         ...state.dadosMetragem,
-        [nome]: valor,
+        [id]: valor,
       },
     })),
-    
+
+    dadosMetragemOcamento : {},
+    adicionarDadosMetragemOrcamento : (dados) => set({dadosMetragemOcamento : dados}),
+
   stateMetragem: null,
   setStateMetragem: () =>
     set({ stateMetragem: Date.now() }),
