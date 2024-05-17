@@ -3,7 +3,7 @@ import InputsCheckBox from '../../InputsCheckBox/InputsCheckBox'
 import InputMetragem from './InputMetragem'
 import {useTorreStore} from '../../../context/TorreStore.js'
 
-const CheckBoxTorre = ({labelInput, labelCheck, id, context}) => {
+const CheckBoxTorre = ({labelInput, labelCheck, id}) => {
   const [isChecked, setIsChecked] = React.useState(false)
   const adicionarCheck = useTorreStore(state => state.adicionarCheck)
 
@@ -28,7 +28,6 @@ const CheckBoxTorre = ({labelInput, labelCheck, id, context}) => {
             className='flex-col gap-3'
             id={id}
             label={labelInput}
-            context={context}
           />
        </div>
       )}

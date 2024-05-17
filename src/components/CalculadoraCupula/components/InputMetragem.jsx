@@ -1,15 +1,15 @@
 import React from 'react'
-import { useCupulaStore } from '../../context/CupulaStore'
+import {useCupulaStore} from '../../../context/CupulaStore'
 
 const InputMetragem = ({ label, id }) => {
-  const setInputValues = useCupulaStore(state => state.setInputValues)
+  const adicionarValueCupula = useCupulaStore(state => state.adicionarValueCupula)
 
   const [value, setValue] = React.useState('')
 
   const handleInputChange = (e) => {
     const valor = parseFloat(e.target.value)
     setValue(e.target.value)
-    setInputValues(id, valor)
+    adicionarValueCupula(id, valor)
   }
 
   return (

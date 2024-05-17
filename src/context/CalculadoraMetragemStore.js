@@ -1,4 +1,4 @@
-import {create} from "zustand";
+import { create } from "zustand";
 
 const dadosMetragemInicial = {
   larguraDaLona: '',
@@ -19,8 +19,8 @@ export const useCalculadoraMetragemStore = create((set) => ({
       },
     })),
 
-    dadosMetragemOcamento : {},
-    adicionarDadosMetragemOrcamento : (dados) => set({dadosMetragemOcamento : dados}),
+  dadosMetragemOcamento: {},
+  adicionarDadosMetragemOrcamento: (dados) => set({ dadosMetragemOcamento: dados }),
 
   stateMetragem: null,
   setStateMetragem: () =>

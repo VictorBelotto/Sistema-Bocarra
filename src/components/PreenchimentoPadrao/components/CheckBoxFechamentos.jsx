@@ -4,11 +4,11 @@ import InputMetragemQuadrada from '../../InputMetragemQuadrada/InputMetragemQuad
 import InputDiasDeTrabalho from '../../InputDiasDeTrabalho/InputDiasDeTrabalho';
 import InputsCheckBox from '../../InputsCheckBox/InputsCheckBox';
 
-const CheckBoxFechamentos = ({id, label}) => {
-  const {adicionarChecksDoOrcamento} = React.useContext(DadosInseridosContext)
+const CheckBoxFechamentos = ({ id, label }) => {
+  const { adicionarChecksDoOrcamento } = React.useContext(DadosInseridosContext)
   const [fechamentoIsChecked, setFechamentoIsChecked] = React.useState(false);
- 
-  const handleCheckFechamentoChange = () =>{
+
+  const handleCheckFechamentoChange = () => {
     setFechamentoIsChecked(!fechamentoIsChecked)
     adicionarChecksDoOrcamento(`${id}IsChecked`, !fechamentoIsChecked)
   }
@@ -26,11 +26,11 @@ const CheckBoxFechamentos = ({id, label}) => {
 
       {fechamentoIsChecked && (
         <div className='flex justify-between' >
-          <InputMetragemQuadrada id={id}/>
-          <InputDiasDeTrabalho id={id}/>
+          <InputMetragemQuadrada id={id} />
+          <InputDiasDeTrabalho id={id} />
         </div>
       )}
-  </div>
+    </div>
   )
 }
 

@@ -52,22 +52,19 @@ const CalculadoraTorre = () => {
       <h1 className='ti-1 mb-3 text-fundo-verdeH'>Metragem da Torre</h1>
 
       <CheckBoxTorre
-        context={'TorreContext'}
         id={'travessao'}
         labelCheck={'Travessão?'}
         labelInput={null}
       />
 
-      <InputMetragem label={'Comprimento'} id={'comprimento'} context={'TorreContext'} />
+      <InputMetragem label={'Comprimento'} id={'comprimento'} />
       <CheckBoxTorre
-        context={'TorreContext'}
         id={'parruda'}
         labelCheck={'Parruda?'}
         labelInput={null}
       />
 
       <CheckBoxTorre
-        context={'TorreContext'}
         id={'passo'}
         labelCheck={'Editar Passo?'}
         labelInput={'Passo:'}

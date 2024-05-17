@@ -1,22 +1,15 @@
 import React from 'react'
-import { CupulaContext } from '../../../context/CupulaContext'
 import { twMerge } from 'tailwind-merge'
 import { useTorreStore } from '../../../context/TorreStore'
 
-const InputMetragem = ({ label, id, context, className }) => {
-  const { adicionarValue } = React.useContext(CupulaContext)
+const InputMetragem = ({ label, id, className }) => {
   const [value, setValue] = React.useState('')
   const adicionarValueTorre = useTorreStore(state => state.adicionarValueTorre)
 
   const handleInputChange = (e) => {
     const valor = parseFloat(e.target.value)
     setValue(e.target.value)
-
-    if (context === 'CupulaContext') {
-      adicionarValue(id, valor)
-    } else if (context === 'TorreContext') {
-      adicionarValueTorre(id, valor)
-    }
+    adicionarValueTorre(id, valor)
   }
 
   return (
