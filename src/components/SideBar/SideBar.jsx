@@ -27,7 +27,7 @@ export function SideBar() {
     <Card className="h-full w-full max-w-[20rem] p-0 bg-slate-900 text-slate-100">
       <div className="mb-2 p-4">
         <Typography variant="h5" color="blue-gray">
-          Sidebar
+          Bocarra System
         </Typography>
       </div>
       <List>
