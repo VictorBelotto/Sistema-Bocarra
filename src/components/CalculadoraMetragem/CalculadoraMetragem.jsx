@@ -10,8 +10,8 @@ import InputsCheckBox from '../InputsCheckBox/InputsCheckBox.jsx';
 
 const CalculadoraMetragem = () => {
   const { dadosInseridos, adicionarDado } = React.useContext(DadosInseridosContext)
-  const [dadosMetragem, checksDaMetragem, resetaMetragem, adicionarDadosMetragemOrcamento] = useCalculadoraMetragemStore(state =>
-    [state.dadosMetragem, state.checksDaMetragem, state.resetaMetragem, state.adicionarDadosMetragemOrcamento]
+  const [dadosMetragem, checksDaMetragem, adicionarDadosMetragemOrcamento, setStateMetragem] = useCalculadoraMetragemStore(state =>
+    [state.dadosMetragem, state.checksDaMetragem, state.adicionarDadosMetragemOrcamento, state.setStateMetragem]
   )
 
   const [resultados, setResultados] = React.useState({});
@@ -49,7 +49,7 @@ const CalculadoraMetragem = () => {
     adicionarDado('perimetroLona', resultados.perimetro)
     setExibeResultado(false)
     setMarquiseIsChecked(false)
-    resetaMetragem()
+    setStateMetragem()
   }
 
   return (

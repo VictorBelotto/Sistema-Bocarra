@@ -23,13 +23,9 @@ export const useCalculadoraMetragemStore = create((set) => ({
   adicionarDadosMetragemOrcamento: (dados) => set({ dadosMetragemOcamento: dados }),
 
   stateMetragem: null,
-  setStateMetragem: () =>
-    set({ stateMetragem: Date.now() }),
-  resetaMetragem: () =>
-    set({
-      stateMetragem: Date.now(),
-      dadosMetragem: dadosMetragemInicial,
-    }),
+  setStateMetragem: () => set({stateMetragem: Date.now()}),
+  
+
   checksDaMetragem: checksDaMetragemInicial,
   adicionarCheckMetragem: (nome, valor) =>
     set((state) => ({

@@ -2,14 +2,22 @@ import React from 'react';
 import { useCalculadoraMetragemStore } from '../../../context/CalculadoraMetragemStore.js';
 
 const InputMetragem = ({ label, id }) => {
-  const adicionarMetragem = useCalculadoraMetragemStore(state => state.adicionarMetragem)
+  const [adicionarMetragem, dadosMetragem, stateMetragem] = useCalculadoraMetragemStore(state => [state.adicionarMetragem, state.dadosMetragem, state.stateMetragem])
+  const idMetragem = `${id}DaLona`
+  const [metragem, setMetragem] = React.useState(dadosMetragem[idMetragem]);
 
-  const [metragem, setMetragem] = React.useState('');
 
   const handleMetragemChange = (e) => {
     setMetragem(e.target.value)
-    adicionarMetragem(`${id}DaLona`, e.target.value)
+    adicionarMetragem(idMetragem, e.target.value)
   }
+
+  React.useEffect(()=>{
+    setMetragem('')
+    adicionarMetragem(idMetragem, '')
+  }, [stateMetragem])
+
+
   return (
     <div key={id} className='flex flex-col gap-2'>
       <label className='container text-white' htmlFor={id} >{label}:</label>

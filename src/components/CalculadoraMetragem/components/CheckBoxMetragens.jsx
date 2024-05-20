@@ -3,12 +3,18 @@ import InputsCheckBox from '../../InputsCheckBox/InputsCheckBox.jsx';
 import { useCalculadoraMetragemStore } from '../../../context/CalculadoraMetragemStore.js';
 
 const CheckBoxMetragens = ({ labelCheck, labelInput, id }) => {
-  const [adicionarCheckMetragem, adicionarMetragem] = useCalculadoraMetragemStore(state =>
-    [state.adicionarCheckMetragem, state.adicionarMetragem]
+  const [adicionarCheckMetragem, adicionarMetragem, stateMetragem, dadosMetragem] = useCalculadoraMetragemStore(state =>
+    [state.adicionarCheckMetragem, state.adicionarMetragem, state.stateMetragem, state.dadosMetragem ]
   )
 
+  const idMetragem = `altura${id.charAt(0).toUpperCase() + id.slice(1)}`
   const [fechamentoIsChecked, setFechamentoIsChecked] = React.useState(false)
-  const [alturaFechamento, setAlturaFechamento] = React.useState('');
+  const [alturaFechamento, setAlturaFechamento] = React.useState(dadosMetragem[idMetragem]);
+
+  React.useEffect(()=>{
+    setAlturaFechamento('')
+    adicionarMetragem(idMetragem, '')
+  }, [stateMetragem])
 
   const handleCheckboxChange = () => {
     setFechamentoIsChecked(!fechamentoIsChecked);
@@ -17,7 +23,7 @@ const CheckBoxMetragens = ({ labelCheck, labelInput, id }) => {
 
   const handleAlturaChange = (e) => {
     setAlturaFechamento(e.target.value)
-    adicionarMetragem(`altura${id.charAt(0).toUpperCase() + id.slice(1)}`, e.target.value)
+    adicionarMetragem(idMetragem, e.target.value)
   }
   return (
     <div key={id} className='flex flex-col gap-2'>
