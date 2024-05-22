@@ -18,13 +18,19 @@ export const useOrcamentosStore = create((set) =>{
     setOrcamentoLonaExportado: (orcamento) => set({ orcamentosLonaExportardo: orcamento }),
   
     orcamentosEstruturas: [],
-  
     adicionarOrcamentoEstruturas : (orcamento) => set({orcamentosEstruturas : orcamento}),
-  
-    removerOrcamentoEstrutura: () => set({ orcamentosEstruturas: [] }),
-  
+    removerOrcamentoEstrutura: () => set({ orcamentosEstruturas: []}),
+
     orcamentosEstruturaExportardo: [],
-  
     setOrcamentoEstruturaExportado: (orcamento) => set({ orcamentosEstruturaExportardo: orcamento }),
+
+    orcamentoAcessorios: [],
+    adicionarOrcamentoAcessorios: (acessorio) => set({orcamentoAcessorios: acessorio}),
+    removerOrcamentoAcessorio: () => set({ orcamentoAcessorios: []}),
+
+    orcamentosAcessoriosExportardo: [],
+    setOrcamentoAcessoriosExportado: (orcamento) => set({ orcamentosAcessoriosExportardo: orcamento }),
+  
+ 
   }
 });

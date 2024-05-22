@@ -6,8 +6,8 @@ import { FormataDescricaoEstrutura } from '../../../../scripts/FormataDescricaoE
 import { useOrcamentosStore } from '../../../../context/OrcamentosStore.js';
 
 const Tabela = () => {
-  const [orcamentosLonaExportardo, orcamentosEstruturaExportardo] = useOrcamentosStore(state => 
-    [state.orcamentosLonaExportardo, state.orcamentosEstruturaExportardo])
+  const [orcamentosLonaExportardo, orcamentosEstruturaExportardo, orcamentosAcessoriosExportardo] = useOrcamentosStore(state => 
+    [state.orcamentosLonaExportardo, state.orcamentosEstruturaExportardo, state.orcamentosAcessoriosExportardo])
   const [orcamentosLonas, setOrcamentosLonas] = React.useState([])
   const [orcamentosEstruturas, setOrcamentosEstruturas] = React.useState([])
   const [orcamentosAcessorios, setOrcamentosAcessorios] = React.useState([])
@@ -18,7 +18,8 @@ const Tabela = () => {
   }, [orcamentosLonaExportardo])
 
   React.useEffect(() => {
-    let { orcamentosEstruturasOrganizados, orcamentosAcessoriosOrganizados } = FormataDescricaoEstrutura(orcamentosEstruturaExportardo)
+    let {orcamentosEstruturasOrganizados} = FormataDescricaoEstrutura(orcamentosEstruturaExportardo)
+    let {orcamentosAcessoriosOrganizados} = FormataDescricaoEstrutura(orcamentosAcessoriosExportardo)
     setOrcamentosEstruturas(orcamentosEstruturasOrganizados)
     setOrcamentosAcessorios(orcamentosAcessoriosOrganizados)
   }, [orcamentosEstruturaExportardo])

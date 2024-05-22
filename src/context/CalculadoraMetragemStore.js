@@ -1,10 +1,10 @@
 import { create } from "zustand";
 
 const dadosMetragemInicial = {
-  larguraDaLona: '',
-  comprimentoDaLona: '',
-  alturaFechamentoMetragem: '',
-  alturaAranhaMetragem: ''
+  larguraDaLona: 0,
+  comprimentoDaLona: 0,
+  alturaFechamentoMetragem: 0,
+  alturaAranhaMetragem: 0
 };
 
 const checksDaMetragemInicial = {};
