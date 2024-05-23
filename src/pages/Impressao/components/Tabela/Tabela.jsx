@@ -4,6 +4,7 @@ import TabelaParte from '../TabelaParte/TabelaParte';
 import { FormataDescricaoLona } from '../../../../scripts/FormataDescricaoLona.js';
 import { FormataDescricaoEstrutura } from '../../../../scripts/FormataDescricaoEstrutura.js';
 import { useOrcamentosStore } from '../../../../context/OrcamentosStore.js';
+import { FormataDescricaoAcessorio } from '../../../../scripts/FormataDescricaoAcessorio.js';
 
 const Tabela = () => {
   const [orcamentosLonaExportardo, orcamentosEstruturaExportardo, orcamentosAcessoriosExportardo] = useOrcamentosStore(state => 
@@ -18,11 +19,12 @@ const Tabela = () => {
   }, [orcamentosLonaExportardo])
 
   React.useEffect(() => {
-    let {orcamentosEstruturasOrganizados} = FormataDescricaoEstrutura(orcamentosEstruturaExportardo)
-    let {orcamentosAcessoriosOrganizados} = FormataDescricaoEstrutura(orcamentosAcessoriosExportardo)
+    let orcamentosEstruturasOrganizados = FormataDescricaoEstrutura(orcamentosEstruturaExportardo)
+    let orcamentosAcessoriosOrganizados = FormataDescricaoAcessorio(orcamentosAcessoriosExportardo)
     setOrcamentosEstruturas(orcamentosEstruturasOrganizados)
     setOrcamentosAcessorios(orcamentosAcessoriosOrganizados)
-  }, [orcamentosEstruturaExportardo])
+    console.log(orcamentosEstruturaExportardo)
+  }, [orcamentosEstruturaExportardo, orcamentosAcessoriosExportardo])
 
   const rows = 10
 

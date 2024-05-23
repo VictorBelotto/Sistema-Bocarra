@@ -1,5 +1,5 @@
 export const ValoresAcessorios = [
-  { label: "Espias", item: "espia", valor: 600.00 },
+  { label: "Espias", item: "espias", valor: 600.00 },
   { label: "Catracas", item: "catracas", valor: 90.00 },
   { label: "Estacas", item: "estacas", valor: 250.00 },
   { label: "Estacas Torre", item: "estacasTorre", valor: 180.00 },

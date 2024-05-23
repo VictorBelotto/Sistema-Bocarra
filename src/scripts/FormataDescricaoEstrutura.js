@@ -1,35 +1,20 @@
 import { Item } from "./Item.class";
 
-export const FormataDescricaoEstrutura = (orcamentos) =>{
-  let objetosOrganizados = {
-    orcamentosEstruturasOrganizados: [],
-    orcamentosAcessoriosOrganizados: []
+export const FormataDescricaoEstrutura = (orcamentos) => {
+  let orcamentosEstruturasOrganizados = []
+
+  const calculaTotal = (valor, metragem, quantidade) => {
+    return ((parseFloat(valor) * parseFloat(metragem)) * parseFloat(quantidade)).toFixed(2)
   }
 
-  
-
-  orcamentos.map((orcamento) =>{
+  orcamentos.map((orcamento) => {
     let item = new Item()
-    if(orcamento.label === 'Espias'){
-      item.descricao = 'Jogo de espias em cabo de Aço'
-      item.total = (parseFloat(orcamento.value) * parseFloat(orcamento.quantidade)).toFixed(2)
-      objetosOrganizados.orcamentosAcessoriosOrganizados.push(item)
-    }else if(orcamento.label === 'Catracas'){
-      item.descricao = 'Conjunto de Faixas e Catracas p/ 5 Toneladas'
-      item.total = (parseFloat(orcamento.value) * parseFloat(orcamento.quantidade)).toFixed(2)
-      objetosOrganizados.orcamentosAcessoriosOrganizados.push(item)
-    }else if(orcamento.label ===  'Tifor 800' || orcamento.label === 'Tifor 1600' || orcamento.label === 'Tifor 3200'){
-      item.descricao = `Conjunto de ${orcamento.label}`
-      item.total = (parseFloat(orcamento.value) * parseFloat(orcamento.quantidade)).toFixed(2)
-      objetosOrganizados.orcamentosAcessoriosOrganizados.push(item)
-    }else{
-      item.descricao = orcamento.label
-      item.precoUnitario = orcamento.value
-      item.quantidade = orcamento.quantidade
-      item.total = (parseFloat(orcamento.value) * parseFloat(orcamento.quantidade)).toFixed(2)
-      objetosOrganizados.orcamentosEstruturasOrganizados.push(item)
-    }
+
+    item.descricao = `${orcamento.label} de ${orcamento.metragem} m`
+    item.quantidade = orcamento.quantidade
+    item.total = calculaTotal(orcamento.valor, orcamento.metragem, orcamento.quantidade)
+    orcamentosEstruturasOrganizados.push(item)
   })
 
-  return objetosOrganizados
+  return orcamentosEstruturasOrganizados
 }
