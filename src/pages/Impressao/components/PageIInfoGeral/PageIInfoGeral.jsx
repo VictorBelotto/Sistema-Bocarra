@@ -4,14 +4,19 @@ import Footer from '../Footer/Footer.jsx'
 import { useOrcamentosStore } from '../../../../context/OrcamentosStore.js'
 
 const PageIInfoGeral = () => {
-  const orcamentoLonaExportado = useOrcamentosStore(state => state.orcamentoLonaExportado)
-  let durabilidade
-  if(orcamentoLonaExportado >= 1){
-    const material = orcamentoLonaExportado[0].material
-     durabilidade = material === 'MP1400' || material === 'MP10722'? '5 a 7' : '3 a 5'
-  }else{
-     durabilidade = ''
-  }
+  const orcamentosLonaExportardo = useOrcamentosStore(state => state.orcamentosLonaExportardo)
+  const [durabilidade, setDurabilidade] = React.useState('')
+
+  React.useEffect(() => {
+    if(orcamentosLonaExportardo.length >= 1){
+      
+      const material = orcamentosLonaExportardo[0].material
+       material === 'MP1400' || material === 'MP10722'? setDurabilidade('5 a 7') : setDurabilidade('3 a 5')
+       
+    }else{
+      setDurabilidade('')
+    }
+  }, [orcamentosLonaExportardo])
 
   const [visivel, setVisivel] = React.useState(false)
 
@@ -30,9 +35,9 @@ const PageIInfoGeral = () => {
 
       <h3>Garantias</h3>
       <span className={styles.detalhe}></span>
-      <div style={{display:'flex', justifyContent:'space-between'}} >
+      <div style={{ display: 'flex', justifyContent: 'space-between' }} >
 
-        <div onClick={()=> setVisivel(!visivel)} className={styles.garantiasContainer}>
+        <div onClick={() => setVisivel(!visivel)} className={styles.garantiasContainer}>
           <h3>Lona Vinílica</h3>
           {visivel && (
             <>
@@ -40,13 +45,13 @@ const PageIInfoGeral = () => {
             </>
           )}
           <p><strong>Garantia: </strong>1 Ano (pelo fabricante)</p>
-          </div>
+        </div>
         <div>
           <h3>Estrutura metálica</h3>
-          
+
           <p><strong>Durabilidade Média: </strong>sem prazo pré-definido</p>
           <p><strong>Garantia: </strong>1 Ano (pelo fabricante)</p>
-          </div>
+        </div>
       </div>
 
       <h3>Observações Gerais</h3>
@@ -70,7 +75,7 @@ const PageIInfoGeral = () => {
       <br />
       <br />
       <br />
-      <Footer/>
+      <Footer />
 
     </div>
   )

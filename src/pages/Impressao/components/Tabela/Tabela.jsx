@@ -23,7 +23,6 @@ const Tabela = () => {
     let orcamentosAcessoriosOrganizados = FormataDescricaoAcessorio(orcamentosAcessoriosExportardo)
     setOrcamentosEstruturas(orcamentosEstruturasOrganizados)
     setOrcamentosAcessorios(orcamentosAcessoriosOrganizados)
-    console.log(orcamentosEstruturaExportardo)
   }, [orcamentosEstruturaExportardo, orcamentosAcessoriosExportardo])
 
   const rows = 10
