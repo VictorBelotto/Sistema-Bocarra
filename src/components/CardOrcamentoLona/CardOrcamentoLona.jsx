@@ -3,6 +3,7 @@ import { usePopup } from '../../context/PopupContext.jsx';
 import { X } from 'lucide-react';
 import formataValor from '../../scripts/formataValor.js';
 import { useOrcamentosStore } from '../../context/OrcamentosStore.js';
+import LinhaPadrao from '../CardsOrcamento/components/LinhaPadrao.jsx';
 
 const CardOrcamentoLona = ({ orcamento, index }) => {
   const removerOrcamentoLona = useOrcamentosStore(state => state.removerOrcamentoLona)
@@ -19,10 +20,8 @@ const CardOrcamentoLona = ({ orcamento, index }) => {
     (orcamento.possuiAranha ? parseFloat(orcamento.valorFechamentoAranha) : 0)
   ).toFixed(2);
 
-
-  const valorDoImosto = parseFloat((valorTotal * 0.15)).toFixed(2)
-  const valorComImposto = (parseFloat(valorDoImosto) + parseFloat(valorTotal)).toFixed(2);
-
+  const valorDoImposto = parseFloat((valorTotal * 0.15)).toFixed(2)
+  const valorComImposto = (parseFloat(valorDoImposto) + parseFloat(valorTotal)).toFixed(2);
 
   const handleClickRemover = () => {
     removerOrcamentoLona(index)
@@ -44,25 +43,26 @@ const CardOrcamentoLona = ({ orcamento, index }) => {
         </button>
       </div>
       <span className='w-3/4 pt-0.5 bg-slate-600 '></span>
-      <p><strong className='text-fundo-verdeH' >Modelo :</strong> {orcamento.modelo.label}</p>
-      <p><strong className='text-fundo-verdeH' >Medidas :</strong> {orcamento.larguraDaLona}m x {orcamento.comprimentoDaLona}m </p>
-      <p><strong className='text-fundo-verdeH' >Material :</strong> {orcamento.material}</p>
+      <LinhaPadrao titulo={'Modelo'} descricao={orcamento.modelo.label} variante={'verde'} />
+      <LinhaPadrao titulo={'Medidas'} descricao={`${orcamento.larguraDaLona}m x ${orcamento.comprimentoDaLona}m`} variante={'verde'} />
+      <LinhaPadrao titulo={'Material'} descricao={orcamento.material} variante={'verde'} />
+
       {!infoCompleta && (<p className='text-base' >Clique para mais Informações...</p>)}
       {infoCompleta && (
         <>
-          <p><strong className='text-fundo-verdeH' >Metragem :</strong> {orcamento.metragemQuadrada.lona} <strong>m²</strong></p>
-          <p><strong className='text-fundo-verdeH' >Dias de Trabalho :</strong> {orcamento.diasDeTrabalho.lona} dias</p>
-          <p><strong className='text-fundo-verdeH' >Valor :</strong> {formataValor(Number(orcamento.valor))}</p>
-          <p><strong className='text-fundo-verdeH' >Mão de Obra :</strong> {formataValor(Number(orcamento.maoDeObra))}</p>
+          <LinhaPadrao titulo={'Metragem'} descricao={orcamento.metragemQuadrada.lona} variante={'verde'} />
+          <LinhaPadrao titulo={'Dias de Trabalho'} descricao={orcamento.diasDeTrabalho.lona} variante={'verde'} />
+          <LinhaPadrao titulo={'Mão de Obra'} descricao={formataValor(Number(orcamento.maoDeObra))} variante={'verdeDestaque'} />
+          <LinhaPadrao titulo={'Valor da Lona'} descricao={formataValor(Number(orcamento.valor))} variante={'azul'} />
           {
             orcamento.possuiFechamento && (
               <>
                 <span className='w-3/4 pt-0.5 bg-slate-600 '></span>
-                <h2 className='text-xl text-purple-400  font-semibold mt-1 '>Informações do Fechamento</h2>
-                <p><strong className='text-fundo-verdeH' >Medidas : </strong> {(orcamento.metragemQuadrada.fechamento / orcamento.alturaFechamento).toFixed(1)}m x {orcamento.alturaFechamento}m</p>
-                <p><strong className='text-fundo-verdeH' >Metragem :</strong> {orcamento.metragemQuadrada.fechamento} <strong>m²</strong></p>
-                <p><strong className='text-fundo-verdeH' >Dias de Trabalho Fechamento :</strong> {orcamento.diasDeTrabalho.fechamento} dias</p>
-                <p><strong className='text-fundo-verdeH' >Valor do fechamento :</strong> {formataValor(Number(orcamento.valorFechamento))}</p>
+                <h2 className='text-xl text-purple-400 font-semibold mt-1'>Informações do Fechamento</h2>
+                <LinhaPadrao titulo={'Medidas'} descricao={`${(orcamento.metragemQuadrada.fechamento / orcamento.alturaFechamento).toFixed(1)}m x ${orcamento.alturaFechamento}m`} variante={'verde'} />
+                <LinhaPadrao titulo={'Metragem'} descricao={`${orcamento.metragemQuadrada.fechamento} m²`} variante={'verde'} />
+                <LinhaPadrao titulo={'Dias de Trabalho Fechamento'} descricao={`${orcamento.diasDeTrabalho.fechamento} dias`} variante={'verde'} />
+                <LinhaPadrao titulo={'Valor do fechamento'} descricao={formataValor(Number(orcamento.valorFechamento))} variante={'azul'} />
               </>
             )
           }
@@ -71,19 +71,19 @@ const CardOrcamentoLona = ({ orcamento, index }) => {
             orcamento.possuiAranha && (
               <>
                 <span className='w-3/4 pt-0.5 bg-slate-600 '></span>
-                <h2 className='text-xl text-purple-400  font-semibold mt-1 '>Informações da Aranha</h2>
-                <p><strong className='text-fundo-verdeH' >Medidas : </strong> {(orcamento.metragemQuadrada.aranha / orcamento.alturaAranha).toFixed(1)}m x {orcamento.alturaAranha}m</p>
-                <p><strong className='text-fundo-verdeH' >Metragem :</strong> {orcamento.metragemQuadrada.aranha} <strong>m²</strong></p>
-                <p><strong className='text-fundo-verdeH' >Dias de Trabalho Aranha :</strong> {orcamento.diasDeTrabalho.aranha} dias</p>
-                <p><strong className='text-fundo-verdeH' >Valor da Aranha :</strong> {formataValor(Number(orcamento.valorFechamentoAranha))}</p>
+                <h2 className='text-xl text-purple-400 font-semibold mt-1'>Informações da Aranha</h2>
+                <LinhaPadrao titulo={'Medidas'} descricao={`${(orcamento.metragemQuadrada.aranha / orcamento.alturaAranha).toFixed(1)}m x ${orcamento.alturaAranha}m`} variante={'verde'} />
+                <LinhaPadrao titulo={'Metragem'} descricao={`${orcamento.metragemQuadrada.aranha} m²`} variante={'verde'} />
+                <LinhaPadrao titulo={'Dias de Trabalho Aranha'} descricao={`${orcamento.diasDeTrabalho.aranha} dias`} variante={'verde'} />
+                <LinhaPadrao titulo={'Valor da Aranha'} descricao={formataValor(Number(orcamento.valorFechamentoAranha))} variante={'azul'} />
               </>
             )
           }
           <span className='w-3/4 pt-0.5 bg-slate-600 '></span>
-          <h2 className='text-xl text-purple-400  font-semibold mt-1 '>Valores</h2>
-          <p><strong className='text-fundo-verdeH'>Total :</strong>  {formataValor(Number(valorTotal))}</p>
-          <p><strong className='text-red-500'>Impostos : </strong>{formataValor(Number(valorDoImosto))}</p>
-          <p><strong className='text-fundo-verdeH'>Total com <span className='text-red-500'>impostos</span> : </strong>{formataValor(Number(valorComImposto))}</p>
+          <h2 className='text-xl text-purple-400 font-semibold mt-1'>Valores</h2>
+          <LinhaPadrao titulo={'Total'} descricao={formataValor(Number(valorTotal))} variante={'azul'} />
+          <LinhaPadrao titulo={'Impostos'} descricao={formataValor(Number(valorDoImposto))} variante={'vermelho'} />
+          <LinhaPadrao titulo={'Total com impostos'} descricao={formataValor(Number(valorComImposto))} variante={'verdeDestaque'} />
         </>
       )}
     </main>
