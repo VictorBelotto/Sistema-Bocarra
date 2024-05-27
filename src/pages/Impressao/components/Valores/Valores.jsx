@@ -2,18 +2,19 @@ import React from 'react'
 import styles from './Valores.module.css'
 import formataValor from '../../../../scripts/formataValor'
 import { useValoresOrcamentosStore } from '../../../../context/ValoresOrcamentosStore'
+import { useValoresImpressaoStore } from '../../../../context/ValoresImpressaoStore'
 
 function Valores() {
   const { lona, estrutura, acessorios } = useValoresOrcamentosStore(state => state.valoresTotais)
+  const setValorTotalStore = useValoresImpressaoStore(state => state.setValorTotal)
   const [subtotal, setSubtotal] = React.useState(0)
   const [valorImposto, setValorImposto] = React.useState(0)
-  const [instalacaoFrete, setInstalacaoFrete] = React.useState(0)
   const [valorTotal, setValorTotal] = React.useState(0)
   const [viewImposto, setViewImposto] = React.useState(false)
   const [prazo, setPrazo] = React.useState('90 a 120 dias úteis')
   const [valorFrete, setValorFrete] = React.useState('0')
   const [toggleFrete, setToggleFrete] = React.useState('Frete + Instalação')
-  const [contador, setContador] = React.useState(1);
+  const [contador, setContador] = useValoresImpressaoStore(state => [state.contador, state.setContador]);
 
   React.useEffect(() => {
     setSubtotal(lona + estrutura + acessorios)
@@ -23,8 +24,10 @@ function Valores() {
     
     if (viewImposto) {
       setValorTotal(subtotal + totalImposto + parseFloat(valorFrete.replace(/[^\d,-]/g, '').replace(',', '.')))
+      setValorTotalStore(subtotal + totalImposto + parseFloat(valorFrete.replace(/[^\d,-]/g, '').replace(',', '.')))
     } else {
       setValorTotal(subtotal + parseFloat(valorFrete.replace(/[^\d,-]/g, '').replace(',', '.')))
+      setValorTotalStore(subtotal + parseFloat(valorFrete.replace(/[^\d,-]/g, '').replace(',', '.')))
     }
   }, [lona, estrutura, acessorios, viewImposto, valorFrete, subtotal])
 
@@ -35,12 +38,7 @@ function Valores() {
   const handleFreteBlur = () => {
     setValorFrete(formataValor(parseFloat(valorFrete.replace(/[^\d,-]/g, '').replace(',', '.')) || 0))
   }
-  const handleToggleFrete = () => {
-    setContador(prevContador => {
-      const novoContador = prevContador < 3 ? prevContador + 1 : 1;
-      return novoContador;
-    });
-  };
+
 
   React.useEffect(() => {
     if (contador === 1) {
@@ -67,7 +65,7 @@ function Valores() {
         )}
       </div>
       <div className={styles.containerValores}>
-        <h3 className='cursor-pointer' onClick={handleToggleFrete}>{toggleFrete}</h3>
+        <h3 className='cursor-pointer'>{toggleFrete}</h3>
         <input
           className='text-end text-[10px]'
           type="text"

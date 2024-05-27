@@ -18,12 +18,12 @@ const PageIInfoGeral = () => {
     }
   }, [orcamentosLonaExportardo])
 
-  const [visivel, setVisivel] = React.useState(false)
+  const [visivel, setVisivel] = React.useState(true)
 
 
   return (
     <div className={styles.mainContainer} >
-      <h3 className='mt-6'>Confecção</h3>
+      <h3 className='mt-4'>Confecção</h3>
       <span className={styles.detalhe}></span>
       <div className='mt-4'></div>
       <p><strong>Lona:</strong> Lona calandrada com tramas de fibras de poliéster impermeável aditivadas com anti-chamas, anti-uv, revestida com black-out solar. Moldes unidos por solda eletrônica (radiofrequência) mais reforços nos pontos de maior tensão;</p>
@@ -58,8 +58,8 @@ const PageIInfoGeral = () => {
       <h3>Observações Gerais</h3>
       <span className={styles.detalhe}></span>
       
-      <ul className={`mt-4 ${styles.lista}`}>
-        <li>Não há garantia contra danos causados por caso fortuito e força maior (tempestades, vendavais etc).</li>
+      <ul className={`${styles.lista }`}>
+        <li className='mt-3'>Não há garantia contra danos causados por caso fortuito e força maior (tempestades, vendavais etc).</li>
         <li>Perderá a garantia caso seja retirado algum tipo de peça, reforço, fixação sem consentimento do responsável BOCARRA CIRCUS;</li>
         <li>É necessário um responsável da empresa contratante no local da entrega para acompanhar e indicar a equipe o local exato da montagem (se houver);</li>
         <li>Caso a montagem for iniciada será cobrado o valor total do Frete/Montagem para modificar o local (sujeito a disponibilidade da Equipe).</li>

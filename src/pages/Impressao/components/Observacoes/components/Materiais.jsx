@@ -1,11 +1,7 @@
 import React from 'react'
-import styles from './Observacoes.module.css'
-import { useOrcamentosStore } from '../../../../context/OrcamentosStore'
-import EstruturaEFrete from './components/EstruturaEFrete'
-import FormaDePagamento from './components/FormaDePagamento'
-import Materiais from './components/Materiais'
+import { useOrcamentosStore } from '../../../../../context/OrcamentosStore'
 
-const Observacoes = () => {
+const Materiais = () => {
   const orcamentosLonaExportardo = useOrcamentosStore(state => state.orcamentosLonaExportardo)
   const [materiais, setMateriais] = React.useState({
     lona: '',
@@ -32,29 +28,14 @@ const Observacoes = () => {
     }
     
   },[orcamentosLonaExportardo])
-
-
   return (
-    <div className={styles.mainContainer} >
-      <h3>Observações</h3>
-      <span className={styles.detalhe} ></span>
-
-      <EstruturaEFrete/>
-
-
-      <h3>Forma de pagamento</h3>
-      <span className={styles.detalhe} ></span>
-   
-      <FormaDePagamento/>
-
-      <h3>Materiais</h3>
-      <span className={styles.detalhe} ></span>
-      
-      <Materiais/>
-
-    </div>
-
+    <>
+      <p>Lona : {materiais.lona}</p>
+      <p>Marquise : {materiais.marquise}</p>
+      <p>Fechamento : {materiais.fechamento}</p>
+      <p>&nbsp;</p>    
+    </>
   )
 }
 
-export default Observacoes
+export default Materiais
