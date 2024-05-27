@@ -18,21 +18,22 @@ const Materiais = () => {
   React.useEffect(() =>{
     if(orcamentosLonaExportardo.length >= 1){
       adicionarMaterial('lona', orcamentosLonaExportardo[0].material)
-
+      adicionarMaterial('fechamento' ,orcamentosLonaExportardo[0].material)
       let materialMarquise = orcamentosLonaExportardo.find(orcamento => (
         orcamento.modelo.value === 'marquise'
       ))
       if(materialMarquise){
         adicionarMaterial('marquise', materialMarquise.material)
       }
+    
     }
     
   },[orcamentosLonaExportardo])
   return (
     <>
-      <p>Lona : {materiais.lona}</p>
-      <p>Marquise : {materiais.marquise}</p>
-      <p>Fechamento : {materiais.fechamento}</p>
+      <p><strong>Lona :</strong> {materiais.lona}</p>
+      <p><strong>Marquise :</strong> {materiais.marquise}</p>
+      <p><strong>Fechamento :</strong> {materiais.fechamento}</p>
       <p>&nbsp;</p>    
     </>
   )

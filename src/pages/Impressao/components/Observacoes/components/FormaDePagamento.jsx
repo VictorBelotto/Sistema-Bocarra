@@ -8,8 +8,8 @@ const FormaDePagamento = () => {
 
   return (
     <>
-      <p>60% de entrada na assinatura do contrato : ({formataValor(valorTotal * 0.6)})</p>
-      <p>40% na entrega dos itens : ({formataValor(valorTotal * 0.4)})</p>
+      <p><strong>60%</strong> de entrada na assinatura do contrato : ({formataValor(valorTotal * 0.6)})</p>
+      <p><strong>40%</strong> na entrega dos itens : ({formataValor(valorTotal * 0.4)})</p>
     </>
   )
 }

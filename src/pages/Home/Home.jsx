@@ -55,7 +55,7 @@ const Home = () => {
           )}
         </div>
 
-        {(viewAtivaStore === 'calculadoraLona' || viewAtivaStore === 'calculadoraEstrutura') && true && (
+        {(viewAtivaStore === 'calculadoraLona' || viewAtivaStore === 'calculadoraEstrutura') && exibeResultado && (
           <div className='flex flex-col  p-6 max-w-[1040px] rounded-lg bg-card-escuro shadow-card'>
             <ExibeOrcamentos />
             <div className='mt-4 self-end' >

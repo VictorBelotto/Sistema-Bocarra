@@ -63,7 +63,6 @@ tbody tr:nth-child(even) {
 
 .input {
   border: none;
-  outline: none;
   font-size: 10px;
   margin: 0;
   padding: 0;
