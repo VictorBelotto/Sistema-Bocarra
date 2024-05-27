@@ -56,6 +56,7 @@ export class ModelosLona {
     "MP10722": 99.35,
     "MP1400": 117.3
   };
+  
   static modelo_8_mastareus = {
     "multiplicador": 1.5,
     "3000": 62.22,

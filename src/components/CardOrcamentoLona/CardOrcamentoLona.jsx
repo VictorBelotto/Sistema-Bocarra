@@ -23,13 +23,6 @@ const CardOrcamentoLona = ({ orcamento, index }) => {
   const valorDoImosto = parseFloat((valorTotal * 0.15)).toFixed(2)
   const valorComImposto = (parseFloat(valorDoImosto) + parseFloat(valorTotal)).toFixed(2);
 
-  const valorFormatado = (valor) => {
-    return valor.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    });
-  };
-
 
   const handleClickRemover = () => {
     removerOrcamentoLona(index)

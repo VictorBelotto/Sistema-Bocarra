@@ -23,8 +23,9 @@ const PageIInfoGeral = () => {
 
   return (
     <div className={styles.mainContainer} >
-      <h3>Confecção</h3>
+      <h3 className='mt-6'>Confecção</h3>
       <span className={styles.detalhe}></span>
+      <div className='mt-4'></div>
       <p><strong>Lona:</strong> Lona calandrada com tramas de fibras de poliéster impermeável aditivadas com anti-chamas, anti-uv, revestida com black-out solar. Moldes unidos por solda eletrônica (radiofrequência) mais reforços nos pontos de maior tensão;</p>
       <ul className={styles.lista} >
         <li>Chapas reforçadas nos pontos de contato com a estrutura;</li>
@@ -35,7 +36,7 @@ const PageIInfoGeral = () => {
 
       <h3>Garantias</h3>
       <span className={styles.detalhe}></span>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }} >
+      <div className='flex justify-between mt-4'>
 
         <div onClick={() => setVisivel(!visivel)} className={styles.garantiasContainer}>
           <h3>Lona Vinílica</h3>
@@ -56,7 +57,8 @@ const PageIInfoGeral = () => {
 
       <h3>Observações Gerais</h3>
       <span className={styles.detalhe}></span>
-      <ul className={styles.lista}>
+      
+      <ul className={`mt-4 ${styles.lista}`}>
         <li>Não há garantia contra danos causados por caso fortuito e força maior (tempestades, vendavais etc).</li>
         <li>Perderá a garantia caso seja retirado algum tipo de peça, reforço, fixação sem consentimento do responsável BOCARRA CIRCUS;</li>
         <li>É necessário um responsável da empresa contratante no local da entrega para acompanhar e indicar a equipe o local exato da montagem (se houver);</li>

@@ -17,14 +17,16 @@ const Observacoes = () => {
   }
 
   React.useEffect(() =>{
-    adicionarMaterial('lona', orcamentosLonaExportardo[0].material)
+    if(orcamentosLonaExportardo.length >= 1){
+      adicionarMaterial('lona', orcamentosLonaExportardo[0].material)
 
-    let materialMarquise = orcamentosLonaExportardo.find(orcamento => (
-      orcamento.modelo.value === 'marquise'
-    ))
-    adicionarMaterial('marquise', materialMarquise.material)
-    console.log(materialMarquise)
-  },[])
+      let materialMarquise = orcamentosLonaExportardo.find(orcamento => (
+        orcamento.modelo.value === 'marquise'
+      ))
+      adicionarMaterial('marquise', materialMarquise.material)
+    }
+    
+  },[orcamentosLonaExportardo])
 
   const [frete, setFrete] = React.useState(false)
   const [estrutura, setEstrutura] = React.useState(false)
