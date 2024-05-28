@@ -53,18 +53,13 @@ const CalculadoraMetragem = () => {
   }
 
   return (
-    <div className='flex flex-col w-fit h-fit py-4 px-6 rounded-lg bg-card-claro shadow-card bg-opacity-90'>
+    <div className='flex flex-col w-fit h-full '>
 
       <h1 className='ti-1 mb-3 text-fundo-verdeH'>Metragem da Lona</h1>
 
-      <main className='flex w-fit h-fit m-0 gap-8'>
-        <div className='flex w-fit flex-col gap-3'>
-          <InputsCheckBox
-            label={'Marquise Tradicional?'}
-            id={'marquise'}
-            onClick={handleCheckMarquiseChange}
-            value={marquiseIsChecked}
-          />
+      <main className='flex  w-fit h-full m-0 gap-8 mt-4'>
+        <div className='flex w-fit h-full flex-col gap-6'>
+         
           <div className='flex justify-between'>
             <InputMetragem
               id={'largura'}
@@ -75,31 +70,39 @@ const CalculadoraMetragem = () => {
               label={'Comprimento'}
             />
           </div>
-          <div className='flex flex-col gap-4'>
-            <CheckBoxMetragens
-              labelCheck={'Adicionar Fechamento?'}
-              id={'fechamentoMetragem'}
-              labelInput={'Altura da Lona:'}
-            />
-            <CheckBoxMetragens
-              labelCheck={'Adicionar Aranha?'}
-              id={'aranhaMetragem'}
-              labelInput={'Altura da Aranha:'}
-            />
-            <BotaoPadrao
-              onClick={calcular}
-              variant={'verde'}
-              label={'Calcular Metragem'}
-            />
+         
+          <div className='flex h-full flex-col justify-between'>
+            <div className='flex flex-col gap-4'>
+              <InputsCheckBox
+                label={'Marquise Tradicional?'}
+                id={'marquise'}
+                onClick={handleCheckMarquiseChange}
+                value={marquiseIsChecked}
+              />
+              <CheckBoxMetragens
+                labelCheck={'Adicionar Fechamento?'}
+                id={'fechamentoMetragem'}
+                labelInput={'Altura da Lona:'}
+              />
+              <CheckBoxMetragens
+                labelCheck={'Adicionar Aranha?'}
+                id={'aranhaMetragem'}
+                labelInput={'Altura da Aranha:'}
+              />
+            </div>
+            <div className='flex'>
+              <BotaoPadrao
+                onClick={calcular}
+                variant={'verde'}
+                label={'Calcular Metragem'}
+              />
+            </div>
           </div>
         </div>
-
-
-
+        <span className='h-full w-0.5 bg-slate-400'></span>
         {
           exibeResultado && (
             <div className='flex gap-6'>
-              <span className='h-full w-0.5 bg-slate-400'></span>
 
               <div className='flex h-full flex-col justify-between'>
                 <div className='flex flex-col gap-3'>
@@ -129,7 +132,7 @@ const CalculadoraMetragem = () => {
                   variant={'roxo'}
                 />
               </div>
-
+              <span className='h-full w-0.5 bg-slate-400'></span>
             </div>
           )
         }

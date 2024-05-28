@@ -14,7 +14,7 @@ const SelectModeloLona = () => {
 
   return (
     <div className='flex flex-col w-36 gap-2'>
-      <label className='text-slate-300 ' htmlFor="modelo">Modelo: </label>
+      <label className='text-slate-100 ' htmlFor="modelo">Modelo: </label>
       <select 
           className='bg-card-contraste m-0 text-slate-100 border-none rounded-md py-1.5 px-2'
           id="modelo" 

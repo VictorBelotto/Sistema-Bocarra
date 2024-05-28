@@ -33,7 +33,7 @@ const Home = () => {
       <main className="flex flex-col w-full px-4 py-4 h-screen overflow-y-auto items-center">
         <div className="flex flex-col gap-8 rounded-lg mb-8  mt-2">
           {viewAtivaStore === 'calculadoraLona' && (
-            <div className="flex justify-center gap-12">
+            <div className="flex justify-center gap-12 h-[536px] px-6 py-4 rounded-lg bg-card-claro shadow-card bg-opacity-90">
               <CalculadoraMetragem />
               <PreenchimentoPadrao />
             </div>

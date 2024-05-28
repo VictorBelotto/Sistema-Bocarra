@@ -48,10 +48,10 @@ const PreenchimentoPadrao = () => {
   };
 
   return (
-    <div className='flex flex-col m-0 h-fit py-4 px-6 rounded-lg bg-card-claro shadow-card bg-opacity-90'>
+    <div className='flex flex-col m-0 h-full'>
       <ExibePopUp />
       <h1 className='ti-1 text-fundo-verdeH mb-3'>Orçamento Lona</h1>
-      <div className='flex gap-6 mb-3 mt-1' >
+      <div className='flex gap-6 mb-3 mt-4' >
         <SelectModeloLona />
         <InputMetragemQuadrada id={'lona'} />
 
@@ -61,6 +61,7 @@ const PreenchimentoPadrao = () => {
         <InputDiasDeTrabalho id={'lona'} />
       </div>
 
+      <div className='flex flex-col h-full justify-between' >
       <div className='flex flex-col gap-4' >
         <CheckBoxFechamentos
           label={'Adicionar Fechamento?'}
@@ -70,8 +71,9 @@ const PreenchimentoPadrao = () => {
           label={'Adicionar Aranha?'}
           id={'aranha'}
         />
+        </div>
 
-        <div className='flex container justify-center mt-2'>
+        <div className='flex container justify-center'>
           <BotaoPadrao
             variant={'roxo'}
             label={'Adicionar Orçamento'}

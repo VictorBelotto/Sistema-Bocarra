@@ -17,7 +17,7 @@ const InputMetragemQuadrada = ({ id }) => {
 
   return (
     <div className='flex flex-col w-36 gap-2'>
-      <label className='container text-slate-300' htmlFor="metragemQuadrada">Metragem (m²):</label>
+      <label className='container text-slate-100' htmlFor="metragemQuadrada">Metragem (m²):</label>
       <input 
         className='focus:outline-purple-700 outline-none bg-card-contraste text-slate-100 text-center rounded-md w-20 py-1 px-2'
         type="number" 
