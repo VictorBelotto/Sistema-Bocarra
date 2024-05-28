@@ -6,7 +6,7 @@ const Acessorios = ({ quantidades, valoresUnitarios, handleChangeQuantidade, han
   return (
     <div>
       <div className='flex py-1 gap-4'>
-        <h2 className='w-40 ti-2 text-fundo-verdeH'>Acessorios</h2>
+        <h2 className='w-40 ti-2 text-fundo-verdeH'>Itens</h2>
         <h2 className='w-32 '>Valor Uni.</h2>
         <h2 className='w-28 '>Quant.</h2>
         <h2 className='w-28'></h2>

@@ -1,10 +1,12 @@
 import React from 'react'
-import PreenchimentoTabela from './componets/PreenchimentoTabela/PreenchimentoTabela.jsx'
+import TabelaAcessorios from './componets/TabelaAcessorios/TabelaAcessorios.jsx'
+import TabelaEstruturas from './componets/TabelaEstruturas/TabelaEstruturas.jsx'
 
 const CalculadoraEstruturas = () => {
   return (
-    <div>
-      <PreenchimentoTabela/>
+    <div className='flex flex-col gap-6'>
+      <TabelaEstruturas/>
+      <TabelaAcessorios/>
     </div>
 
   )
