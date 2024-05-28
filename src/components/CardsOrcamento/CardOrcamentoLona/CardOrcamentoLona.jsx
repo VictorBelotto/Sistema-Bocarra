@@ -1,11 +1,11 @@
 import React from 'react';
-import { usePopup } from '../../context/PopupContext.jsx';
+import { usePopup } from '../../../context/PopupContext.jsx';
 import { X } from 'lucide-react';
-import formataValor from '../../scripts/formataValor.js';
-import { useOrcamentosStore } from '../../context/OrcamentosStore.js';
-import LinhaPadrao from '../CardsOrcamento/components/LinhaPadrao.jsx';
+import formataValor from '../../../scripts/formataValor.js';
+import { useOrcamentosStore } from '../../../context/OrcamentosStore.js';
+import LinhaPadrao from '../components/LinhaPadrao.jsx';
 
-const CardOrcamentoLona = ({ orcamento, index }) => {
+const CardOrcamentoLona = ({ orcamento, index, tipo }) => {
   const removerOrcamentoLona = useOrcamentosStore(state => state.removerOrcamentoLona)
   const { showPopup } = usePopup();
   const [infoCompleta, setInfoCompleta] = React.useState(false)
@@ -35,7 +35,7 @@ const CardOrcamentoLona = ({ orcamento, index }) => {
       shadow-card outline-none hover:outline-indigo-600'
     >
       <div className='flex justify-between items-center' >
-        <h2 className='text-xl text-purple-400 font-semibold' >Informações da Lona</h2>
+        <h2 className='text-xl text-purple-400 font-semibold' >Lona - {tipo}</h2>
         <button className='rounded-full flex justify-center items-center w-10 h-10  p-0 bg-fundo-verde hover:bg-fundo-verdeH'
           onClick={handleClickRemover}
         >

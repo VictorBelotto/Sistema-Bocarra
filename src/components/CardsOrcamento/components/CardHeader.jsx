@@ -1,6 +1,7 @@
 import React from 'react'
 import { X } from 'lucide-react';
 import { useOrcamentosStore } from '../../../context/OrcamentosStore';
+import { usePopup } from '../../../context/PopupContext';
 
 
 const CardHeader = ({title, type}) => {
@@ -8,7 +9,9 @@ const CardHeader = ({title, type}) => {
     [state.removerOrcamentoEstrutura, state.removerOrcamentoAcessorio]
   )
   
+  const { showPopup } = usePopup()
   const handleClickRemover = () =>{
+    showPopup('Orçamento removido da lista', 'red')
     if(type === 'estrutura'){
       removerOrcamentoEstrutura()
     }else if(type === 'acessorio'){

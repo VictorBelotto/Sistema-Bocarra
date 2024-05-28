@@ -26,5 +26,9 @@
 
 .btnImprimir{
   font-size: 16px;
+  background-color: purple;
+  border-radius: 8px;
+  padding: 4px 12px;
+  color: white;
 }
 

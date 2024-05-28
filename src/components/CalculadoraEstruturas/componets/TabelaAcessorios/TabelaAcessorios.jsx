@@ -4,10 +4,12 @@ import BotaoPadrao from '../../../Botoes/BotaoPadrao.jsx';
 import { useOrcamentosStore } from '../../../../context/OrcamentosStore.js';
 import Acessorios from '../Acessorios/Acessorios.jsx';
 import formataValor from '../../../../scripts/formataValor.js';
+import { usePopup } from '../../../../context/PopupContext.jsx';
 
 const TabelaAcessorios = () => {
   const [quantidadesAcessorios, setQuantidadesAcessorios] = React.useState(Array(ValoresAcessorios.length).fill(0));
   const [valoresUnitariosAcessorios, setValoresUnitariosAcessorios] = React.useState(ValoresAcessorios.map(item => item.valor));
+  const { showPopup } = usePopup();
 
   const adicionarOrcamentoAcessorios = useOrcamentosStore(state => state.adicionarOrcamentoAcessorios);
 
@@ -25,7 +27,7 @@ const TabelaAcessorios = () => {
 
   const adicionarOrcamento = () => {
     const itensPreenchidosAcessorios = [];
-
+    showPopup('Orçamento adicionado', 'blue')
     quantidadesAcessorios.forEach((qtd, index) => {
       if (qtd > 0) {
         const item = ValoresAcessorios[index];

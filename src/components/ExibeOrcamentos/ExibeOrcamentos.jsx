@@ -1,8 +1,9 @@
 import React from 'react'
-import CardOrcamentoLona from '../CardOrcamentoLona/CardOrcamentoLona';
+import CardOrcamentoLona from '../CardsOrcamento/CardOrcamentoLona/CardOrcamentoLona.jsx';
 import { useOrcamentosStore } from '../../context/OrcamentosStore.js';
 import CardOrcamentoEstruturas from '../CardsOrcamento/CardOrcamentoEstruturas/CardOrcamentoEstruturas.jsx';
 import CardOrcamentoAcessorios from '../CardsOrcamento/CardOrcamentoAcessorios/CardOrcamentoAcessorios.jsx';
+
 
 const ExibeOrcamentos = () => {
   const [orcamentosLona, orcamentosEstruturas, orcamentoAcessorios] = useOrcamentosStore(state =>  [state.orcamentosLona, state.orcamentosEstruturas, state.orcamentoAcessorios])
@@ -10,7 +11,7 @@ const ExibeOrcamentos = () => {
   return (
       <div className='flex w-fit flex-wrap gap-4'>
         {orcamentosLona.map((orcamento, index) => (
-          <CardOrcamentoLona key={index} orcamento={orcamento} index={index}/>
+          <CardOrcamentoLona key={index} orcamento={orcamento} index={index} tipo={orcamento.modelo.label}/>
         ))}
         {orcamentosEstruturas.length > 0 &&(
           <>

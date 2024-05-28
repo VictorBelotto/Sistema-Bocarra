@@ -4,12 +4,14 @@ import BotaoPadrao from '../../../Botoes/BotaoPadrao.jsx';
 import { useOrcamentosStore } from '../../../../context/OrcamentosStore.js';
 import formataValor from '../../../../scripts/formataValor.js';
 import Estruturas from '../Estruturas/Estruturas.jsx';
+import { usePopup } from '../../../../context/PopupContext.jsx'
 
 const TabelaEstruturas = () => {
   const [quantidadesEstrutura, setQuantidadesEstrutura] = React.useState(Array(ValoresDaEstrutura.length).fill(0));
   const [valoresUnitariosEstrutura, setValoresUnitariosEstrutura] = React.useState(ValoresDaEstrutura.map(item => item.valor));
   const [metragensEstrutura, setMetragensEstrutura] = React.useState(Array(ValoresDaEstrutura.length).fill(0));
   const adicionarOrcamentoEstruturas = useOrcamentosStore(state => state.adicionarOrcamentoEstruturas);
+  const { showPopup } = usePopup();
 
   const handleChangeQuantidadeEstrutura = (index, value) => {
     const newQuantidades = [...quantidadesEstrutura];
@@ -31,7 +33,7 @@ const TabelaEstruturas = () => {
 
   const adicionarOrcamento = () => {
     const itensPreenchidosEstrutura = [];
-
+    showPopup('Orçamento adicionado', 'blue')
     quantidadesEstrutura.forEach((qtd, index) => {
       if (qtd > 0) {
         const item = ValoresDaEstrutura[index];
